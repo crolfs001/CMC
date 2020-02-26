@@ -1,19 +1,25 @@
 package CMCAdmin;
 /**
- * 
+ * This class is able to run tests to demonstrate system functionalities
  */
+import CMCUser.*;
 
 /**
- * @author dmurphy001
+ * @author Devin Murphy
  *
  */
 public class Driver {
+	private DBController database; 
+	private AccountController accountController;
+	private UserInteraction userInteraction;
 
 	/**
-	 * 
+	 * constructs a Driver class object
 	 */
-	public Driver() {
-		// TODO Auto-generated constructor stub
+	public Driver(DBController database, AccountController accountController, UserInteraction userInteraction) {
+		this.database = database;
+		this.accountController = accountController;
+		this.userInteraction = userInteraction;
 	}
 
 	/**
