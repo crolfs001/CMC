@@ -13,10 +13,9 @@ public class Driver {
 
 	/**
 	 * constructs a Driver class object
-	 * @param userInteraction the userInteraction we are testing the functionalities on
 	 */
-	public Driver(UserInteraction userInteraction) {
-		this.userInteraction = userInteraction;
+	public Driver() {
+		
 	}
 	
 	/**
@@ -24,9 +23,46 @@ public class Driver {
 	 * @param username the username of the account trying to login
 	 * @param password the password of the account trying to login
 	 */
-	public void loginTester(String username, String password) {
-		String outputMessage = userInteraction.login(username, password);
-		System.out.println(outputMessage);
+	public void loginTester() {
+		System.out.println("--------------------------------------------------------------\nTesting Login Functionality\n");
+		//Tests the login functionality
+				DBController database = new DBController();
+				User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+				User user2 = new User("Devin", "Murphy", "wrongUsername", "fakePassword", 'u');
+				User user3 = new User("Devin", "Murphy", "dmurphy001", "wrongPassword", 'u');
+				User user4 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+				user4.setStatus('N');
+				AccountController accountController = new AccountController(database);
+				UserInteraction userInteraction = new UserInteraction(user1, accountController);
+				
+				//tests login functionality for valid username, password, and activation status
+				System.out.println("Testing all valid criteria:");
+				String outputMessage = userInteraction.login(user1.getUserName(), user1.getPassword());
+				System.out.println(outputMessage);
+				System.out.println();
+				
+				//tests login functionality for invalid username
+				System.out.println("Testing invalid username:");
+				userInteraction.setUser(user2);
+				outputMessage = userInteraction.login(user2.getUserName(), user2.getPassword());
+				System.out.println(outputMessage);
+				System.out.println();
+				
+				//tests login functionality for invalid password
+				System.out.println("Testing invalid password:");
+				userInteraction.setUser(user3);
+				outputMessage = userInteraction.login(user3.getUserName(), user3.getPassword());
+				System.out.println(outputMessage);
+				System.out.println();
+				
+				//tests login functionality for deactivated account
+				System.out.println("Testing deactivated account:");
+				userInteraction.setUser(user4);
+				outputMessage = userInteraction.login(user4.getUserName(), user4.getPassword());
+				System.out.println(outputMessage);
+				
+				System.out.println("------------------------------------------------------------------");
+		
 	}
 	
 	/**
@@ -42,8 +78,9 @@ public class Driver {
 	 * the given functionalities
 	 */
 	public static void main(String[] args) {
-		
-
+		Driver testDriver = new Driver();
+		//runs loginTester
+		testDriver.loginTester();
 	}
 
 }
