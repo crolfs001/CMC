@@ -9,16 +9,13 @@ import CMCUser.*;
  *
  */
 public class Driver {
-	private DBController database; 
-	private AccountController accountController;
 	private UserInteraction userInteraction;
 
 	/**
 	 * constructs a Driver class object
+	 * @param userInteraction the userInteraction we are testing the functionalities on
 	 */
-	public Driver(DBController database, AccountController accountController, UserInteraction userInteraction) {
-		this.database = database;
-		this.accountController = accountController;
+	public Driver(UserInteraction userInteraction) {
 		this.userInteraction = userInteraction;
 	}
 	
