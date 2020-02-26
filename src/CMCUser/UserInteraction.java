@@ -54,6 +54,19 @@ public class UserInteraction {
 	}
 	
 	/**
+	 * logs a user into the system
+	 * @param username the username that is being used to login
+	 * @param password the password that is being used to login
+	 * @return outputMessage the message showing whether or not account was successfully logged in
+	 */
+	public String login(String username, String password) {
+		String outputMessage = accountController.login(username, password);
+		user = accountController.getUser();
+		
+		return outputMessage;
+	}
+	
+	/**
 	 * logs the current user out of the system
 	 * @return a boolean showing the user is logged out
 	 */
