@@ -71,9 +71,10 @@ public class UserInteraction {
 	 * logs the current user out of the system
 	 * @return a boolean showing the user is logged out
 	 */
-	public void logout() {
-		accountController.logout();
+	public String logout() {
+		String outputMessage = accountController.logout();
 		user = null;
+		return outputMessage;
 	}
 
 	

@@ -20,8 +20,6 @@ public class Driver {
 	
 	/**
 	 * Method that tests the login functionality
-	 * @param username the username of the account trying to login
-	 * @param password the password of the account trying to login
 	 */
 	public void loginTester() {
 		System.out.println("--------------------------------------------------------------\nTesting Login Functionality\n");
@@ -60,17 +58,25 @@ public class Driver {
 				userInteraction.setUser(user4);
 				outputMessage = userInteraction.login(user4.getUserName(), user4.getPassword());
 				System.out.println(outputMessage);
-				
-				System.out.println("------------------------------------------------------------------");
-		
 	}
 	
 	/**
 	 * Method that tests the logout functionality
 	 */
 	public void logoutTester() {
-		userInteraction.logout();
-		System.out.println("user was successfully logged out");
+		System.out.println("--------------------------------------------------------------------------------\nLogout Tester\n");
+		
+		//initialize the needed classes
+		DBController database = new DBController();
+		User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+		AccountController accountController = new AccountController(database);
+		UserInteraction userInteraction = new UserInteraction(user1, accountController);
+		
+		System.out.println("Testing a successful logout (no other scenarios make sense):");
+		userInteraction.login(user1.getUserName(), user1.getPassword());
+		String outputMessage = userInteraction.logout();
+		System.out.println(outputMessage);
+		
 	}
 
 	/**
@@ -81,6 +87,8 @@ public class Driver {
 		Driver testDriver = new Driver();
 		//runs loginTester
 		testDriver.loginTester();
+		//runs logoutTester
+		testDriver.logoutTester();
 	}
 
 }
