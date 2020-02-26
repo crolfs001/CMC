@@ -17,8 +17,9 @@ public class UserInteraction {
 	 * Constructs a UserInteraction object
 	 * @param user the User object for this UserInteraction
 	 */
-	public UserInteraction(User user) {
-		this.setUser(user);
+	public UserInteraction(User user, AccountController accountController) {
+		this.user = user;
+		this.accountController = accountController;
 	}
 
 	/**
