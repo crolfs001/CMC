@@ -50,13 +50,34 @@ public class AccountController {
 	
 	
 	/**
-	 * performs a login for a given userName and passWord
-	 * @param u the userName of the account we are trying to login
-	 * @param p the password of the account we are trying to login
+	 * performs a login for a given userName and passWord (takes the place of the setter)
+	 * @param username the userName of the account we are trying to login
+	 * @param password the password of the account we are trying to login
 	 */
-	public User login(String u, String p) {
-		
-		return user;
+	public String login(String username, String password) {
+		user = database.findByUsername(username); //checks to make sure it was a valid username
+		String outputMessage = "";
+		if (user != null) {
+			//check passwords
+			if (password.equals(user.getPassword()) != true) {
+				outputMessage = "Login Error: invalid password";
+				user = null;
+			}
+			//check activation status
+			else if (user.getStatus() == 'N') {
+				outputMessage = "Login Error: Account is deactivated";
+				user = null;
+			}
+			//successful login since it passed the checks
+			else {
+				outputMessage = "Login Successful";
+			}
+		}
+		else {
+			outputMessage = "Login Error: invalid username";
+			user = null;
+		}
+		return outputMessage;
 	}
 
 }
