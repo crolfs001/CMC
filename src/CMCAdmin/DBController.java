@@ -19,5 +19,23 @@ public class DBController {
 		userList = new ArrayList<User>();
 		schoolList = new ArrayList<University>();
 	}
+	
+	/**
+	 * finds a User by their userName
+	 * @param u the userName of the User we are trying to find
+	 * @return the User with that userName
+	 */
+	public User findByUsername (String u) {
+		User foundUser = null;
+		int i = 0;
+		while (i < userList.size() && foundUser == null) {
+			String currUsername = userList.get(i).getUserName();
+			if (u.equals(currUsername)) {
+				foundUser = userList.get(i);
+			}
+			i++;
+		}
+		return foundUser;
+	}
 
 }
