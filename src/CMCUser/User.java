@@ -117,5 +117,24 @@ public class User {
 	 * @param loginStatus the new loginStatus for this User
 	 */
 	public void setLoginStatus(boolean loginStatus) {this.loginStatus = loginStatus;}
-
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
