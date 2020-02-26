@@ -17,10 +17,11 @@ public class StudentFunctionalityController {
 	}
 
 	/**
-	 * if students press the button
-	 * @return if pressed, return true
+	 * if students press the button, this method will get the name of the university
+	 * @return if pressed, return the name of the university
 	 */
-	public boolean pressSaveButton() {
-		return true;
+	public String pressSaveButton(String schoolName) {
+		String n = schoolName;
+		return n;
 	}
 }

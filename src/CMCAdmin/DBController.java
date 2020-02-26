@@ -58,11 +58,11 @@ public class DBController {
 	 * get a university
 	 * @return a university
 	 */
-	public University getSchool(University school) {
+	public University getSchool(String schoolName) {
 		University u;
 		for(int i = 0;i < school.length(); i++)
 		{
-			if(school == schoolList.get(i))
+			if(schoolName.equls(schoolList.get(i).getName()))
 			{
 				u = school.get(i);
 			}

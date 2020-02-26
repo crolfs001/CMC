@@ -9,10 +9,11 @@ public class UniversityController {
 	}
 
 	/**
-	 * get a list of schools
-	 * @return a list of schools
+	 * get a school
+	 * @return a school
 	 */
-	public ArrryList getSchool() {
-		return shcoolList;
+	public University getSchool(University u) {
+		University school = u;
+		return school;
 	}
 }
