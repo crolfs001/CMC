@@ -47,14 +47,16 @@ public class AccountController {
 	public User getUser() {
 		return user;
 	}
-
-
+	
+	
 	/**
-	 * user setter
-	 * @param user the new user for this AccountController
+	 * performs a login for a given userName and passWord
+	 * @param u the userName of the account we are trying to login
+	 * @param p the password of the account we are trying to login
 	 */
-	public void setUser(User user) {
-		this.user = user;
+	public User login(String u, String p) {
+		
+		return user;
 	}
 
 }
