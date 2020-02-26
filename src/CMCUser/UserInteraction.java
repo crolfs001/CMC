@@ -70,10 +70,9 @@ public class UserInteraction {
 	 * logs the current user out of the system
 	 * @return a boolean showing the user is logged out
 	 */
-	public boolean logout() {
-		//TODO finish logout method by having it call on a AccountController object
-		user.setLoginStatus(false);
-		return true;
+	public void logout() {
+		accountController.logout();
+		user = null;
 	}
 
 	

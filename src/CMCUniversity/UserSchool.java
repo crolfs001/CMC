@@ -23,13 +23,17 @@ public class UserSchool {
 	 * @param school the university
 	 */
 	public void addSchool(University school) {
-		this.savedUniversityList.add(school);
+		if(!this.savedUniversityList.contains(school)) {
+			this.savedUniversityList.add(school);
+		}
 	}
 	
 	/**
 	 * @param school the university
 	 */
 	public void removeSchool(University school) {
-		this.savedUniversityList.remove(school);
+		if(this.savedUniversityList.contains(school)) {
+			this.savedUniversityList.remove(school);
+		}
 	}
 }

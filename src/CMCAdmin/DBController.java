@@ -21,6 +21,22 @@ public class DBController {
 	}
 	
 	/**
+	 * userList getter
+	 * @return the list of users for this Database
+	 */
+	public ArrayList<User> getUserList() {
+		return userList;
+	}
+	
+	/**
+	 * schoolList getter
+	 * @return the list of schools for this database
+	 */
+	public ArrayList<University>  getSchoolList() {
+		return schoolList;
+	}
+	
+	/**
 	 * finds a User by their userName
 	 * @param u the userName of the User we are trying to find
 	 * @return the User with that userName
@@ -46,7 +62,7 @@ public class DBController {
 		University u;
 		for(int i = 0;i < school.length(); i++)
 		{
-			if(school.getName() == school.get(i).getName())
+			if(school == schoolList.get(i))
 			{
 				u = school.get(i);
 			}
@@ -54,5 +70,25 @@ public class DBController {
 		return u;
 	}
 	
-	
+	/** Sets the login status for a User object in the userList
+	 * @param user the User object whose status we are updating
+	 * @param loginStatus the login status for the User
+	 */
+	public boolean setLoginStatus(User user, boolean loginStatus) {
+		boolean successfulStatusChange = false;
+		int i = 0;
+		while (i < userList.size()) {
+			if (user.getUserName().equals(userList.get(i).getUserName())) {
+				User temp = userList.get(i);
+				temp.setLoginStatus(loginStatus);
+				userList.set(i, temp);
+				i = userList.size(); //breaks out of the loop
+				successfulStatusChange = true;
+			}
+			i++;
+		}
+		
+		return successfulStatusChange;
+	}
+
 }
