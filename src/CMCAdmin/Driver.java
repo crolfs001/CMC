@@ -21,12 +21,23 @@ public class Driver {
 		this.accountController = accountController;
 		this.userInteraction = userInteraction;
 	}
+	
+	/**
+	 * Method that tests the login functionality
+	 * @param username the username of the account trying to login
+	 * @param password the password of the account trying to login
+	 */
+	public void loginTester(String username, String password) {
+		String outputMessage = userInteraction.login(username, password);
+		System.out.println(outputMessage);
+	}
 
 	/**
-	 * @param args
+	 * Runs and displays methods from the driver class, showing the system successfully performs
+	 * the given functionalities
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
