@@ -18,6 +18,13 @@ public class DBController {
 	public DBController() {
 		userList = new ArrayList<User>();
 		schoolList = new ArrayList<University>();
+		
+		//DELETE THIS USER AFTER PHASE 2, IT IS ONLY USED FOR HARD CODE TESTING
+		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+		User user2 = new User("Fue", "Vue", "fvue001", "fakePassword", 'u');
+		userList.add(user);
+		userList.add(user2);
+		
 	}
 	
 	/**
