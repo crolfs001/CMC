@@ -62,7 +62,22 @@ public class DBController {
 	}
 	
 	/**
-	 * Sets the login status for a User object in the userList
+	 * get a university
+	 * @return a university
+	 */
+	public University getSchool(University school) {
+		University u;
+		for(int i = 0;i < school.length(); i++)
+		{
+			if(school == schoolList.get(i))
+			{
+				u = school.get(i);
+			}
+		}
+		return u;
+	}
+	
+	/** Sets the login status for a User object in the userList
 	 * @param user the User object whose status we are updating
 	 * @param loginStatus the login status for the User
 	 */
