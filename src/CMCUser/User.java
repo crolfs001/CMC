@@ -1,5 +1,6 @@
 /**
- * 
+ * User class is used to create objects that represent actual users. It holds useful
+ * information about the user for their own purposes and the purposes of the Admins.
  */
 package CMCUser;
 
