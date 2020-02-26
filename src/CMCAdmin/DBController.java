@@ -21,6 +21,22 @@ public class DBController {
 	}
 	
 	/**
+	 * userList getter
+	 * @return the list of users for this Database
+	 */
+	public ArrayList<User> getUserList() {
+		return userList;
+	}
+	
+	/**
+	 * schoolList getter
+	 * @return the list of schools for this database
+	 */
+	public ArrayList<University>  getSchoolList() {
+		return schoolList;
+	}
+	
+	/**
 	 * finds a User by their userName
 	 * @param u the userName of the User we are trying to find
 	 * @return the User with that userName
