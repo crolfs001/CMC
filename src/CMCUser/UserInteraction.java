@@ -17,8 +17,9 @@ public class UserInteraction {
 	 * Constructs a UserInteraction object
 	 * @param user the User object for this UserInteraction
 	 */
-	public UserInteraction(User user) {
-		this.setUser(user);
+	public UserInteraction(User user, AccountController accountController) {
+		this.user = user;
+		this.accountController = accountController;
 	}
 
 	/**
@@ -70,9 +71,10 @@ public class UserInteraction {
 	 * logs the current user out of the system
 	 * @return a boolean showing the user is logged out
 	 */
-	public void logout() {
-		accountController.logout();
+	public String logout() {
+		String outputMessage = accountController.logout();
 		user = null;
+		return outputMessage;
 	}
 
 	
