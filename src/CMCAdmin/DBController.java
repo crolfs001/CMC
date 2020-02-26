@@ -53,5 +53,26 @@ public class DBController {
 		}
 		return foundUser;
 	}
+	
+	/**
+	 * Sets the login status for a User object in the userList
+	 * @param user the User object whose status we are updating
+	 * @param loginStatus the login status for the User
+	 */
+	public boolean setLoginStatus(User user, boolean loginStatus) {
+		boolean successfulStatusChange = false;
+		int i = 0;
+		while (i < userList.size()) {
+			if (user.getUserName().equals(userList.get(i).getUserName())) {
+				User temp = userList.get(i);
+				temp.setLoginStatus(loginStatus);
+				userList.set(i, temp);
+				i = userList.size(); //breaks out of the loop
+			}
+			i++;
+		}
+		
+		return successfulStatusChange;
+	}
 
 }
