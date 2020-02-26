@@ -3,7 +3,6 @@
  * object, the database, and User objects.
  */
 package CMCUser;
-import java.util.ArrayList;
 
 import CMCAdmin.DBController;
 
