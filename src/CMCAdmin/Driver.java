@@ -31,6 +31,14 @@ public class Driver {
 		String outputMessage = userInteraction.login(username, password);
 		System.out.println(outputMessage);
 	}
+	
+	/**
+	 * Method that tests the logout functionality
+	 */
+	public void logoutTester() {
+		userInteraction.logout();
+		System.out.println("user was successfully logged out");
+	}
 
 	/**
 	 * Runs and displays methods from the driver class, showing the system successfully performs
