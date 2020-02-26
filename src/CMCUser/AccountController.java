@@ -3,6 +3,8 @@
  * object, the database, and User objects.
  */
 package CMCUser;
+import java.util.ArrayList;
+
 import CMCAdmin.DBController;
 
 /**
@@ -68,9 +70,17 @@ public class AccountController {
 				outputMessage = "Login Error: Account is deactivated";
 				user = null;
 			}
+			//check loginStatus to see if user is already logged in
+			else if (user.getLoginStatus()) {
+				outputMessage = "Login Error: user is already logged in on another device";
+				user = null;
+			}
 			//successful login since it passed the checks
 			else {
 				outputMessage = "Login Successful";
+				
+				user.setLoginStatus(true);
+				database.setLoginStatus(user, true);
 			}
 		}
 		else {
@@ -78,6 +88,14 @@ public class AccountController {
 			user = null;
 		}
 		return outputMessage;
+	}
+	
+	/**
+	 * logs out a user
+	 * @param user the User object we are logging out
+	 */
+	public void logout() {
+		
 	}
 
 }

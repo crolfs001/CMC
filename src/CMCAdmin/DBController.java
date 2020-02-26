@@ -68,6 +68,7 @@ public class DBController {
 				temp.setLoginStatus(loginStatus);
 				userList.set(i, temp);
 				i = userList.size(); //breaks out of the loop
+				successfulStatusChange = true;
 			}
 			i++;
 		}
