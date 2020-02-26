@@ -95,7 +95,8 @@ public class AccountController {
 	 * @param user the User object we are logging out
 	 */
 	public void logout() {
-		
+		database.setLoginStatus(user, false);
+		user = null;	
 	}
 
 }
