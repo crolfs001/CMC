@@ -37,5 +37,22 @@ public class DBController {
 		}
 		return foundUser;
 	}
-
+	
+	/**
+	 * get a university
+	 * @return a university
+	 */
+	public University getSchool(University school) {
+		University u;
+		for(int i = 0;i < school.length(); i++)
+		{
+			if(school.getName() == school.get(i).getName())
+			{
+				u = school.get(i);
+			}
+		}
+		return u;
+	}
+	
+	
 }
