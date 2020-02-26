@@ -135,7 +135,7 @@ public class User {
 	 * loginStatus getter
 	 * @return loginStatus
 	 */
-	public boolean isLoginStatus() {
+	public boolean getLoginStatus() {
 		return loginStatus;
 		}
 
