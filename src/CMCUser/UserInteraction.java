@@ -1,6 +1,6 @@
 /**
-	This class is used to create and manipulate the UserInteraction object.
-	This is the class that an actual, living user interacts with when they interact with the system.
+ * This class is used to create and manipulate the UserInteraction object. 
+ * This is the class that an actual, living user interacts with when they interact with the system.
  * 
  */
 package CMCUser;
