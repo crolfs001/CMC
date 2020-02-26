@@ -11,6 +11,7 @@ package CMCUser;
  */
 public class UserInteraction {
 	private User user;
+	private AccountController accountController;
 
 	/**
 	 * Constructs a UserInteraction object
@@ -37,13 +38,31 @@ public class UserInteraction {
 	}
 	
 	/**
+	 * accountController getter
+	 * @return the accountController
+	 */
+	public AccountController getAccountController() {
+		return accountController;
+	}
+
+	/**
+	 * accountController setter
+	 * @param accountController the accountController to set
+	 */
+	public void setAccountController(AccountController accountController) {
+		this.accountController = accountController;
+	}
+	
+	/**
 	 * logs the current user out of the system
 	 * @return a boolean showing the user is logged out
 	 */
 	public boolean logout() {
+		//TODO finish logout method by having it call on a AccountController object
 		user.setLoginStatus(false);
-		return user.getLoginStatus();
+		return true;
 	}
-	
 
+	
+	
 }
