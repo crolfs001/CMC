@@ -38,85 +38,113 @@ public class User {
 	 * firstName getter
 	 * @return firstName
 	 */
-	public String getFirstName() {return firstName;}
+	public String getFirstName() {
+		return firstName;
+		}
 
 	/**
 	 * firstName setter
 	 * @param firstName the new firstName of this User
 	 */
-	public void setFirstName(String firstName) {this.firstName = firstName;}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		}
 
 	/**
 	 * lastName getter
 	 * @return lastName
 	 */
-	public String getLastName() {return lastName;}
+	public String getLastName() {
+		return lastName;
+		}
 
 	/**
 	 * lastName setter
 	 * @param lastName the new lastName for this User
 	 */
-	public void setLastName(String lastName) {this.lastName = lastName;}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+		}
 
 	/**
 	 * userName getter
 	 * @return userName
 	 */
-	public String getUserName() {return userName;}
+	public String getUserName() {
+		return userName;
+		}
 
 	/**
 	 * userName setter
 	 * @param userName the new userName for this User
 	 */
-	public void setUserName(String userName) {this.userName = userName;}
+	public void setUserName(String userName) {
+		this.userName = userName;
+		}
 
 	/**
 	 * password getter
 	 * @return password
 	 */
-	public String getPassword() {return password;}
+	public String getPassword() {
+		return password;
+		}
 
 	/**
 	 * password setter
 	 * @param password the new password for this User
 	 */
-	public void setPassword(String password) {this.password = password;}
+	public void setPassword(String password) {
+		this.password = password;
+		}
 
 	/**
 	 * type getter
 	 * @return type
 	 */
-	public char getType() {return type;}
+	public char getType() {
+		return type;
+		}
 
 	/**
 	 * type setter
 	 * @param type the new type for this User
 	 */
-	public void setType(char type) {this.type = type;}
+	public void setType(char type) {
+		this.type = type;
+		}
 
 	/**
 	 * status getter
 	 * @return status
 	 */
-	public char getStatus() {return status;}
+	public char getStatus() {
+		return status;
+		}
 
 	/**
 	 * status setter
 	 * @param status the new status for this User
 	 */
-	public void setStatus(char status) {this.status = status;}
+	public void setStatus(char status) {
+		this.status = status;
+		}
 
 	/**
 	 * loginStatus getter
 	 * @return loginStatus
 	 */
-	public boolean isLoginStatus() {return loginStatus;}
+	public boolean isLoginStatus() {
+		return loginStatus;
+		}
 
 	/**
 	 * loginStatus setter
 	 * @param loginStatus the new loginStatus for this User
 	 */
-	public void setLoginStatus(boolean loginStatus) {this.loginStatus = loginStatus;}
+	public void setLoginStatus(boolean loginStatus) {
+		this.loginStatus = loginStatus;
+		}
 	
 }
 
