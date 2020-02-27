@@ -1,5 +1,4 @@
-package CMCUniversity
-
+import FiveRecommendedSchool.*;
 import java.util.ArrayList;
 
 public class FiveRecommendedSchoolDriver {

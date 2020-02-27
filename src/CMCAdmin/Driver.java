@@ -141,5 +141,22 @@ public class Driver {
 		//runs viewAndEditTester
 		testDriver.viewAndEditProfileTester();
 	}
+	
+	// get top five closest school
+	public void getTopFiveClosestSchool() {
+		
+		getTopFiveClosestSchool.get(collegeList);
+
+	}
+		
+	// display the top five closest school
+	public void displayTopFive() {
+		
+		int i = 0;
+		
+		while (i < 4) {
+			System.out.println(getTopFiveClosestSchool.get(collegeList.get(i)) + "/n");	
+			i++;
+	}
 
 }
