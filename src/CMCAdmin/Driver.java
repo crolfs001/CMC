@@ -17,6 +17,28 @@ public class Driver {
 	public Driver() {
 		
 	}
+	public void viewAndEditProfileTester() {
+		DBController database = new DBController();
+		AccountController controller = new AccountController(database);
+		
+		// View profile
+		User user = controller.findByUsername("dmurphy001");
+		System.out.println("First: " + user.getFirstName());
+		System.out.println("Last: " + user.getLastName());
+		System.out.println("Username: " + user.getUserName());
+		System.out.println("Password: " + user.getPassword());
+		
+		// Update profile
+		controller.updateProfile(user.getFirstName(), user.getLastName(), "newpw");
+
+		// View updated profile
+		System.out.println();
+		user = controller.findByUsername("dmurphy001");
+		System.out.println("First: " + user.getFirstName());
+		System.out.println("Last: " + user.getLastName());
+		System.out.println("Username: " + user.getUserName());
+		System.out.println("Password: " + user.getPassword());
+	}
 	
 	/**
 	 * Method that tests the login functionality
@@ -89,6 +111,8 @@ public class Driver {
 		testDriver.loginTester();
 		//runs logoutTester
 		testDriver.logoutTester();
+		//runs viewAndEditTester
+		testDriver.viewAndEditProfileTester();
 	}
 
 }

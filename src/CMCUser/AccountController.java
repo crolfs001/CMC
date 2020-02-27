@@ -99,5 +99,16 @@ public class AccountController {
 		String outputMessage = "User has been logged out successfully";
 		return outputMessage;
 	}
+	public User findByUsername(String username) {
+		 	this.user = database.findByUsername(username);	
+		 	return this.user;
+	}
+
+	public String updateProfile(String firstName, String lastName, String password) {
+		this.user.setFirstName(firstName);
+		this.user.setLastName(lastName);
+		this.user.setPassword(password);
+		return "Updated";
+	}
 
 }
