@@ -23,6 +23,7 @@ public class Driver {
 		
 		// View profile
 		User user = controller.findByUsername("dmurphy001");
+		System.out.println("--------------------------------------------------------------\nTesting View Profile\n");
 		System.out.println("First: " + user.getFirstName());
 		System.out.println("Last: " + user.getLastName());
 		System.out.println("Username: " + user.getUserName());
@@ -30,9 +31,35 @@ public class Driver {
 		
 		// Update profile
 		controller.updateProfile(user.getFirstName(), user.getLastName(), "newpw");
+		
 
 		// View updated profile
 		System.out.println();
+		System.out.println("--------------------------------------------------------------\nTesting Edited Password\n");
+		user = controller.findByUsername("dmurphy001");
+		System.out.println("First: " + user.getFirstName());
+		System.out.println("Last: " + user.getLastName());
+		System.out.println("Username: " + user.getUserName());
+		System.out.println("Password: " + user.getPassword());
+		
+		controller.updateProfile("Mevin", user.getLastName(), user.getPassword());
+		
+
+		// View updated profile
+		System.out.println();
+		System.out.println("--------------------------------------------------------------\nTesting Edited First Name\n");
+		user = controller.findByUsername("dmurphy001");
+		System.out.println("First: " + user.getFirstName());
+		System.out.println("Last: " + user.getLastName());
+		System.out.println("Username: " + user.getUserName());
+		System.out.println("Password: " + user.getPassword());
+		
+		controller.updateProfile(user.getFirstName(), "Durphy", user.getPassword());
+		
+
+		// View updated profile
+		System.out.println();
+		System.out.println("--------------------------------------------------------------\nTesting Edited Last Name\n");
 		user = controller.findByUsername("dmurphy001");
 		System.out.println("First: " + user.getFirstName());
 		System.out.println("Last: " + user.getLastName());
