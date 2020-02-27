@@ -66,10 +66,15 @@ public class DBController {
 	 * @return a university
 	 */
 	public University getSchool(String schoolName) {
+<<<<<<< HEAD
+		University u = null;
+		for(int i = 0;i < schoolList.size(); i++)
+=======
 		University u;
 		for(int i = 0;i < schoolList.length(); i++)
+>>>>>>> 608bb7389b7e30937ddd140b9615faf8fe095bbd
 		{
-			if(schoolName.equls(schoolList.get(i).getName()))
+			if(schoolName.equals(schoolList.get(i).getName()))
 			{
 				u = schoolList.get(i);
 			}
