@@ -3,7 +3,11 @@
  */
 package CMCUniversity;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import CMCUser.User;
+=======
+import CMCUser;
+>>>>>>> c3ec8b88773753898103101361192674e9595f27
 
 /**
  * @author dmurphy001
