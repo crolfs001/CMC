@@ -1,4 +1,4 @@
-import FiveRecommendedSchool.*;
+import CMCUniversity.FiveRecommendedSchool;
 import java.util.ArrayList;
 
 public class FiveRecommendedSchoolDriver {

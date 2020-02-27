@@ -1,5 +1,7 @@
 package CMCUniversity;
 
+import java.util.ArrayList;
+
 public class UniversityController {
 
 	private ArrayList<University> schoolList;
