@@ -67,11 +67,11 @@ public class DBController {
 	 */
 	public University getSchool(String schoolName) {
 		University u;
-		for(int i = 0;i < school.length(); i++)
+		for(int i = 0;i < schoolList.length(); i++)
 		{
 			if(schoolName.equls(schoolList.get(i).getName()))
 			{
-				u = school.get(i);
+				u = schoolList.get(i);
 			}
 		}
 		return u;
