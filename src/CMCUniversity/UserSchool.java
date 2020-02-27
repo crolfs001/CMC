@@ -3,6 +3,7 @@
  */
 package CMCUniversity;
 import java.util.ArrayList;
+import CMCUser.User;
 
 /**
  * @author dmurphy001
@@ -13,11 +14,11 @@ public class UserSchool {
 	private ArrayList<University> savedUniversityList;
 	private User student;
 	/**
-	 * 
+	 * UserSchool Constructor
 	 */
 	public UserSchool(User student) {
-		this.savedUniversityList = new ArrayList<University>;
-		this.student = student
+		this.savedUniversityList = new ArrayList<>();
+		this.student = student;
 	}
 
 	/**
