@@ -1,4 +1,7 @@
 package CMCAdmin;
+//ArrayList for FiveRecommendedSchool
+import java.util.ArrayList;
+
 /**
  * This class is able to run tests to demonstrate system functionalities
  */
@@ -140,9 +143,18 @@ public class Driver {
 		testDriver.logoutTester();
 		//runs viewAndEditTester
 		testDriver.viewAndEditProfileTester();
+		
+		// runs get/display TopfiveRecommendedSchool
+		ArrayList<String> collegeList = new ArrayList<String>();
+		collegeList.add("UMD");
+		collegeList.add("SJU");
+		collegeList.add("UM");
+		collegeList.add("SCU");
+		collegeList.add("SPC");
 	}
 	
-	// get top five closest school
+	
+/*	// get top five closest school
 	public void getTopFiveClosestSchool() {
 		
 		getTopFiveClosestSchool.get(collegeList);
@@ -159,4 +171,6 @@ public class Driver {
 			i++;
 	}
 
+}*/
+	
 }
