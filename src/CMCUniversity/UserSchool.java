@@ -3,6 +3,7 @@
  */
 package CMCUniversity;
 import java.util.ArrayList;
+import CMCUser;
 
 /**
  * @author dmurphy001
