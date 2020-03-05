@@ -80,8 +80,10 @@ public class Driver {
 				User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
 				User user2 = new User("Devin", "Murphy", "wrongUsername", "fakePassword", 'u');
 				User user3 = new User("Devin", "Murphy", "dmurphy001", "wrongPassword", 'u');
-				User user4 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+				User user4 = new User("Evin", "Murphy", "emurphy001", "fakePassword", 'u');
 				user4.setStatus('N');
+				User user5 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
+				user5.setLoginStatus(true);
 				AccountController accountController = new AccountController(database);
 				UserInteraction userInteraction = new UserInteraction(user1, accountController);
 				
@@ -109,6 +111,13 @@ public class Driver {
 				System.out.println("Testing deactivated account:");
 				userInteraction.setUser(user4);
 				outputMessage = userInteraction.login(user4.getUserName(), user4.getPassword());
+				System.out.println(outputMessage);
+				System.out.println();
+				
+				//tests login functionality for already logged in account
+				System.out.println("Testing already logged in account");
+				userInteraction.setUser(user5);
+				outputMessage = userInteraction.login(user5.getUserName(), user5.getPassword());
 				System.out.println(outputMessage);
 	}
 	
