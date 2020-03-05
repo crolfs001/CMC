@@ -77,48 +77,50 @@ public class Driver {
 		System.out.println("--------------------------------------------------------------\nTesting Login Functionality\n");
 		//Tests the login functionality
 				DBController database = new DBController();
-				User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
-				User user2 = new User("Devin", "Murphy", "wrongUsername", "fakePassword", 'u');
-				User user3 = new User("Devin", "Murphy", "dmurphy001", "wrongPassword", 'u');
-				User user4 = new User("Evin", "Murphy", "emurphy001", "fakePassword", 'u');
-				user4.setStatus('N');
-				User user5 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
-				user5.setLoginStatus(true);
+				String user1Username = "dmurphy001";
+				String user1Password = "fakePassword";
+				
+				String user2Username = "wrongUsername";
+				String user2Password = "fakePassword";
+
+				String user3Username = "dmurphy001";
+				String user3Password = "wrongPassword";
+
+				String user4Username = "emurphy001";
+				String user4Password = "fakePassword";
+
+				String user5Username = "vmurphy001";
+				String user5Password = "fakePassword";
 				AccountController accountController = new AccountController(database);
 				UserInteraction userInteraction = new UserInteraction(accountController);
-				userInteraction.setUser(user1);
 				
 				//tests login functionality for valid username, password, and activation status
 				System.out.println("Testing all valid criteria:");
-				String outputMessage = userInteraction.login(user1.getUserName(), user1.getPassword());
+				String outputMessage = userInteraction.login(user1Username, user1Password);
 				System.out.println(outputMessage);
 				System.out.println();
 				
 				//tests login functionality for invalid username
 				System.out.println("Testing invalid username:");
-				userInteraction.setUser(user2);
-				outputMessage = userInteraction.login(user2.getUserName(), user2.getPassword());
+				outputMessage = userInteraction.login(user2Username, user2Password);
 				System.out.println(outputMessage);
 				System.out.println();
 				
 				//tests login functionality for invalid password
 				System.out.println("Testing invalid password:");
-				userInteraction.setUser(user3);
-				outputMessage = userInteraction.login(user3.getUserName(), user3.getPassword());
+				outputMessage = userInteraction.login(user3Username, user3Password);
 				System.out.println(outputMessage);
 				System.out.println();
 				
 				//tests login functionality for deactivated account
 				System.out.println("Testing deactivated account:");
-				userInteraction.setUser(user4);
-				outputMessage = userInteraction.login(user4.getUserName(), user4.getPassword());
+				outputMessage = userInteraction.login(user4Username, user4Password);
 				System.out.println(outputMessage);
 				System.out.println();
 				
 				//tests login functionality for already logged in account
 				System.out.println("Testing already logged in account");
-				userInteraction.setUser(user5);
-				outputMessage = userInteraction.login(user5.getUserName(), user5.getPassword());
+				outputMessage = userInteraction.login(user5Username, user5Password);
 				System.out.println(outputMessage);
 	}
 	
