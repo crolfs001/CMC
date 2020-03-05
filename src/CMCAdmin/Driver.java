@@ -85,7 +85,8 @@ public class Driver {
 				User user5 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
 				user5.setLoginStatus(true);
 				AccountController accountController = new AccountController(database);
-				UserInteraction userInteraction = new UserInteraction(user1, accountController);
+				UserInteraction userInteraction = new UserInteraction(accountController);
+				userInteraction.setUser(user1);
 				
 				//tests login functionality for valid username, password, and activation status
 				System.out.println("Testing all valid criteria:");
@@ -131,7 +132,8 @@ public class Driver {
 		DBController database = new DBController();
 		User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
 		AccountController accountController = new AccountController(database);
-		UserInteraction userInteraction = new UserInteraction(user1, accountController);
+		UserInteraction userInteraction = new UserInteraction(accountController);
+		userInteraction.setUser(user1);
 		
 		System.out.println("Testing a successful logout (no other scenarios make sense):");
 		userInteraction.login(user1.getUserName(), user1.getPassword());
