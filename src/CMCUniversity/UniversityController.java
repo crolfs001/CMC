@@ -20,10 +20,10 @@ public class UniversityController {
 	public void removeSavedSchool(Username N, University u){
 		
 	}
-	public List<university> searchSchool(){
+	public List<University> searchSchool(){
 		return 0;
 	}
-	public void showSchools(List<university> universitys) {
+	public void showSchools(List<University> universitys) {
 		
 	}
 }
