@@ -1,29 +1,54 @@
+import java.util.List;
+import Student;
 /**
- * 
- */
-package CMCStudent;
-
-import CMCUniversity.University;
-
-/**
- * @author dmurphy001
+ * @author lyang001
  *
  */
 public class StudentInteraction {
-	private String uniName;
+	private Student student;
 	/**
 	 * 
 	 */
-	public StudentInteraction(String uniName) {
-		this.uniName = uniName;
+	public StudentInteraction() {
+		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * if students press the button, this method will get the name of the university
-	 * @return if pressed, return the name of the university
-	 */
-	public String pressSaveButton() {
-		return this.uniName;
+	public void openViewSavedSchools(){
+		
 	}
 	
+	public university pressSaveButton (University school) {
+		
+		return school;
+	}
+	public void viewSchoolInfo() {
+		
+	}
+	public university displayTopFive(List<String> recSchools) {
+		
+		return recSchools;
+		
+	}
+	public void viewProfilPage() {
+		
+	}
+	public void promptRemove() {
+		
+	}
+	public List<String> searchSchool(){
+		List<university> searchResult;
+		return searchResult;
+	}
+	public void resetSearch() {
+		
+	}
+	public void confirmRemove() {
+		
+	}
+	public Student cancelChange(Student s) {
+		return s;	
+	}
+	public void makeEditAble() {
+		
+	}
 }
