@@ -1,5 +1,6 @@
 import java.util.List;
-import Student;
+import CMCUniversity.University;
+
 /**
  * @author lyang001
  *
@@ -17,7 +18,7 @@ public class StudentInteraction {
 		
 	}
 	
-	public university pressSaveButton (University school) {
+	public University pressSaveButton (University school) {
 		
 		return school;
 	}
@@ -36,7 +37,7 @@ public class StudentInteraction {
 		
 	}
 	public List<String> searchSchool(){
-		List<university> searchResult;
+		List<University> searchResult;
 		return searchResult;
 	}
 	public void resetSearch() {
@@ -50,5 +51,5 @@ public class StudentInteraction {
 	}
 	public void makeEditAble() {
 		
-	}
+
 }

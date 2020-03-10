@@ -1,20 +1,22 @@
-package controller;
+package CMCUniversity;
 
+import java.util.ArrayList;
 import java.util.List;
-import University;
+import CMCAdmin.DBController;;
 /**
  * @author lyang001
  *
  */
 public class UniversityController {
 	private List<List> university;
+	private DBController  database;
 	/**
 	 * 
 	 */
-	public UniversityController() {
-		// TODO Auto-generated constructor stub
+	public UniversityController(DBController database) {
+		this.database = database;
 	}
-	public List<university> getSchool() {
+	public List<University> getSchool() {
 		return 0;
 	}
 	public void removeSavedSchool(Username N, University u){
@@ -25,5 +27,14 @@ public class UniversityController {
 	}
 	public void showSchools(List<University> universitys) {
 		
+	}
+	
+	/**
+	 * gets the top 5 reccomended schools most similar to this school
+	 * @param universityName the name of the university 
+	 * @return top5List list of 5 closest schools to the input university
+	 */
+	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
+		return database.getTopFiveClosestSchool(universityName);
 	}
 }
