@@ -7,6 +7,7 @@ import University;
  * The controller for universities where users can alter their list of universities
  */
 public class UniversityController {
+	// a list of different universities that controller interacts with 
 	private List<List> university;
 	/**
 	 * 
