@@ -126,15 +126,138 @@ public class DBController {
 	 */
 	public ArrayList<String> getTopFiveClosestSchool(String university) {
 		
-		University searchUniversity = getSchool(university);
+		University u1 = getSchool(university);
 		
 		ArrayList<String> collegeList = new ArrayList<String>();
 		
 		for(int i = 0; i < schoolList.size(); i++) {
+			University u2 = schoolList.get(i);
+			double distance = 0;
 			
+			//school name 
+			if (u1.getName() != u2.getName()) {
+				//state
+				if (!u1.getState().equals(u2.getState())) {
+					distance += 1;
+				}
+				//location
+				if (!u1.getLocation().equals(u2.getLocation())) {
+					distance +=1;
+				}
+				//control
+				if (!u1.getControl().equals(u2.getControl())) {
+					distance += 1;
+				}
+				//number of students
+				
+				//%female
+				//SAT verbal
+				//sat math
+				//expenses
+				//financial aid
+				//number of applicants
+				//admitted
+				//enrolled
+				//academic scale
+				//social skill
+				//quality of life
+				//emphases
+			}
 		}
 		
 		return collegeList;
 	}
+	
+	/**
+	 * finds maximum NumStudents in the schoolList
+	 * @return max the max number of students
+	 */
+	private int getMaxNumStudents() {
+		int max = schoolList.get(0).getNumStudents();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getNumStudents() > max) {
+				max = schoolList.get(i).getNumStudents();
+			}
+		}
+		
+		return max;
+	}
+	
+	/**
+	 * finds maximum Expenses in the schoolList
+	 * @return max the max number of Expenses
+	 */
+	private int getMaxExpenses() {
+		int max = schoolList.get(0).getExpenses();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getExpenses() > max) {
+				max = schoolList.get(i).getExpenses();
+			}
+		}
+		
+		return max;
+	}
+	
+	/**
+	 * finds maximum Applicants in the schoolList
+	 * @return max the max number of Applicants
+	 */
+	private int getMaxApplicants() {
+		int max = schoolList.get(0).getNumApplications();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getNumApplications() > max) {
+				max = schoolList.get(i).getNumApplications();
+			}
+		}
+		
+		return max;
+	}
+	
+	/**
+	 * finds minimum NumStudents in the schoolList
+	 * @return min the min number of students
+	 */
+	private int getMinNumStudents() {
+		int min = schoolList.get(0).getNumStudents();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getNumStudents() < min) {
+				min = schoolList.get(i).getNumStudents();
+			}
+		}
+		
+		return min;
+	}
+	
+	/**
+	 * finds minimum Expenses in the schoolList
+	 * @return min the min number of Expenses
+	 */
+	private int getMinExpenses() {
+		int min = schoolList.get(0).getExpenses();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getExpenses() < min) {
+				min = schoolList.get(i).getExpenses();
+			}
+		}
+		
+		return min;
+	}
+	
+	/**
+	 * finds minimum Applicants in the schoolList
+	 * @return min the min number of Applicants
+	 */
+	private int getMinApplicants() {
+		int min = schoolList.get(0).getNumApplications();
+		for (int i = 1; i < schoolList.size();i++) {
+			if (schoolList.get(i).getNumApplications() < min) {
+				min = schoolList.get(i).getNumApplications();
+			}
+		}
+		
+		return min;
+	}
+	
+	
 
 }
