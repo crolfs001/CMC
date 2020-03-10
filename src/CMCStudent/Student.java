@@ -2,7 +2,7 @@
  * 
  */
 package CMCStudent;
-
+Import User;
 /**
  * @author dmurphy001
  *
