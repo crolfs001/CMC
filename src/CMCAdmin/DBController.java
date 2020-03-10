@@ -129,6 +129,7 @@ public class DBController {
 		University u1 = getSchool(university);
 		
 		ArrayList<String> collegeList = new ArrayList<String>();
+		ArrayList<Double> distanceList = new ArrayList<Double>();
 		
 		for(int i = 0; i < schoolList.size(); i++) {
 			University u2 = schoolList.get(i);
@@ -149,19 +150,71 @@ public class DBController {
 					distance += 1;
 				}
 				//number of students
-				
+				distance += Math.abs((u1.getNumStudents()-u2.getNumStudents()))/(this.getMaxNumStudents()-this.getMinNumStudents());
 				//%female
+				distance += Math.abs((u1.getPercentFemal()-u2.getPercentFemal()))/100;
 				//SAT verbal
+				distance += Math.abs((u1.getSatVerbal()-u2.getSatVerbal()))/600;
 				//sat math
+				distance += Math.abs((u1.getSatMath()-u2.getSatMath()))/600;
 				//expenses
+				distance += Math.abs((u1.getExpenses()-u2.getExpenses()))/(this.getMaxExpenses()-this.getMinExpenses());
 				//financial aid
+				distance += Math.abs((u1.getPercentFinancialAid()-u2.getPercentFinancialAid()))/100;
 				//number of applicants
+				distance += Math.abs((u1.getNumApplications()-u2.getNumApplications()))/(this.getMaxApplicants()-this.getMinApplicants());
 				//admitted
+				distance += Math.abs((u1.getPercentAdmitted()-u2.getPercentAdmitted()))/100;
 				//enrolled
+				distance += Math.abs((u1.getPercentEnrolled()-u2.getPercentEnrolled()))/100;
 				//academic scale
+				distance += Math.abs((u1.getAcademicsScale()-u2.getAcademicsScale()))/4;
 				//social skill
+				distance += Math.abs((u1.getSocialScale()-u2.getSocialScale()))/4;
 				//quality of life
+				distance += Math.abs((u1.getQualityOfLifeScale()-u2.getQualityOfLifeScale()))/4;
 				//emphases
+				String[] u1emphasis = u1.getEmphases();
+				String[] u2emphasis = u2.getEmphases();
+				int numEmphasesFound = 0;
+				int numEmphasesNotFound = 0;
+				for (int c = 0; c < u1emphasis.length; c++) {
+					boolean found = false;
+					String emphasis = u1emphasis[c];
+					if (!emphasis.equals(null)) {
+						for (int j = 0; j < u2emphasis.length; j++) {
+							if (emphasis.equals(u2emphasis[j])) {
+								numEmphasesFound++;
+								found = true;
+								j = u2emphasis.length;
+							}
+						}
+						if (!found) {
+							numEmphasesNotFound += 1;
+						}
+						
+					}
+				}
+				distance += Math.abs((numEmphasesFound-numEmphasesNotFound))/5;
+				//compare to current 5 closest schools
+				for (int b = 0; b < distanceList.size();b++) {
+					if (distanceList.isEmpty()) {
+						distanceList.add(distance);
+					}
+					else if (distance < distanceList.get(b)) {						
+						distanceList.add(b, distance);
+						collegeList.add(b,u2.getName());
+					}
+					else if (distanceList.size() < 5) {
+						distanceList.add(distance);
+						collegeList.add(b,u2.getName());
+					}
+					//checks length of list
+					if (distanceList.size() > 5) {
+						distanceList.remove(5);
+						collegeList.remove(5);
+					}
+				}
 			}
 		}
 		

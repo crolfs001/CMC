@@ -266,8 +266,12 @@ public class University {
 		this.qualityOfLifeScale = qualityOfLifeScale;
 	}
 
-	public void method() {
-		
+	/**
+	 * getter for emphases
+	 * @return emphases
+	 */
+	public String[] getEmphases() {
+		return this.emphases;
 	}
 	
 }
