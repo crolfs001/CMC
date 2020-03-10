@@ -158,7 +158,6 @@ public class Driver {
 	public void getTopFiveClosestSchool() {
 		
 		getTopFiveClosestSchool.get(collegeList);
-
 	}
 		
 	// display the top five closest school

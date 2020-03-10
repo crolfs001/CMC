@@ -4,7 +4,10 @@
  * Universities
  */
 package CMCAdmin;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import CMCUser.User;
 import  CMCUniversity.University;
 
@@ -66,13 +69,10 @@ public class DBController {
 	 * @return a university
 	 */
 	public University getSchool(String schoolName) {
-<<<<<<< HEAD
+
 		University u = null;
+		
 		for(int i = 0;i < schoolList.size(); i++)
-=======
-		University u;
-		for(int i = 0;i < schoolList.length(); i++)
->>>>>>> 608bb7389b7e30937ddd140b9615faf8fe095bbd
 		{
 			if(schoolName.equals(schoolList.get(i).getName()))
 			{
@@ -101,6 +101,35 @@ public class DBController {
 		}
 		
 		return successfulStatusChange;
+	}
+	
+	/*
+	 * @return top five recommended schools 
+	 */
+	public ArrayList<String> displayTopFive(String university ) {
+	
+		List<String> topFive = getTopFiveClosestSchool(university); 
+		
+		return (ArrayList<String>) topFive;
+	}
+	
+	/*
+	 * @param calculate the five closest school related to the 
+	 * search school
+	 * 
+	 * @return five closest school graded
+	 */
+	public ArrayList<String> getTopFiveClosestSchool(String university) {
+		
+		University searchUniversity = getSchool(university);
+		
+		ArrayList<String> collegeList = new ArrayList<String>();
+		
+		for(int i = 0; i < schoolList.size(); i++) {
+			
+		}
+		
+		return collegeList;
 	}
 
 }
