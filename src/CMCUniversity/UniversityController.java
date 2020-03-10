@@ -4,7 +4,7 @@ import java.util.List;
 import University;
 /**
  * @author lyang001
- *
+ * The controller for universities where users can alter their list of universities
  */
 public class UniversityController {
 	private List<List> university;
@@ -14,16 +14,27 @@ public class UniversityController {
 	public UniversityController() {
 		// TODO Auto-generated constructor stub
 	}
+	/**
+	*@return returns the name of a university
+	*/
 	public List<university> getSchool() {
-		return 0;
+		return "SJU";
 	}
+	/**
+	* @Username recognizes a students username
+	* @University Matches a university to a Usernames and removes school from their list
+	*/
 	public void removeSavedSchool(Username N, University u){
 		
 	}
 	public List<University> searchSchool(){
 		return 0;
 	}
+	/**
+	* @List<University> takes in a list of Universities and displays them
+	* @Return return the list of universities
+	*/
 	public void showSchools(List<University> universitys) {
-		
+		return universitys;
 	}
 }
