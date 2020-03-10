@@ -5,6 +5,7 @@ import Student;
  * The interactions that a student will go thorugh when navigating the program
  */
 public class StudentInteraction {
+	// An instance variable for a student to be used in the interaction
 	private Student student;
 	/**
 	 * 
