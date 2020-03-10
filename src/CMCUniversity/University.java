@@ -10,7 +10,7 @@ package CMCUniversity;
 public class University {
 
 	
-	private String name, state, location;
+	private String name, state, location, control;
 	private int numStudents, percentFemal, 
 			satVerbal, satMath, expenses, 
 			percentFinancialAid, numApplications, percentAdmitted, 
@@ -25,6 +25,7 @@ public class University {
 		this.name = name;
 		this.state = state;
 		this.location = location;
+		this.control = control;
 		this.numStudents = numStudents;
 		this.percentFemal = percentFemal;
 		this.satVerbal = satVerbal;
@@ -82,6 +83,21 @@ public class University {
 		this.location = location;
 	}
 
+	/**
+	 * getter for control
+	 */
+	public String getControl() {
+		return control;
+	}
+
+	/**
+	 * setter for control
+	 */
+	public void setcontrol(String control) {
+		this.control = control;
+	}
+
+	
 	/**
 	 * getter for numStudents
 	 */
