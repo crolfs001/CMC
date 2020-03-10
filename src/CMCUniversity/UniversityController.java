@@ -1,21 +1,29 @@
-package CMCUniversity;
+package controller;
 
-import java.util.ArrayList;
-
+import java.util.List;
+import University;
+/**
+ * @author lyang001
+ *
+ */
 public class UniversityController {
-
-	private ArrayList<University> schoolList;
-	private String uniName;
-	
-	public UniversityController(String uniName) {
-		this.uniName = uniName;
-	}
-
+	private List<List> university;
 	/**
-	 * get a school
-	 * @return a school
+	 * 
 	 */
-	public String getSchool() {
-		return this.uniName;
+	public UniversityController() {
+		// TODO Auto-generated constructor stub
+	}
+	public List<university> getSchool() {
+		return 0;
+	}
+	public void removeSavedSchool(Username N, University u){
+		
+	}
+	public List<university> searchSchool(){
+		return 0;
+	}
+	public void showSchools(List<university> universitys) {
+		
 	}
 }
