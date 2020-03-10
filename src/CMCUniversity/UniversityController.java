@@ -5,17 +5,17 @@ import java.util.ArrayList;
 public class UniversityController {
 
 	private ArrayList<University> schoolList;
+	private String uniName;
 	
-	public UniversityController() {
-		// TODO Auto-generated constructor stub
+	public UniversityController(String uniName) {
+		this.uniName = uniName;
 	}
 
 	/**
 	 * get a school
 	 * @return a school
 	 */
-	public University getSchool(University u) {
-		University school = u;
-		return school;
+	public String getSchool() {
+		return this.uniName;
 	}
 }
