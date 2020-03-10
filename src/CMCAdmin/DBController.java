@@ -25,8 +25,14 @@ public class DBController {
 		//DELETE THIS USER AFTER PHASE 2, IT IS ONLY USED FOR HARD CODE TESTING
 		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
 		User user2 = new User("Fue", "Vue", "fvue001", "fakePassword", 'u');
+		User user3 = new User("Evin", "Murphy", "emurphy001", "fakePassword", 'u');
+		user3.setStatus('N');
+		User user4 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
+		user4.setLoginStatus(true);
 		userList.add(user);
 		userList.add(user2);
+		userList.add(user3);
+		userList.add(user4);
 		
 	}
 	
@@ -69,7 +75,6 @@ public class DBController {
 	 * @return a university
 	 */
 	public University getSchool(String schoolName) {
-
 		University u = null;
 		
 		for(int i = 0;i < schoolList.size(); i++)

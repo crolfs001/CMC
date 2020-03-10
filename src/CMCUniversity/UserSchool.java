@@ -3,6 +3,7 @@
  */
 package CMCUniversity;
 import java.util.ArrayList;
+import CMCUser.User;
 
 /**
  * @author dmurphy001
@@ -13,11 +14,11 @@ public class UserSchool {
 	private ArrayList<University> savedUniversityList;
 	private User student;
 	/**
-	 * 
+	 * UserSchool Constructor
 	 */
 	public UserSchool(User student) {
-		this.savedUniversityList = new ArrayList<University>;
-		this.student = student
+		this.savedUniversityList = new ArrayList<>();
+		this.student = student;
 	}
 
 	/**
@@ -26,7 +27,7 @@ public class UserSchool {
 	 * @param studentName the name of a student
 	 */
 	public void addSchool(String studentName, University school) {
-		if(studentName == this.student.getUserName() && !this.savedUniversityList.contains(school)) {
+		if(studentName.equals(this.student.getUserName()) && !this.savedUniversityList.contains(school)) {
 			this.savedUniversityList.add(school);
 		}
 	}
@@ -37,7 +38,7 @@ public class UserSchool {
 	 * @param studentName the name of a student
 	 */
 	public void removeSchool(String studentName, University school) {
-		if(studentName == this.student.getUserName() && this.savedUniversityList.contains(school)) {
+		if(studentName.equals(this.student.getUserName()) && this.savedUniversityList.contains(school)) {
 			this.savedUniversityList.remove(school);
 		}
 	}
