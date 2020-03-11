@@ -7,13 +7,15 @@ package CMCAdmin;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import dblibrary.project.csci230.*;
 
 import CMCUser.User;
-import  CMCUniversity.University;
+import CMCUniversity.University;
 
 public class DBController {
 	private ArrayList<User> userList;
 	private ArrayList<University> schoolList;
+	private UniversityDBLibrary database;
 
 	/**
 	 * constructs a  DBController object
@@ -21,6 +23,7 @@ public class DBController {
 	public DBController() {
 		userList = new ArrayList<User>();
 		schoolList = new ArrayList<University>();
+		database = new UniversityDBLibrary("breakingmatrix","csci230");
 		
 		//DELETE THIS USER AFTER PHASE 2, IT IS ONLY USED FOR HARD CODE TESTING
 		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
