@@ -34,7 +34,6 @@ public class University {
 		this.percentFinancialAid = percentFinancialAid;
 		this.numApplications = numApplications;
 		this.percentAdmitted = percentAdmitted;
-		this.percentAdmitted = percentAdmitted;
 		this.percentEnrolled = percentEnrolled;
 		this.academicsScale = academicsScale;
 		this.qualityOfLifeScale = qualityOfLifeScale;
