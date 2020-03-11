@@ -23,6 +23,7 @@ public class Driver {
 	private DBController dbc;
 	private University uni;
 	private User u1;
+	private UserSchool us;
 	/**
 	 * constructs a Driver class object
 	 */
@@ -223,5 +224,18 @@ public class Driver {
 	public void ViewSchoolSearchResults() {
 		System.out.println("Results" + "\n" + SearchSchool.getSchool());
 		
+	}
+	
+	
+	/*
+	 * Test the remove saved school from DBController
+	 */
+	public void RemoveSavedSchoolTester() {
+		University SJU;
+		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+		//us.addSchool("Devin", SJU);
+		int expected = 1;
+		//assertTrue("Remove Saved School", );
+		//TROBINSON001
 	}
 }
