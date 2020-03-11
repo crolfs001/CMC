@@ -186,11 +186,11 @@ public class Driver {
 
 }*/
 	public void ViewStudentInfoTester() {
-	System.out.println("First: " + Student.getFirstName());
-	System.out.println("Last: " + Student.getLastName());
-	System.out.println("Username: " + Student.getUserName());
-	System.out.println("Password: " + Student.getPassword());
-	System.out.println("Status: " + Student.getStatus());
+	System.out.println("First: " + User.getFirstName());
+	System.out.println("Last: " + User.getLastName());
+	System.out.println("Username: " + User.getUserName());
+	System.out.println("Password: " + User.getPassword());
+	System.out.println("Status: " + User.getStatus());
 	}
 
 	public void ViewSchoolSearchResults() {
