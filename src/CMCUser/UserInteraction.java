@@ -4,6 +4,9 @@
  * 
  */
 package CMCUser;
+import java.util.ArrayList;
+
+import CMCUniversity.UniversityController;
 
 /**
  * @author Devin Murphy
@@ -12,14 +15,17 @@ package CMCUser;
 public class UserInteraction {
 	private User user;
 	private AccountController accountController;
+	private UniversityController universityController;
 
 	/**
 	 * Constructs a UserInteraction object
+	 * Make sure to set the UniversityController if you are using it using the setter method since it is not apart of the constructor
 	 * @param user the User object for this UserInteraction
 	 */
 	public UserInteraction(AccountController accountController) {
 		this.user = null;
 		this.accountController = accountController;
+		this.setUniversityController(null);
 	}
 
 	/**
@@ -75,6 +81,29 @@ public class UserInteraction {
 		String outputMessage = accountController.logout();
 		user = null;
 		return outputMessage;
+	}
+
+	/**
+	 * @return the universityController
+	 */
+	public UniversityController getUniversityController() {
+		return universityController;
+	}
+
+	/**
+	 * @param universityController the universityController to set
+	 */
+	public void setUniversityController(UniversityController universityController) {
+		this.universityController = universityController;
+	}
+	
+	/**
+	 * finds top 5 schools similar to the input school
+	 * @param university name the input school
+	 * @return top5List the list of 5 schools that are closest to the input school
+	 */
+	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
+		return universityController.getTopFiveClosestSchool(universityName);
 	}
 
 	

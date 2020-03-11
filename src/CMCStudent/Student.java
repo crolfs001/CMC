@@ -2,10 +2,10 @@
  * 
  */
 package CMCStudent;
-import User;
+import CMCUser.User;
 /**
  * @author dmurphy001
- *
+ * A students Info that it inherits from User
  */
 public class Student {
 
