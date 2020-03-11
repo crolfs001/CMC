@@ -36,7 +36,27 @@ public class DBController {
 			schoolList.add(temp);
 		}
 		//sets the emphases for the universities in the schoolList
-		String[][] emphases = database.university_getNamesWithEmphases()
+		String[][] emphases = database.university_getNamesWithEmphases();
+		for (int i = 0; i < emphases.length;i++) {
+			String name = emphases[i][0];
+			String singleEmphasis = emphases[i][1];
+			if (name != null) {
+				for (int j = 0; j < schoolList.size(); j++) {
+					if (schoolList.get(j).getName().equals(name)) {
+						schoolList.get(j).addEmphasis(singleEmphasis);
+					}
+				}
+			}
+		}
+		
+		//translates database users to the userList
+		for (int i = 0; i < userArray.length;i++) {
+			User tempUser = new User (userArray[i][0], userArray[i][1], userArray[i][2], userArray[i][3], userArray[i][4].charAt(0));
+			if (userArray[i][5].charAt(0) == 'N') {
+				tempUser.setStatus('N');
+			}
+			userList.add(tempUser);
+		}
 		
 	}
 	
@@ -113,16 +133,6 @@ public class DBController {
 	}
 	
 	/*
-	 * @return top five recommended schools 
-	 */
-	public ArrayList<String> displayTopFive(String university ) {
-	
-		List<String> topFive = getTopFiveClosestSchool(university); 
-		
-		return (ArrayList<String>) topFive;
-	}
-	
-	/*
 	 * @param calculate the five closest school related to the 
 	 * search school
 	 * 
@@ -178,19 +188,19 @@ public class DBController {
 				//quality of life
 				distance += Math.abs((u1.getQualityOfLifeScale()-u2.getQualityOfLifeScale()))/4;
 				//emphases
-				String[] u1emphasis = u1.getEmphases();
-				String[] u2emphasis = u2.getEmphases();
+				ArrayList<String> u1emphasis = u1.getEmphases();
+				ArrayList<String> u2emphasis = u2.getEmphases();
 				int numEmphasesFound = 0;
 				int numEmphasesNotFound = 0;
-				for (int c = 0; c < u1emphasis.length; c++) {
+				for (int c = 0; c < u1emphasis.size(); c++) {
 					boolean found = false;
-					String emphasis = u1emphasis[c];
+					String emphasis = u1emphasis.get(c);
 					if (!emphasis.equals(null)) {
-						for (int j = 0; j < u2emphasis.length; j++) {
-							if (emphasis.equals(u2emphasis[j])) {
+						for (int j = 0; j < u2emphasis.size(); j++) {
+							if (emphasis.equals(u2emphasis.get(j))) {
 								numEmphasesFound++;
 								found = true;
-								j = u2emphasis.length;
+								j = u2emphasis.size();
 							}
 						}
 						if (!found) {
@@ -244,8 +254,8 @@ public class DBController {
 	 * finds maximum Expenses in the schoolList
 	 * @return max the max number of Expenses
 	 */
-	private int getMaxExpenses() {
-		int max = schoolList.get(0).getExpenses();
+	private double getMaxExpenses() {
+		double max = schoolList.get(0).getExpenses();
 		for (int i = 1; i < schoolList.size();i++) {
 			if (schoolList.get(i).getExpenses() > max) {
 				max = schoolList.get(i).getExpenses();
@@ -289,8 +299,8 @@ public class DBController {
 	 * finds minimum Expenses in the schoolList
 	 * @return min the min number of Expenses
 	 */
-	private int getMinExpenses() {
-		int min = schoolList.get(0).getExpenses();
+	private double getMinExpenses() {
+		double min = schoolList.get(0).getExpenses();
 		for (int i = 1; i < schoolList.size();i++) {
 			if (schoolList.get(i).getExpenses() < min) {
 				min = schoolList.get(i).getExpenses();
@@ -318,13 +328,8 @@ public class DBController {
 	/**
 	 * @param Remove saved school from  student saved school
 	 */
-<<<<<<< HEAD
-	public int RemoveSavedSchool(String name, University school) {
-		 int result = dbController.RemoveSavedSchool(name, school);
-=======
 	public int RemoveSavedSchool(String name, String school) {
 		 int result = this.RemoveSavedSchool(name, school);
->>>>>>> 027b6c95fde413608c7f6604f3c9af02ac35a7bb
 		 if(result == -1) {
 			  throw new IllegalArgumentException("A database error occured.");
 		  }

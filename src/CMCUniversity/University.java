@@ -3,6 +3,8 @@
  */
 package CMCUniversity;
 
+import java.util.ArrayList;
+
 /**
  * @author dmurphy001
  *
@@ -17,7 +19,7 @@ public class University {
 			percentFinancialAid, percentAdmitted, 
 			percentEnrolled;
 			
-	String[] emphases;
+	private ArrayList<String> emphases;
 	
 	/**
 	 * Constructor method
@@ -40,7 +42,7 @@ public class University {
 		this.percentEnrolled = percentEnrolled;
 		this.academicsScale = academicsScale;
 		this.qualityOfLifeScale = qualityOfLifeScale;
-		this.emphases = emphases;
+		emphases = new ArrayList<>();
 	}
 
 	/**
@@ -272,16 +274,16 @@ public class University {
 	 * getter for emphases
 	 * @return emphases
 	 */
-	public String[] getEmphases() {
+	public ArrayList<String> getEmphases() {
 		return this.emphases;
 	}
 	
 	/**
-	 * setter for emphases
-	 * param emphases the list of emphases for the school
+	 * adds an emphasis to this University
+	 * param emphasis the new emphasis to add to the school
 	 */
-	public void setEmphases(String[] emphases) {
-		this.emphases = emphases;
+	public void addEmphasis (String emphasis) {
+		this.emphases.add(emphasis);
 	}
 	
 }
