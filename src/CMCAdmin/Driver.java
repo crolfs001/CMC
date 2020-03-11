@@ -215,6 +215,7 @@ public class Driver {
 
 }*/
 	public void ViewStudentInfoTester() {
+	User u = newUser();
 	System.out.println("First: " + User.getFirstName());
 	System.out.println("Last: " + User.getLastName());
 	System.out.println("Username: " + User.getUserName());
