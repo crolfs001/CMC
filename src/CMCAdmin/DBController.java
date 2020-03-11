@@ -315,7 +315,7 @@ public class DBController {
 		return min;
 	}
 	
-	/*
+	/**
 	 * @param Remove saved school from  student saved school
 	 */
 	public int RemoveSavedSchool(String name, String school) {
@@ -329,5 +329,12 @@ public class DBController {
 		
 	}
 	
-
+	/**
+	 * test method (delete)
+	 */
+	public void showSchoolList() {
+		for(University u : this.schoolList) {
+			System.out.println(u.getName());
+		}
+	}
 }
