@@ -11,17 +11,20 @@ public class University {
 
 	
 	private String name, state, location, control;
-	private int numStudents, percentFemal, 
-			satVerbal, satMath, expenses, 
-			percentFinancialAid, numApplications, percentAdmitted, 
-			percentEnrolled, academicsScale, socialScale, qualityOfLifeScale;
+	private int numStudents, numApplications, 
+	academicsScale, socialScale, qualityOfLifeScale;
+	private double percentFemal,satVerbal, satMath, expenses, 
+			percentFinancialAid, percentAdmitted, 
+			percentEnrolled;
+			
 	String[] emphases;
 	
 	/**
 	 * Constructor method
 	 */
-	public University(String name, String state, int numStudents, int percentFemale, int satVerbal, int satMAth, 
-			int expenses, int percentFinancialAid, int numApplicants, int percentAdmitted, int percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale, String[] emphases) {
+	public University(String name, String state, String location, String control, int numStudents, double percentFemal, double satVerbal, double satMath,
+			double expenses, double percentFinancialAid, int numApplications, double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, 
+			int qualityOfLifeScale, String[] emphases){
 		this.name = name;
 		this.state = state;
 		this.location = location;
@@ -114,7 +117,7 @@ public class University {
 	/**
 	 * getter for percentFemal
 	 */
-	public int getPercentFemal() {
+	public double getPercentFemal() {
 		return percentFemal;
 	}
 
@@ -128,7 +131,7 @@ public class University {
 	/**
 	 * getter for satVerbal
 	 */
-	public int getSatVerbal() {
+	public double getSatVerbal() {
 		return satVerbal;
 	}
 
@@ -142,7 +145,7 @@ public class University {
 	/**
 	 * getter for satMath
 	 */
-	public int getSatMath() {
+	public double getSatMath() {
 		return satMath;
 	}
 
@@ -156,7 +159,7 @@ public class University {
 	/**
 	 * getter for expenses
 	 */
-	public int getExpenses() {
+	public double getExpenses() {
 		return expenses;
 	}
 
@@ -170,7 +173,7 @@ public class University {
 	/**
 	 * getter for percentFinancialAid
 	 */
-	public int getPercentFinancialAid() {
+	public double getPercentFinancialAid() {
 		return percentFinancialAid;
 	}
 
@@ -198,7 +201,7 @@ public class University {
 	/**
 	 * getter for percentAdmitted
 	 */
-	public int getPercentAdmitted() {
+	public double getPercentAdmitted() {
 		return percentAdmitted;
 	}
 
@@ -212,7 +215,7 @@ public class University {
 	/**
 	 * getter for percentEnrolled
 	 */
-	public int getPercentEnrolled() {
+	public double getPercentEnrolled() {
 		return percentEnrolled;
 	}
 

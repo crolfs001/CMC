@@ -24,23 +24,9 @@ public class DBController {
 		userList = new ArrayList<User>();
 		schoolList = new ArrayList<University>();
 		database = new UniversityDBLibrary("breakingmatrix","csci230");
+		String[][] universityArray = database.university_getUniversities();
+		String[][] userArray = database.user_getUsers();
 		
-		//DELETE THIS USER AFTER PHASE 2, IT IS ONLY USED FOR HARD CODE TESTING
-		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
-		User user2 = new User("Fue", "Vue", "fvue001", "fakePassword", 'u');
-		User user3 = new User("Evin", "Murphy", "emurphy001", "fakePassword", 'u');
-		user3.setStatus('N');
-		User user4 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
-		user4.setLoginStatus(true);
-		userList.add(user);
-		userList.add(user2);
-		userList.add(user3);
-		userList.add(user4);
-		String [] a = {"a","b"};
-		University uni = new University("SJU", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
-		University uni2 = new University("CSB", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
-		schoolList.add(uni);
-		schoolList.add(uni2);
 	}
 	
 	/**
@@ -322,7 +308,7 @@ public class DBController {
 	 * @param Remove saved school from  student saved school
 	 */
 	public int RemoveSavedSchool(String name, String school) {
-		 int result = dbController.RemoveSavedSchool(name, school);
+		 int result = this.RemoveSavedSchool(name, school);
 		 if(result == -1) {
 			  throw new IllegalArgumentException("A database error occured.");
 		  }
