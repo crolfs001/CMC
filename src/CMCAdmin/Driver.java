@@ -175,6 +175,52 @@ public class Driver {
 			System.out.println("NullPointerException thrown!");
 		}
 	}
+	
+	
+/*	// get top five closest school
+	public void getTopFiveClosestSchool() {
+		
+		getTopFiveClosestSchool.get(collegeList);
+	}
+		
+	// display the top five closest school
+	public void displayTopFive() {
+		
+		int i = 0;
+		
+		while (i < 4) {
+			System.out.println(getTopFiveClosestSchool.get(collegeList.get(i)) + "/n");	
+			i++;
+	}
+
+}*/
+	public void ViewStudentInfoTester() {
+	DBController database = new DBController();
+	AccountController controller = new AccountController(database);
+	User u = controller.findByUsername("dmurphy001");
+	System.out.println("First: " + u.getFirstName());
+	System.out.println("Last: " + u.getLastName());
+	System.out.println("Username: " + u.getUserName());
+	System.out.println("Password: " + u.getPassword());
+	System.out.println("Status: " + u.getStatus());
+	}
+
+	public void ViewSchoolSearchResults() {
+	//	System.out.println("Results" + "\n" + SearchSchool.getSchool());
+		
+	}
+	
+	
+	/*
+	 * Test the remove saved school from DBController
+	 */
+	public void RemoveSavedSchoolTester() {
+		University  SJU;
+		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+		//us.addSchool("Devin", SJU);
+		
+	}
+	
 	/**
 	 * Runs and displays methods from the driver class, showing the system successfully performs
 	 * the given functionalities
@@ -199,60 +245,5 @@ public class Driver {
 		collegeList.add("UM");
 		collegeList.add("SCU");
 		collegeList.add("SPC");
-	}
-	
-	
-/*	// get top five closest school
-	public void getTopFiveClosestSchool() {
-		
-		getTopFiveClosestSchool.get(collegeList);
-	}
-		
-	// display the top five closest school
-	public void displayTopFive() {
-		
-		int i = 0;
-		
-		while (i < 4) {
-			System.out.println(getTopFiveClosestSchool.get(collegeList.get(i)) + "/n");	
-			i++;
-	}
-
-}*/
-<<<<<<< HEAD
-	//public void ViewStudentInfoTester() {
-	//System.out.println("First: " + User.getFirstName());
-	//System.out.println("Last: " + User.getLastName());
-	//System.out.println("Username: " + User.getUserName());
-	//System.out.println("Password: " + User.getPassword());
-	//System.out.println("Status: " + User.getStatus());
-	//}
-=======
-	public void ViewStudentInfoTester() {
-	DBController database = new DBController();
-	AccountController controller = new AccountController(database);
-	User u = controller.findByUsername("dmurphy001");
-	System.out.println("First: " + u.getFirstName());
-	System.out.println("Last: " + u.getLastName());
-	System.out.println("Username: " + u.getUserName());
-	System.out.println("Password: " + u.getPassword());
-	System.out.println("Status: " + u.getStatus());
-	}
->>>>>>> 027b6c95fde413608c7f6604f3c9af02ac35a7bb
-
-	public void ViewSchoolSearchResults() {
-	//	System.out.println("Results" + "\n" + SearchSchool.getSchool());
-		
-	}
-	
-	
-	/*
-	 * Test the remove saved school from DBController
-	 */
-	public void RemoveSavedSchoolTester() {
-		University  SJU;
-		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
-		//us.addSchool("Devin", SJU);
-		
 	}
 }

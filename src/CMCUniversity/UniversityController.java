@@ -67,7 +67,7 @@ public class UniversityController {
 	}
 	
 	/**
-	 * gets the top 5 reccomended schools most similar to this school
+	 * gets the top 5 recommended schools most similar to this school
 	 * @param universityName the name of the university 
 	 * @return top5List list of 5 closest schools to the input university
 	 */
