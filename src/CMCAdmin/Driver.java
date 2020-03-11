@@ -162,6 +162,7 @@ public class Driver {
 		System.out.println(u);
 		try {
 		this.uni = this.dbc.getSchool(u);
+		System.out.println(this.uni.getName());
 		this.u1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
 		UserSchool t1 = new UserSchool(this.u1);
 		t1.addSchool("hwang003", uni);
