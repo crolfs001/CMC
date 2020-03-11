@@ -7,37 +7,37 @@ package CMCAdmin;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import dblibrary.project.csci230.*;
 
 import CMCUser.User;
-import  CMCUniversity.University;
+import CMCUniversity.University;
 
 public class DBController {
 	private ArrayList<User> userList;
 	private ArrayList<University> schoolList;
-	private DBController dbController;
+	private UniversityDBLibrary database;
+
 	/**
 	 * constructs a  DBController object
 	 */
 	public DBController() {
 		userList = new ArrayList<User>();
 		schoolList = new ArrayList<University>();
+		database = new UniversityDBLibrary("breakingmatrix","csci230");
+		String[][] universityArray = database.university_getUniversities();
+		String[][] userArray = database.user_getUsers();
+		//translates database schools to the schoolList
+		for (int i = 0; i < universityArray.length;i++) {
+			University temp = new University(universityArray[i][0],universityArray[i][1], universityArray[i][2], universityArray[i][3], 
+					Integer.parseInt(universityArray[i][4]), Double.parseDouble(universityArray[i][5]), Double.parseDouble(universityArray[i][6]), 
+					Double.parseDouble(universityArray[i][7]), Double.parseDouble(universityArray[i][8]), Double.parseDouble(universityArray[i][9]), 
+					Integer.parseInt(universityArray[i][10]), Double.parseDouble(universityArray[i][11]), Double.parseDouble(universityArray[i][12]), 
+					Integer.parseInt(universityArray[i][13]), Integer.parseInt(universityArray[i][14]), Integer.parseInt(universityArray[i][15]));
+			schoolList.add(temp);
+		}
+		//sets the emphases for the universities in the schoolList
+		String[][] emphases = database.university_getNamesWithEmphases()
 		
-		//DELETE THIS USER AFTER PHASE 2, IT IS ONLY USED FOR HARD CODE TESTING
-		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
-		User user2 = new User("Fue", "Vue", "fvue001", "fakePassword", 'u');
-		User user3 = new User("Evin", "Murphy", "emurphy001", "fakePassword", 'u');
-		user3.setStatus('N');
-		User user4 = new User("Vin", "Murphy", "vmurphy001", "fakePassword", 'u');
-		user4.setLoginStatus(true);
-		userList.add(user);
-		userList.add(user2);
-		userList.add(user3);
-		userList.add(user4);
-		String [] a = {"a","b"};
-		University uni = new University("SJU", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
-		University uni2 = new University("CSB", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
-		schoolList.add(uni);
-		schoolList.add(uni2);
 	}
 	
 	/**
@@ -315,11 +315,16 @@ public class DBController {
 		return min;
 	}
 	
-	/*
+	/**
 	 * @param Remove saved school from  student saved school
 	 */
+<<<<<<< HEAD
 	public int RemoveSavedSchool(String name, University school) {
 		 int result = dbController.RemoveSavedSchool(name, school);
+=======
+	public int RemoveSavedSchool(String name, String school) {
+		 int result = this.RemoveSavedSchool(name, school);
+>>>>>>> 027b6c95fde413608c7f6604f3c9af02ac35a7bb
 		 if(result == -1) {
 			  throw new IllegalArgumentException("A database error occured.");
 		  }
@@ -329,5 +334,12 @@ public class DBController {
 		
 	}
 	
-
+	/**
+	 * test method (delete)
+	 */
+	public void showSchoolList() {
+		for(University u : this.schoolList) {
+			System.out.println(u.getName());
+		}
+	}
 }

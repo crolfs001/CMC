@@ -162,6 +162,7 @@ public class Driver {
 		System.out.println(u);
 		try {
 		this.uni = this.dbc.getSchool(u);
+		System.out.println(this.uni.getName());
 		this.u1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
 		UserSchool t1 = new UserSchool(this.u1);
 		t1.addSchool("hwang003", uni);
@@ -185,6 +186,8 @@ public class Driver {
 		testDriver.viewAndEditProfileTester();
 		//run addSchoolTester
 		testDriver.addSchoolTester();
+		//run ViewStudentInfoTester
+		testDriver.ViewStudentInfoTester();
 		
 		// runs get/display TopfiveRecommendedSchool
 		ArrayList<String> collegeList = new ArrayList<String>();
@@ -213,6 +216,7 @@ public class Driver {
 	}
 
 }*/
+<<<<<<< HEAD
 	//public void ViewStudentInfoTester() {
 	//System.out.println("First: " + User.getFirstName());
 	//System.out.println("Last: " + User.getLastName());
@@ -220,6 +224,18 @@ public class Driver {
 	//System.out.println("Password: " + User.getPassword());
 	//System.out.println("Status: " + User.getStatus());
 	//}
+=======
+	public void ViewStudentInfoTester() {
+	DBController database = new DBController();
+	AccountController controller = new AccountController(database);
+	User u = controller.findByUsername("dmurphy001");
+	System.out.println("First: " + u.getFirstName());
+	System.out.println("Last: " + u.getLastName());
+	System.out.println("Username: " + u.getUserName());
+	System.out.println("Password: " + u.getPassword());
+	System.out.println("Status: " + u.getStatus());
+	}
+>>>>>>> 027b6c95fde413608c7f6604f3c9af02ac35a7bb
 
 	public void ViewSchoolSearchResults() {
 	//	System.out.println("Results" + "\n" + SearchSchool.getSchool());

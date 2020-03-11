@@ -35,9 +35,9 @@ public class StudentInteraction {
 	*@University requires a university to save
 	*@return returns the school name	
 	*/
-	public University pressSaveButton (University school) {
+	public String pressSaveButton () {
 		
-		return school;
+		return this.uniName;
 	}
 
 
@@ -61,7 +61,7 @@ public class StudentInteraction {
 	* @return Returns a list of schools that match the criteria the student searched for
 	*/
 	public List<String> searchSchool(){
-		List<String> searchResult;
+		ArrayList<String> searchResult = new ArrayList<String>();
 		return searchResult;
 	}
 	public void resetSearch() {
