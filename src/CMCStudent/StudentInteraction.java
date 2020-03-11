@@ -21,8 +21,8 @@ public class StudentInteraction {
 	/**
 	 * 
 	 */
-	public StudentInteraction(String uniName) {
-		this.uniName = uniName;
+	public StudentInteraction() {
+		this.uniName = null;
 		this.universityController = null;
 	}
 
@@ -32,14 +32,20 @@ public class StudentInteraction {
 	}
 
 	/**
-	*@University requires a university to save
-	*@return returns the school name	
-	*/
-	public String pressSaveButton () {
-		
-		return this.uniName;
+	 * save the name of university
+	 * @param uniName name of university
+	 */
+	public void pressSaveButton (String uniName) {
+		this.uniName = uniName;
 	}
 
+	/**
+	 * get the name of university
+	 * @return the name of university
+	 */
+	public String getSchool() {
+		return this.uniName;
+	}
 
 	/**
 	* finds the five closest schools for an input school name

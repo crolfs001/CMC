@@ -14,15 +14,23 @@ public class StudentFunctionalityController {
 	/**
 	 * 
 	 */
-	public StudentFunctionalityController(String uniName) {
-		this.uniName = uniName;
+	public StudentFunctionalityController() {
+		this.uniName = null;
 	}
 
 	/**
-	 * if students press the button, this method will get the name of the university
-	 * @return if pressed, return the name of the university
+	 * 
+	 * @param uniName the name of university
 	 */
-	public String pressSaveButton() {
+	public void pressSaveButton(String uniName) {
+		this.uniName = uniName;
+	}
+	
+	/**
+	 * get the name of university
+	 * @return the name of university
+	 */
+	public String getSchool() {
 		return this.uniName;
 	}
 }

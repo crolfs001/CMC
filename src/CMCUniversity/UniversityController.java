@@ -21,17 +21,24 @@ public class UniversityController {
 	 * 
 	 * @param uniName
 	 */
-	public UniversityController(String uniName) {
-		this.uniName = uniName;
+	public UniversityController() {
+		this.uniName = null;
 	}
+
 	/**
 	 * get the name of university
-	 * @return univ1ersity name
+	 * @param uniName
+	 * @return
 	 */
-	public String getSchool() {
+	public String getSchool(String uniName) {
+		this.uniName = uniName;
 		return this.uniName;
 	}
 	
+	/**
+	 * 
+	 * @param database
+	 */
 	public UniversityController(DBController database) {
 		this.database = database;
 	}

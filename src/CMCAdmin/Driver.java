@@ -17,12 +17,12 @@ import CMCAdmin.*;
  */
 public class Driver {
 	private UserInteraction userInteraction;
-	private StudentInteraction studentInteraction;
+	private StudentInteraction st;
 	private StudentFunctionalityController sfc;
 	private UniversityController uc;
 	private DBController dbc;
 	private University uni;
-	private User u1;
+	private User user1;
 	private UserSchool us;
 	/**
 	 * constructs a Driver class object
@@ -155,16 +155,19 @@ public class Driver {
 	}
 
 	public void addSchoolTester() {
-		this.studentInteraction = new StudentInteraction("SJU");
-		this.sfc = new StudentFunctionalityController(this.studentInteraction.pressSaveButton());
-		this.uc = new UniversityController(this.sfc.pressSaveButton());
-		String u = this.uc.getSchool();
-		System.out.println(u);
+		String u = "SJU";
+		this.st = new StudentInteraction();
+		this.st.pressSaveButton(u);
+		this.sfc = new StudentFunctionalityController();
+		this.sfc.pressSaveButton(this.st.getSchool());
+		this.uc = new UniversityController();
+		String u0 = this.uc.getSchool(this.sfc.getSchool());
+		System.out.println(u0);
 		try {
-		this.uni = this.dbc.getSchool(u);
+		this.uni = this.dbc.getSchool(u0);
 		System.out.println(this.uni.getName());
-		this.u1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
-		UserSchool t1 = new UserSchool(this.u1);
+		this.user1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
+		UserSchool t1 = new UserSchool(this.user1);
 		t1.addSchool("hwang003", uni);
 		t1.showSaveSchoolList();
 		}
