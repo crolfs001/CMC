@@ -3,14 +3,20 @@ package CMCUniversity;
 import java.util.ArrayList;
 import CMCUniversity.University;
 import CMCUser.User;
+import java.util.List;
+import CMCAdmin.DBController;;
 /**
  * @author lyang001
- *
+ * The controller for universities where users can alter their list of universities
  */
 public class UniversityController {
 	private ArrayList<University> schoolList;
 	private String uniName;
-	
+
+	// a list of different universities that controller interacts with 
+	private List<List> university;
+	private DBController  database;
+
 	/**
 	 * 
 	 * @param uniName
@@ -20,19 +26,45 @@ public class UniversityController {
 	}
 	/**
 	 * get the name of university
-	 * @return university name
+	 * @return univ1ersity name
 	 */
 	public String getSchool() {
 		return this.uniName;
 	}
-	public void removeSavedSchool(User N, University u){
-		
+	
+	public UniversityController(DBController database) {
+		this.database = database;
 	}
+	
+	/**
+	*@return returns the name of a university
+	*/
+	/*public List<University> getSchool() {
+		return "SJU";
+	}*/
+	/**
+	* @Username recognizes a students username
+	* @University Matches a university to a Usernames and removes school from their list
+	*/
 	public ArrayList<University> searchSchool(){
 		ArrayList<University> u = new ArrayList<University>();
 		return u;
 	}
-	public void showSchools(ArrayList<University> universitys) {
-		
+
+	/**
+	* @List<University> takes in a list of Universities and displays them
+	* @Return return the list of universities
+	*/
+	public void showSchools(List<University> universitys) {
+		return ;
+	}
+	
+	/**
+	 * gets the top 5 reccomended schools most similar to this school
+	 * @param universityName the name of the university 
+	 * @return top5List list of 5 closest schools to the input university
+	 */
+	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
+		return database.getTopFiveClosestSchool(universityName);
 	}
 }

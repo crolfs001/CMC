@@ -1,6 +1,7 @@
 package CMCAdmin;
 //ArrayList for FiveRecommendedSchool
 import java.util.ArrayList;
+import CMCStudent.Student;
 
 /**
  * This class is able to run tests to demonstrate system functionalities
@@ -211,5 +212,16 @@ public class Driver {
 	}
 
 }*/
-	
+	public void ViewStudentInfoTester() {
+	System.out.println("First: " + User.getFirstName());
+	System.out.println("Last: " + User.getLastName());
+	System.out.println("Username: " + User.getUserName());
+	System.out.println("Password: " + User.getPassword());
+	System.out.println("Status: " + User.getStatus());
+	}
+
+	public void ViewSchoolSearchResults() {
+		System.out.println("Results" + "\n" + SearchSchool.getSchool());
+		
+	}
 }
