@@ -318,7 +318,7 @@ public class DBController {
 	/*
 	 * @param Remove saved school from  student saved school
 	 */
-	public int RemoveSavedSchool(String name, String school) {
+	public int RemoveSavedSchool(String name, University school) {
 		 int result = dbController.RemoveSavedSchool(name, school);
 		 if(result == -1) {
 			  throw new IllegalArgumentException("A database error occured.");

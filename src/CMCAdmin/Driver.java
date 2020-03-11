@@ -213,16 +213,16 @@ public class Driver {
 	}
 
 }*/
-	public void ViewStudentInfoTester() {
-	System.out.println("First: " + User.getFirstName());
-	System.out.println("Last: " + User.getLastName());
-	System.out.println("Username: " + User.getUserName());
-	System.out.println("Password: " + User.getPassword());
-	System.out.println("Status: " + User.getStatus());
-	}
+	//public void ViewStudentInfoTester() {
+	//System.out.println("First: " + User.getFirstName());
+	//System.out.println("Last: " + User.getLastName());
+	//System.out.println("Username: " + User.getUserName());
+	//System.out.println("Password: " + User.getPassword());
+	//System.out.println("Status: " + User.getStatus());
+	//}
 
 	public void ViewSchoolSearchResults() {
-		System.out.println("Results" + "\n" + SearchSchool.getSchool());
+	//	System.out.println("Results" + "\n" + SearchSchool.getSchool());
 		
 	}
 	
@@ -231,11 +231,9 @@ public class Driver {
 	 * Test the remove saved school from DBController
 	 */
 	public void RemoveSavedSchoolTester() {
-		University SJU;
+		University  SJU;
 		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
 		//us.addSchool("Devin", SJU);
-		int expected = 1;
-		//assertTrue("Remove Saved School", );
-		//TROBINSON001
+		
 	}
 }
