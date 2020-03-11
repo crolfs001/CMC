@@ -1,42 +1,47 @@
-import java.util.List;
-import Student;
+package CMCStudent;
+
+import java.util.ArrayList;
+import CMCStudent.Student;
+import CMCUniversity.University;
 /**
  * @author lyang001
  *
  */
 public class StudentInteraction {
 	private Student student;
+	private String uniName;
+	
 	/**
 	 * 
 	 */
-	public StudentInteraction() {
-		// TODO Auto-generated constructor stub
+	public StudentInteraction(String uniName) {
+		this.uniName = uniName;
 	}
+
 
 	public void openViewSavedSchools(){
 		
 	}
 	
-	public university pressSaveButton (University school) {
-		
-		return school;
+	public String pressSaveButton() {
+		return this.uniName;
 	}
 	public void viewSchoolInfo() {
 		
 	}
-	public university displayTopFive(List<String> recSchools) {
+	/*public University displayTopFive(ArrayList<String> recSchools) {
 		
 		return recSchools;
 		
-	}
+	}*/
 	public void viewProfilPage() {
 		
 	}
 	public void promptRemove() {
 		
 	}
-	public List<String> searchSchool(){
-		List<university> searchResult;
+	public ArrayList<University> searchSchool(){
+		ArrayList<University> searchResult = new ArrayList<University>();
 		return searchResult;
 	}
 	public void resetSearch() {

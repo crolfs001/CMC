@@ -33,7 +33,11 @@ public class DBController {
 		userList.add(user2);
 		userList.add(user3);
 		userList.add(user4);
-		
+		String [] a = {"a","b"};
+		University uni = new University("SJU", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
+		University uni2 = new University("CSB", "MN", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, a);
+		schoolList.add(uni);
+		schoolList.add(uni2);
 	}
 	
 	/**

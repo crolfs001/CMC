@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * This class is able to run tests to demonstrate system functionalities
  */
 import CMCUser.*;
+import CMCStudent.*;
+import CMCUniversity.*;
+import CMCAdmin.*;
 
 /**
  * @author Devin Murphy
@@ -13,7 +16,12 @@ import CMCUser.*;
  */
 public class Driver {
 	private UserInteraction userInteraction;
-
+	private StudentInteraction studentInteraction;
+	private StudentFunctionalityController sfc;
+	private UniversityController uc;
+	private DBController dbc;
+	private University uni;
+	private User u1;
 	/**
 	 * constructs a Driver class object
 	 */
@@ -144,6 +152,23 @@ public class Driver {
 		
 	}
 
+	public void addSchoolTester() {
+		this.studentInteraction = new StudentInteraction("SJU");
+		this.sfc = new StudentFunctionalityController(this.studentInteraction.pressSaveButton());
+		this.uc = new UniversityController(this.sfc.pressSaveButton());
+		String u = this.uc.getSchool();
+		System.out.println(u);
+		try {
+		this.uni = this.dbc.getSchool(u);
+		this.u1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
+		UserSchool t1 = new UserSchool(this.u1);
+		t1.addSchool("hwang003", uni);
+		t1.showSaveSchoolList();
+		}
+		catch(NullPointerException e) {
+			System.out.println("NullPointerException thrown!");
+		}
+	}
 	/**
 	 * Runs and displays methods from the driver class, showing the system successfully performs
 	 * the given functionalities
@@ -156,6 +181,8 @@ public class Driver {
 		testDriver.logoutTester();
 		//runs viewAndEditTester
 		testDriver.viewAndEditProfileTester();
+		//run addSchoolTester
+		testDriver.addSchoolTester();
 		
 		// runs get/display TopfiveRecommendedSchool
 		ArrayList<String> collegeList = new ArrayList<String>();
