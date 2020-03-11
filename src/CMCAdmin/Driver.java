@@ -186,6 +186,8 @@ public class Driver {
 		testDriver.viewAndEditProfileTester();
 		//run addSchoolTester
 		testDriver.addSchoolTester();
+		//run ViewStudentInfoTester
+		testDriver.ViewStudentInfoTester();
 		
 		// runs get/display TopfiveRecommendedSchool
 		ArrayList<String> collegeList = new ArrayList<String>();
