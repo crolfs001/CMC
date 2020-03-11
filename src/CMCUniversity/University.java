@@ -24,7 +24,7 @@ public class University {
 	 */
 	public University(String name, String state, String location, String control, int numStudents, double percentFemal, double satVerbal, double satMath,
 			double expenses, double percentFinancialAid, int numApplications, double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, 
-			int qualityOfLifeScale, String[] emphases){
+			int qualityOfLifeScale){
 		this.name = name;
 		this.state = state;
 		this.location = location;
@@ -274,6 +274,14 @@ public class University {
 	 */
 	public String[] getEmphases() {
 		return this.emphases;
+	}
+	
+	/**
+	 * setter for emphases
+	 * param emphases the list of emphases for the school
+	 */
+	public void setEmphases(String[] emphases) {
+		this.emphases = emphases;
 	}
 	
 }

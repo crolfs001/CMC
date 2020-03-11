@@ -26,6 +26,17 @@ public class DBController {
 		database = new UniversityDBLibrary("breakingmatrix","csci230");
 		String[][] universityArray = database.university_getUniversities();
 		String[][] userArray = database.user_getUsers();
+		//translates database schools to the schoolList
+		for (int i = 0; i < universityArray.length;i++) {
+			University temp = new University(universityArray[i][0],universityArray[i][1], universityArray[i][2], universityArray[i][3], 
+					Integer.parseInt(universityArray[i][4]), Double.parseDouble(universityArray[i][5]), Double.parseDouble(universityArray[i][6]), 
+					Double.parseDouble(universityArray[i][7]), Double.parseDouble(universityArray[i][8]), Double.parseDouble(universityArray[i][9]), 
+					Integer.parseInt(universityArray[i][10]), Double.parseDouble(universityArray[i][11]), Double.parseDouble(universityArray[i][12]), 
+					Integer.parseInt(universityArray[i][13]), Integer.parseInt(universityArray[i][14]), Integer.parseInt(universityArray[i][15]));
+			schoolList.add(temp);
+		}
+		//sets the emphases for the universities in the schoolList
+		String[][] emphases = database.university_getNamesWithEmphases()
 		
 	}
 	
