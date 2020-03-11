@@ -215,12 +215,12 @@ public class Driver {
 
 }*/
 	public void ViewStudentInfoTester() {
-	User u = newUser();
-	System.out.println("First: " + User.getFirstName());
-	System.out.println("Last: " + User.getLastName());
-	System.out.println("Username: " + User.getUserName());
-	System.out.println("Password: " + User.getPassword());
-	System.out.println("Status: " + User.getStatus());
+	User u = controller.findByUsername("dmurphy001");
+	System.out.println("First: " + u.getFirstName());
+	System.out.println("Last: " + u.getLastName());
+	System.out.println("Username: " + u.getUserName());
+	System.out.println("Password: " + u.getPassword());
+	System.out.println("Status: " + u.getStatus());
 	}
 
 	public void ViewSchoolSearchResults() {
