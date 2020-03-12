@@ -87,20 +87,25 @@ public class Driver {
 		System.out.println("--------------------------------------------------------------\nTesting Login Functionality\n");
 		//Tests the login functionality
 				DBController database = new DBController();
-				String user1Username = "dmurphy001";
-				String user1Password = "fakePassword";
+				//for all correct inputs
+				String user1Username = "juser";
+				String user1Password = "user";
 				
+				//for incorrect username input
 				String user2Username = "wrongUsername";
-				String user2Password = "fakePassword";
-
-				String user3Username = "dmurphy001";
+				String user2Password = "user";
+				
+				//for incorrect password 
+				String user3Username = "juser";
 				String user3Password = "wrongPassword";
-
-				String user4Username = "emurphy001";
-				String user4Password = "fakePassword";
-
-				String user5Username = "vmurphy001";
-				String user5Password = "fakePassword";
+				
+				//for deactivated account
+				String user4Username = "luser";
+				String user4Password = "user";
+				
+				//for if user is already logged in
+				String user5Username = "juser";
+				String user5Password = "user";
 				AccountController accountController = new AccountController(database);
 				UserInteraction userInteraction = new UserInteraction(accountController);
 				
@@ -142,7 +147,7 @@ public class Driver {
 		
 		//initialize the needed classes
 		DBController database = new DBController();
-		User user1 = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
+		User user1 = database.getUserList().get(0);
 		AccountController accountController = new AccountController(database);
 		UserInteraction userInteraction = new UserInteraction(accountController);
 		userInteraction.setUser(user1);
@@ -231,19 +236,31 @@ public class Driver {
 		testDriver.loginTester();
 		//runs logoutTester
 		testDriver.logoutTester();
-		//runs viewAndEditTester
-		testDriver.viewAndEditProfileTester();
-		//run addSchoolTester
-		testDriver.addSchoolTester();
-		//run ViewStudentInfoTester
-		testDriver.ViewStudentInfoTester();
+//		//runs viewAndEditTester
+//		testDriver.viewAndEditProfileTester();
+//		//run addSchoolTester
+//		testDriver.addSchoolTester();
+//		//run ViewStudentInfoTester6s
+//		testDriver.ViewStudentInfoTester();
 		
-		// runs get/display TopfiveRecommendedSchool
-		ArrayList<String> collegeList = new ArrayList<String>();
-		collegeList.add("UMD");
-		collegeList.add("SJU");
-		collegeList.add("UM");
-		collegeList.add("SCU");
-		collegeList.add("SPC");
+//		// runs get/display TopfiveRecommendedSchool
+//		ArrayList<String> collegeList = new ArrayList<String>();
+//		collegeList.add("UMD");
+//		collegeList.add("SJU");
+//		collegeList.add("UM");
+//		collegeList.add("SCU");
+//		collegeList.add("SPC");
+		
+		
+//		//use to find specific user info from database
+//		DBController database = new DBController();
+//		AccountController accountController = new AccountController(database);
+//		UserInteraction userInteraction = new UserInteraction(accountController);
+//		ArrayList<User> list = database.getUserList();
+//		System.out.println(list.get(1).getUserName());
+//		System.out.println(list.get(1).getPassword());
+//		System.out.println(list.get(1).getStatus());
+
+		
 	}
 }
