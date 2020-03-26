@@ -96,15 +96,6 @@ public class UserInteraction {
 	public void setUniversityController(UniversityController universityController) {
 		this.universityController = universityController;
 	}
-	
-	/**
-	 * finds top 5 schools similar to the input school
-	 * @param university name the input school
-	 * @return top5List the list of 5 schools that are closest to the input school
-	 */
-	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
-		return universityController.getTopFiveClosestSchool(universityName);
-	}
 
 	
 	
