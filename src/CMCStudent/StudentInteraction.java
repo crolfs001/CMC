@@ -36,7 +36,8 @@ public class StudentInteraction {
 	 * @param uniName name of university
 	 */
 	public void pressSaveButton (String uniName) {
-		this.uniName = uniName;
+		StudentFunctionalityController sfc = new StudentFunctionalityController();
+		sfc.pressSaveButton(uniName);
 	}
 
 	/**
