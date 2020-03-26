@@ -30,9 +30,9 @@ public class UniversityController {
 	 * @param uniName
 	 * @return
 	 */
-	public String getSchool(String uniName) {
-		this.uniName = uniName;
-		return this.uniName;
+	public void getSchoolName(String uniName) {
+		DBController db = new DBController();
+		db.getSchool(uniName);
 	}
 	
 	/**

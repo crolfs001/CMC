@@ -163,13 +163,8 @@ public class Driver {
 		String u = "SJU";
 		this.st = new StudentInteraction();
 		this.st.pressSaveButton(u);
-		this.sfc = new StudentFunctionalityController();
-		this.sfc.pressSaveButton(this.st.getSchool());
-		this.uc = new UniversityController();
-		String u0 = this.uc.getSchool(this.sfc.getSchool());
-		System.out.println(u0);
 		try {
-		this.uni = this.dbc.getSchool(u0);
+		this.uni = this.dbc.getSchool(u);
 		System.out.println(this.uni.getName());
 		this.user1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
 		UserSchool t1 = new UserSchool(this.user1);
