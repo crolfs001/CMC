@@ -83,10 +83,9 @@ public class Driver {
 	/**
 	 * Method that tests the login functionality
 	 */
-	public void loginTester() {
+	public void loginTester(DBController database, AccountController accountcontroller, UserInteraction userInteraction) {
 		System.out.println("--------------------------------------------------------------\nTesting Login Functionality\n");
 		//Tests the login functionality
-				DBController database = new DBController();
 				//for all correct inputs
 				String user1Username = "juser";
 				String user1Password = "user";
@@ -106,8 +105,6 @@ public class Driver {
 				//for if user is already logged in
 				String user5Username = "juser";
 				String user5Password = "user";
-				AccountController accountController = new AccountController(database);
-				UserInteraction userInteraction = new UserInteraction(accountController);
 				
 				//tests login functionality for valid username, password, and activation status
 				System.out.println("Testing all valid criteria:");
@@ -137,20 +134,16 @@ public class Driver {
 				System.out.println("Testing already logged in account");
 				outputMessage = userInteraction.login(user5Username, user5Password);
 				System.out.println(outputMessage);
+				userInteraction.logout();
 	}
 	
 	/**
 	 * Method that tests the logout functionality
 	 */
-	public void logoutTester() {
-		System.out.println("--------------------------------------------------------------------------------\nLogout Tester\n");
-		
+	public void logoutTester(DBController database, AccountController accountController, UserInteraction userInteraction) {
+		System.out.println("--------------------------------------------------------------------------------\nLogout Tester\n");		
 		//initialize the needed classes
-		DBController database = new DBController();
 		User user1 = database.getUserList().get(0);
-		AccountController accountController = new AccountController(database);
-		UserInteraction userInteraction = new UserInteraction(accountController);
-		userInteraction.setUser(user1);
 		
 		System.out.println("Testing a successful logout (no other scenarios make sense):");
 		userInteraction.login(user1.getUserName(), user1.getPassword());
@@ -232,10 +225,15 @@ public class Driver {
 	 */
 	public static void main(String[] args) {
 		Driver testDriver = new Driver();
+		
+		DBController database = new DBController();
+		AccountController accountController = new AccountController(database);
+		UserInteraction userInteraction = new UserInteraction(accountController);
+		
 		//runs loginTester
-		testDriver.loginTester();
+		testDriver.loginTester(database, accountController, userInteraction);
 		//runs logoutTester
-		testDriver.logoutTester();
+		testDriver.logoutTester(database, accountController, userInteraction);
 //		//runs viewAndEditTester
 //		testDriver.viewAndEditProfileTester();
 //		//run addSchoolTester

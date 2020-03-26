@@ -94,8 +94,10 @@ public class AccountController {
 	 * @param user the User object we are logging out
 	 */
 	public String logout() {
-		database.setLoginStatus(user, false);
-		user = null;
+		if (user != null) {
+			database.setLoginStatus(user, false);
+			user = null;
+		}
 		String outputMessage = "User has been logged out successfully";
 		return outputMessage;
 	}
