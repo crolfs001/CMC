@@ -170,23 +170,20 @@ public class Driver {
 	}
 	
 	
-/*	// get top five closest school
-	public void getTopFiveClosestSchool() {
-		
-		getTopFiveClosestSchool.get(collegeList);
+/**
+ * tests the top 5 recommended school functionality
+ */
+	public void topFiveRecommendedSchoolTester(DBController database, UniversityController universityController, UserInteraction userInteraction) {
+		System.out.println("--------------------------------------------------------------------------------\nTop Five Recommended Schools Tester\n");
+		String schoolName = database.getSchoolList().get(0).getName();
+		ArrayList<String>  fiveClosestSchools = userInteraction.getTopFiveClosestSchool(schoolName);
+		System.out.println("Top five recommended schools for " + schoolName +":");
+		for (int i = 0; i < fiveClosestSchools.size(); i++) {
+			System.out.println(fiveClosestSchools.get(i));
+		}		
 	}
-		
-	// display the top five closest school
-	public void displayTopFive() {
-		
-		int i = 0;
-		
-		while (i < 4) {
-			System.out.println(getTopFiveClosestSchool.get(collegeList.get(i)) + "/n");	
-			i++;
-	}
-
-}*/
+	
+	
 	public void ViewStudentInfoTester() {
 	DBController database = new DBController();
 	AccountController controller = new AccountController(database);
@@ -223,27 +220,22 @@ public class Driver {
 		
 		DBController database = new DBController();
 		AccountController accountController = new AccountController(database);
-		UserInteraction userInteraction = new UserInteraction(accountController);
+		UniversityController universityController = new UniversityController(database);
+		UserInteraction userInteraction = new UserInteraction(accountController, universityController);
 		
 		//runs loginTester
 		testDriver.loginTester(database, accountController, userInteraction);
 		//runs logoutTester
 		testDriver.logoutTester(database, accountController, userInteraction);
+		//runs topFiveRecommendedSchoolTester
+		testDriver.topFiveRecommendedSchoolTester(database, universityController, userInteraction);
+		
 //		//runs viewAndEditTester
 //		testDriver.viewAndEditProfileTester();
 //		//run addSchoolTester
 //		testDriver.addSchoolTester();
 //		//run ViewStudentInfoTester6s
-//		testDriver.ViewStudentInfoTester();
-		
-//		// runs get/display TopfiveRecommendedSchool
-//		ArrayList<String> collegeList = new ArrayList<String>();
-//		collegeList.add("UMD");
-//		collegeList.add("SJU");
-//		collegeList.add("UM");
-//		collegeList.add("SCU");
-//		collegeList.add("SPC");
-		
+//		testDriver.ViewStudentInfoTester();		
 		
 //		//use to find specific user info from database
 //		DBController database = new DBController();

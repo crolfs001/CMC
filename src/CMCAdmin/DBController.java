@@ -211,27 +211,33 @@ public class DBController {
 				}
 				distance += Math.abs((numEmphasesFound-numEmphasesNotFound))/5;
 				//compare to current 5 closest schools
-				for (int b = 0; b < distanceList.size();b++) {
-					if (distanceList.isEmpty()) {
-						distanceList.add(distance);
-					}
-					else if (distance < distanceList.get(b)) {						
+				if (distanceList.isEmpty()) {
+					distanceList.add(distance);
+					collegeList.add(u2.getName());
+				}
+				boolean inserted = false;
+				for (int b = 0; b < distanceList.size() && !inserted;b++) {
+					if (distance < distanceList.get(b)) {						
 						distanceList.add(b, distance);
 						collegeList.add(b,u2.getName());
+						inserted = true;
 					}
-					else if (distanceList.size() < 5) {
-						distanceList.add(distance);
-						collegeList.add(b,u2.getName());
-					}
-					//checks length of list
-					if (distanceList.size() > 5) {
-						distanceList.remove(5);
-						collegeList.remove(5);
-					}
+				}
+				if (distanceList.size() < 5) {
+					distanceList.add(distance);
+					collegeList.add(u2.getName());
+				}
+				//checks length of list
+				if (distanceList.size() > 5) {
+					distanceList.remove(5);
+					collegeList.remove(5);
 				}
 			}
 		}
-		
+		//for displaying the distance measures so we know the top 5 are organized from most similar to least similar among the five schools
+//		for (double distance : distanceList) {
+//			System.out.println(distance);
+//		}
 		return collegeList;
 	}
 	

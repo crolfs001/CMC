@@ -22,10 +22,11 @@ public class UserInteraction {
 	 * Make sure to set the UniversityController if you are using it using the setter method since it is not apart of the constructor
 	 * @param user the User object for this UserInteraction
 	 */
-	public UserInteraction(AccountController accountController) {
+	public UserInteraction(AccountController accountController, UniversityController universityController) {
 		this.user = null;
 		this.accountController = accountController;
 		this.setUniversityController(null);
+		this.universityController = universityController;
 	}
 
 	/**
@@ -95,6 +96,15 @@ public class UserInteraction {
 	 */
 	public void setUniversityController(UniversityController universityController) {
 		this.universityController = universityController;
+	}
+	
+	/**
+	 * gets the top 5 recommended schools most similar to this school
+	 * @param universityName the name of the university 
+	 * @return top5List list of 5 closest schools to the input university
+	 */
+	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
+		return universityController.getTopFiveClosestSchool(universityName);
 	}
 
 	
