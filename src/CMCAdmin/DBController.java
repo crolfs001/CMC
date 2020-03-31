@@ -13,7 +13,7 @@ import CMCUser.User;
 import CMCUniversity.University;
 
 public class DBController {
-	private ArrayList<User> userList;
+	ArrayList<User> userList;
 	private ArrayList<University> schoolList;
 	private UniversityDBLibrary database;
 
@@ -59,6 +59,8 @@ public class DBController {
 		}
 		
 	}
+	
+	
 	
 	/**
 	 * userList getter
@@ -352,5 +354,13 @@ public class DBController {
 		for(University u : this.schoolList) {
 			System.out.println(u.getName());
 		}
+	}
+
+
+
+	public void updateUser(User user) {
+		database.user_editUser(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getType(), user.getStatus());
+			
+		
 	}
 }
