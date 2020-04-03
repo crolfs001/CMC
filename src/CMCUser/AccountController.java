@@ -106,10 +106,11 @@ public class AccountController {
 		 	return this.user;
 	}
 
-	public String updateProfile(String firstName, String lastName, String password) {
+	public String updateProfile(String userName, String firstName, String lastName, String password) {
 		this.user.setFirstName(firstName);
 		this.user.setLastName(lastName);
 		this.user.setPassword(password);
+		database.updateUser(this.user);
 		return "Updated";
 	}
 

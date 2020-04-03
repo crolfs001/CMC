@@ -30,54 +30,69 @@ public class Driver {
 	public Driver() {
 		
 	}
-	public void viewAndEditProfileTester() {
-		DBController database = new DBController();
-		AccountController controller = new AccountController(database);
-		
-		// View profile
-		User user = controller.findByUsername("dmurphy001");
+	public void viewAndEditProfileTester(DBController database, AccountController accountController, UserInteraction userInteraction) {
+		String user1Username = "juser";
+		String user1Password = "user";
+		User userTemp = database.findByUsername(user1Username);
+		database.setLoginStatus(userTemp, false);
+		System.out.println(accountController.login(user1Username, user1Password));
+		accountController.getUser();
+		User user1 = database.findByUsername(user1Username);
 		System.out.println("--------------------------------------------------------------\nTesting View Profile\n");
-		System.out.println("First: " + user.getFirstName());
-		System.out.println("Last: " + user.getLastName());
-		System.out.println("Username: " + user.getUserName());
-		System.out.println("Password: " + user.getPassword());
+		System.out.println("First: " + user1.getFirstName());
+		System.out.println("Last: " + user1.getLastName());
+		System.out.println("Username: " + user1.getUserName());
+		System.out.println("Password: " + user1.getPassword());
 		
-		// Update profile
-		controller.updateProfile(user.getFirstName(), user.getLastName(), "newpw");
+		// Update password
+		accountController.updateProfile(user1.getUserName(), user1.getFirstName(), user1.getLastName(), "newpw");
 		
 
 		// View updated profile
 		System.out.println();
 		System.out.println("--------------------------------------------------------------\nTesting Edited Password\n");
-		user = controller.findByUsername("dmurphy001");
-		System.out.println("First: " + user.getFirstName());
-		System.out.println("Last: " + user.getLastName());
-		System.out.println("Username: " + user.getUserName());
-		System.out.println("Password: " + user.getPassword());
+		System.out.println("First: " + user1.getFirstName());
+		System.out.println("Last: " + user1.getLastName());
+		System.out.println("Username: " + user1.getUserName());
+		System.out.println("Password: " + user1.getPassword());
+		// reset password back to original password
+		accountController.updateProfile(user1.getUserName(), user1.getFirstName(), user1.getLastName(), "user");
 		
-		controller.updateProfile("Mevin", user.getLastName(), user.getPassword());
+		//Testing Edited first name
+		accountController.updateProfile(user1.getUserName(), "Charlie", user1.getLastName(), user1.getPassword());
 		
 
-		// View updated profile
+	
 		System.out.println();
 		System.out.println("--------------------------------------------------------------\nTesting Edited First Name\n");
-		user = controller.findByUsername("dmurphy001");
-		System.out.println("First: " + user.getFirstName());
-		System.out.println("Last: " + user.getLastName());
-		System.out.println("Username: " + user.getUserName());
-		System.out.println("Password: " + user.getPassword());
+		System.out.println("First: " + user1.getFirstName());
+		System.out.println("Last: " + user1.getLastName());
+		System.out.println("Username: " + user1.getUserName());
+		System.out.println("Password: " + user1.getPassword());
 		
-		controller.updateProfile(user.getFirstName(), "Durphy", user.getPassword());
+		accountController.updateProfile(user1.getUserName(), user1.getFirstName(), "Rolfs", user1.getPassword());
 		
 
 		// View updated profile
 		System.out.println();
 		System.out.println("--------------------------------------------------------------\nTesting Edited Last Name\n");
-		user = controller.findByUsername("dmurphy001");
-		System.out.println("First: " + user.getFirstName());
-		System.out.println("Last: " + user.getLastName());
-		System.out.println("Username: " + user.getUserName());
-		System.out.println("Password: " + user.getPassword());
+		System.out.println("First: " + user1.getFirstName());
+		System.out.println("Last: " + user1.getLastName());
+		System.out.println("Username: " + user1.getUserName());
+		System.out.println("Password: " + user1.getPassword());
+		
+		userInteraction.logout();
+		String outputMessage = userInteraction.login(user1Username, user1.getPassword());
+		System.out.println(outputMessage);
+		//View updated profile after loggin out and back in
+		System.out.println();
+		System.out.println("--------------------------------------------------------------\nTesting View Profile after logging back in\n");
+		System.out.println("First: " + user1.getFirstName());
+		System.out.println("Last: " + user1.getLastName());
+		System.out.println("Username: " + user1.getUserName());
+		System.out.println("Password: " + user1.getPassword());
+		
+		
 	}
 	
 	/**
@@ -233,8 +248,9 @@ public class Driver {
 		//runs logoutTester
 		testDriver.logoutTester(database, accountController, userInteraction);
 		//runs topFiveRecommendedSchoolTester
-		testDriver.topFiveRecommendedSchoolTester(database, universityController, userInteraction);
+		testDriver.viewAndEditProfileTester(database, accountController, userInteraction);
 		
+		System.out.println(database.getUserList());
 //		//runs viewAndEditTester
 //		testDriver.viewAndEditProfileTester();
 //		//run addSchoolTester
