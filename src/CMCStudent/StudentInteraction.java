@@ -4,19 +4,24 @@ import java.util.ArrayList;
 import CMCStudent.Student;
 import CMCUniversity.University;
 import CMCUniversity.UniversityController;
+import CMCUser.User;
 
 import java.util.List;
+
+import CMCAdmin.DBController;
 import CMCUniversity.University;
 
 /**
  * @author lyang001
  * The interactions that a student will go thorugh when navigating the program
  */
-public class StudentInteraction {
+public class StudentInteraction extends DBController {
 	// An instance variable for a student to be used in the interaction
 	private Student student;
 	private String uniName;
 	private UniversityController universityController;
+	private User userName;
+	private University university;
 	
 	/**
 	 * 
@@ -24,6 +29,8 @@ public class StudentInteraction {
 	public StudentInteraction() {
 		this.uniName = null;
 		this.universityController = null;
+		this.university = null;
+		this.userName = null;
 	}
 
 
@@ -61,7 +68,7 @@ public class StudentInteraction {
 		
 	}
 	public void promptRemove() {
-		
+		System.out.println("Would you like to remove this School from your list?");
 	}
 
 	/**
@@ -75,7 +82,14 @@ public class StudentInteraction {
 		
 	}
 	public void confirmRemove() {
-		
+	boolean confirmation = false;
+	if ( confirmation == true) {
+		//RemoveSavedSchool(userName, university);
+		System.out.print("to be work on");
+	}
+	else {
+		System.out.println("cancel");
+	}
 	}
 	/**
 	* @student requires a student in order to cancel change

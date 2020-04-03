@@ -204,10 +204,15 @@ public class Driver {
 	/*
 	 * Test the remove saved school from DBController
 	 */
-	public void RemoveSavedSchoolTester() {
-		University  SJU;
-		User user = new User("Devin", "Murphy", "dmurphy001", "fakePassword", 'u');
-		//us.addSchool("Devin", SJU);
+	public static void RemoveSavedSchoolTester(User userName, University school) {
+		//boolean removeSchool = RemoveSavedSchool(userName, school);
+		boolean removeSchool = true;
+		if (removeSchool) {
+			System.out.print(school + "has been removed from list");
+		}
+		else {
+			System.out.print("Cancel removeal of school");
+		}
 		
 	}
 	

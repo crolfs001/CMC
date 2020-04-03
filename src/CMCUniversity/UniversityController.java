@@ -12,6 +12,7 @@ import CMCAdmin.DBController;;
 public class UniversityController {
 	private ArrayList<University> schoolList;
 	private String uniName;
+	private User userName;
 
 	// a list of different universities that controller interacts with 
 	private List<List> university;
@@ -74,4 +75,12 @@ public class UniversityController {
 	public ArrayList<String> getTopFiveClosestSchool(String universityName) {
 		return database.getTopFiveClosestSchool(universityName);
 	}
+	
+	/**
+	 * @param Remove saved school from  student saved school
+	 */
+	public void removeSavedSchool(User n, University u) {
+		
+	}
+	
 }
