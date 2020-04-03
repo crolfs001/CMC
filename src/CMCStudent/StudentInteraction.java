@@ -1,6 +1,7 @@
 package CMCStudent;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import CMCStudent.Student;
 import CMCUniversity.University;
 import CMCUniversity.UniversityController;
@@ -67,8 +68,20 @@ public class StudentInteraction extends DBController {
 	public void viewProfilPage() {
 		
 	}
-	public void promptRemove() {
-		System.out.println("Would you like to remove this School from your list?");
+	
+	/*
+	 * Prompt for removing a school from a student saved school
+	 */
+	public void promptRemove(String confirmation, User n, University u) {
+		System.out.println("Would you like to remove this School from your list? (y = yes and n = no)");
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		if (input.equals("y")) {
+			universityController.removeSavedSchool(n, u);
+		}
+		else {
+			System.out.println("This school will not be remove");
+		}
 	}
 
 	/**
@@ -81,16 +94,7 @@ public class StudentInteraction extends DBController {
 	public void resetSearch() {
 		
 	}
-	public void confirmRemove() {
-	boolean confirmation = false;
-	if ( confirmation == true) {
-		//RemoveSavedSchool(userName, university);
-		System.out.print("to be work on");
-	}
-	else {
-		System.out.println("cancel");
-	}
-	}
+
 	/**
 	* @student requires a student in order to cancel change
 	* @return returns the students previous info

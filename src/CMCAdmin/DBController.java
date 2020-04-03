@@ -15,7 +15,7 @@ import CMCUniversity.University;
 public class DBController {
 	ArrayList<User> userList;
 	private ArrayList<University> schoolList;
-	private University database;
+	private UniversityDBLibrary database;
 	private User userName;
 	/**
 	 * constructs a  DBController object
@@ -336,16 +336,24 @@ public class DBController {
 	/**
 	 * @param Remove saved school from  student saved school
 	 */
-	public void RemoveSavedSchool(User name, University school) {
-		//arrayList<University> userSchool = this.getUserList();
-		 //int result = this.RemoveSavedSchool(name, school);
-		 //if(result == -1) {
-			//  throw new IllegalArgumentException("A database error occured.");
-		  //}
-		  //else {
-			//  return result; //TROBINSON001
-		  //}
-		
+	public String removeSavedSchool(User name, University school) {
+		String inputName = name.getUserName();
+		String inputUniversity = school.getName();
+		String message = "";
+		int output = database.user_removeSchool(inputName, inputUniversity);
+		if (output == 1) {
+		message = "Everything was fine.";	
+		}
+		else if (output == 0) {
+		message = "School was not in the list";
+		}
+		else if (output == -1) {
+			message = "An error was founded.";
+		}
+		else {
+			message = "You have done some really wrong";
+		}
+		return message;
 	}
 	
 	/**

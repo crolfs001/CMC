@@ -79,8 +79,9 @@ public class UniversityController {
 	/**
 	 * @param Remove saved school from  student saved school
 	 */
-	public void removeSavedSchool(User n, University u) {
-		
+	public String removeSavedSchool(User n, University u) {
+	 database.removeSavedSchool(n, u);
+	 return "The save school have been reomved.";
 	}
 	
 }
