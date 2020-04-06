@@ -26,7 +26,7 @@ public class UserSchool {
 	 * @param school the university
 	 * @param studentName the name of a student
 	 */
-	public void addSchool(String studentName, String school) {
+	public void addSchool(String studentName, University school) {
 		if(studentName.equals(this.student.getUserName())) {
 			for(University u : this.savedUniversityList) {
 				if(u.getName().equals(school.getName())) {
@@ -43,7 +43,7 @@ public class UserSchool {
 	 * @param school the university
 	 * @param studentName the name of a student
 	 */
-	public void removeSchool(String studentName, String school) {
+	public void removeSchool(String studentName, University school) {
 		if(studentName.equals(this.student.getUserName())) {
 			for(University u : this.savedUniversityList) {
 				if(u.getName().equals(school.getName())) {

@@ -22,7 +22,6 @@ public class Driver {
 	private UniversityController uc;
 	private DBController dbc;
 	private University uni;
-	private User user1;
 	private UserSchool us;
 	/**
 	 * constructs a Driver class object
@@ -167,15 +166,16 @@ public class Driver {
 		
 	}
 
-	public void addSchoolTester() {System.out.println(userInteraction.deactivateAccount(user1Username));
+	public void addSchoolTester() {
+		User user1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
+		System.out.println(userInteraction.deactivateAccount(user1.getUserName()));
 		String u = "SJU";
 		this.st = new StudentInteraction();
 		this.st.pressSaveButton(u);
 		try {
 		this.uni = this.dbc.getSchool(u);
 		System.out.println(this.uni.getName());
-		this.user1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u');
-		UserSchool t1 = new UserSchool(this.user1);
+		UserSchool t1 = new UserSchool(user1);
 		t1.addSchool("hwang003", uni);
 		t1.showSaveSchoolList();
 		}
