@@ -203,6 +203,7 @@ public class Driver {
 	DBController database = new DBController();
 	AccountController controller = new AccountController(database);
 	User u = controller.findByUsername("dmurphy001");
+	System.out.println("--------------------------------------------------------------\nTesting ViewStudentInfo\n");
 	System.out.println("First: " + u.getFirstName());
 	System.out.println("Last: " + u.getLastName());
 	System.out.println("Username: " + u.getUserName());
