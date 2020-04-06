@@ -113,5 +113,39 @@ public class AccountController {
 		database.updateUser(this.user);
 		return "Updated";
 	}
+	
+	public String activateAccount(String username) {
+		user = database.findByUsername(username);
+		
+		if (user.getStatus() == 'N') {
+			user.setStatus('Y');
+			database.updateUser(user);
+			return "Account is now activated";
+			
+		}
+		else if(user.getStatus() == 'Y'){
+			return "Account is already activated";
+		}
+		else {
+			return "Invalid character. N = Inactive account. Y = Active Account";
+		}
+	}
+	
+	public String deactivateAccount(String username) {
+		user = database.findByUsername(username);
+		
+		if (user.getStatus() == 'Y') {
+			user.setStatus('N');
+			database.updateUser(user);
+			return "Account is now deactivated";
+			
+		}
+		else if(user.getStatus() == 'N'){
+			return "Account is already deactivated";
+		}
+		else {
+			return "Invalid character. N = Inactive account. Y = Active Account";
+		}
+	}
 
 }

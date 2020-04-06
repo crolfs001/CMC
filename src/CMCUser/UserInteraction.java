@@ -83,6 +83,17 @@ public class UserInteraction {
 		user = null;
 		return outputMessage;
 	}
+	
+	public String activateAccount(String username) {
+		String outputMessage = accountController.activateAccount(username);
+		
+		return outputMessage;
+	}
+	public String deactivateAccount(String username) {
+		String outputMessage = accountController.deactivateAccount(username);
+		
+		return outputMessage;
+	}
 
 	/**
 	 * @return the universityController

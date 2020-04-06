@@ -372,4 +372,13 @@ public class DBController {
 			
 		
 	}
+	
+	public void activateUser(User user) {
+		user.setActivatedStatus(user.getStatus());
+	}
+		
+		
+	public void deactiveUser(User user) {
+		user.setDeactivatedStatus(user.getStatus());
+	}
 }

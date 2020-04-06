@@ -73,7 +73,7 @@ public class Driver {
 		accountController.updateProfile(user1.getUserName(), user1.getFirstName(), "Rolfs", user1.getPassword());
 		
 
-		// View updated profile
+		// View updated profileSystem.out.println(userInteraction.deactivateAccount(user1Username));
 		System.out.println();
 		System.out.println("--------------------------------------------------------------\nTesting Edited Last Name\n");
 		System.out.println("First: " + user1.getFirstName());
@@ -167,7 +167,7 @@ public class Driver {
 		
 	}
 
-	public void addSchoolTester() {
+	public void addSchoolTester() {System.out.println(userInteraction.deactivateAccount(user1Username));
 		String u = "SJU";
 		this.st = new StudentInteraction();
 		this.st.pressSaveButton(u);
@@ -230,6 +230,18 @@ public class Driver {
 		}
 		
 	}
+	private void accountStatusTester(DBController database, AccountController accountController,
+			UserInteraction userInteraction) {
+		String user1Username = "juser";
+		System.out.println("Deactivate account");
+		System.out.println(userInteraction.deactivateAccount(user1Username));
+		System.out.println(userInteraction.deactivateAccount(user1Username));
+		User user = database.findByUsername(user1Username);
+		System.out.println(user.getStatus());
+		System.out.println("Activate account");
+		System.out.println(userInteraction.activateAccount(user1Username));
+		System.out.println(user.getStatus());
+	}
 	
 	/**
 	 * Runs and displays methods from the driver class, showing the system successfully performs
@@ -249,8 +261,8 @@ public class Driver {
 		testDriver.logoutTester(database, accountController, userInteraction);
 		//runs topFiveRecommendedSchoolTester
 		testDriver.viewAndEditProfileTester(database, accountController, userInteraction);
+		testDriver.accountStatusTester(database, accountController, userInteraction);
 		
-		System.out.println(database.getUserList());
 //		//runs viewAndEditTester
 //		testDriver.viewAndEditProfileTester();
 //		//run addSchoolTester
@@ -269,4 +281,5 @@ public class Driver {
 
 		
 	}
+	
 }
