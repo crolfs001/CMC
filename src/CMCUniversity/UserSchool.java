@@ -25,17 +25,20 @@ public class UserSchool {
 	 * add school to savedschools List
 	 * @param school the university
 	 * @param studentName the name of a student
+	 * @return 
 	 */
-	public void addSchool(String studentName, University school) {
+	public String addSchool(String studentName, University school) {
 		if(studentName.equals(this.student.getUserName())) {
 			for(University u : this.savedUniversityList) {
 				if(u.getName().equals(school.getName())) {
 					System.out.println("This university is already in the list!");
-					return;
+					return "This university is already in the list!";
 				}
 			}
 			this.savedUniversityList.add(school);
-		}
+			return "Saved successfully!";
+		} 
+		return "The student name is not correct!";
 	}
 	
 	/**
@@ -56,12 +59,31 @@ public class UserSchool {
 		}
 	}
 	
-	/*
+	/**
 	 * 
 	 */
 	public void showSaveSchoolList() {
 		for(University u : this.savedUniversityList) {
 			System.out.println(u.getName());
 		}
+	}
+	
+	/**
+	 * get the last university's name
+	 * @return
+	 */
+	public String getLastSchool() {
+		University u = null;
+		int l = this.savedUniversityList.size();
+		u = this.savedUniversityList.get(l-1);
+		return u.getName();
+	}
+	
+	/**
+	 * get student's username
+	 * @return
+	 */
+	public String getUserName() {
+		return this.student.getUserName();
 	}
 }
