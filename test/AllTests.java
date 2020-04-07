@@ -18,7 +18,7 @@ import FunctionalityTests.*;
 @RunWith(Suite.class)
 @SuiteClasses({DBControllerTest.class,DriverTest.class,StudentFunctionalityControllerTest.class,StudentInteractionTest.class,
 	StudentTest.class,UniversityControllerTest.class,UniversityTest.class, UserSchoolTest.class,AccountControllerTest.class,
-	UserInteractionTest.class,UserTest.class,LoginTest.class})
+	UserInteractionTest.class,UserTest.class,LoginTest.class,LogoutTest.class})
 public class AllTests {
 
 }
