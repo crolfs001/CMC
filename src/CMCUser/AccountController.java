@@ -4,6 +4,8 @@
  */
 package CMCUser;
 
+import java.util.ArrayList;
+
 import CMCAdmin.DBController;
 
 /**
@@ -146,6 +148,14 @@ public class AccountController {
 		else {
 			return "Invalid character. N = Inactive account. Y = Active Account";
 		}
+	}
+	
+	/**
+	 * gets a list of users for the admin to look at
+	 * @return the list of users
+	 */
+	public ArrayList<User> viewListofUsers() {
+		return database.getUserList();
 	}
 
 }

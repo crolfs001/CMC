@@ -13,11 +13,12 @@ import CMCUniversity.UserSchoolTest;
 import CMCUser.AccountControllerTest;
 import CMCUser.UserInteractionTest;
 import CMCUser.UserTest;
+import FunctionalityTests.*;
 
 @RunWith(Suite.class)
 @SuiteClasses({DBControllerTest.class,DriverTest.class,StudentFunctionalityControllerTest.class,StudentInteractionTest.class,
 	StudentTest.class,UniversityControllerTest.class,UniversityTest.class, UserSchoolTest.class,AccountControllerTest.class,
-	UserInteractionTest.class,UserTest.class})
+	UserInteractionTest.class,UserTest.class,LoginTest.class})
 public class AllTests {
 
 }
