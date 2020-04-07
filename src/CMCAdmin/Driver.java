@@ -269,7 +269,7 @@ public class Driver {
 //		//run addSchoolTester
 //		testDriver.addSchoolTester();
 //		//run ViewStudentInfoTester6s
-//		testDriver.ViewStudentInfoTester();		
+//		testDriver.ViewStudentInfoTester();	A2`1 5		
 		
 //		//use to find specific user info from database
 //		DBController database = new DBController();

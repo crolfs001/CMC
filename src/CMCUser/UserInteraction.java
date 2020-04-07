@@ -118,6 +118,14 @@ public class UserInteraction {
 		return universityController.getTopFiveClosestSchool(universityName);
 	}
 
+	/**
+	 * returns the list of users for the admin to see
+	 * @returns the list of all users
+	 */
+	public ArrayList<User> viewListofUsers() {
+		ArrayList<User> studentList = accountController.viewListofUsers();
+		return studentList;
+	}
 	
 	
 }
