@@ -1,0 +1,39 @@
+package jUnitTesters;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import CMCClasses.ViewSavedSchools;
+import junit.framework.Assert;
+
+public class ViewSavedSchoolTest {
+	private List<String> savedSchools = new ArrayList<String>();
+	
+	@Before
+	public void setUp() throws Exception {
+		
+		this.savedSchools.add("SJU");
+		
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testEmpty() {
+		Assert.assertNull(ViewSavedSchools.emptySchoolList());
+		
+	}
+	@Test
+	public void testContains() {
+		
+		Assert.assertEquals(ViewSavedSchools.containsSchoolList(),this.savedSchools);
+}
+}
