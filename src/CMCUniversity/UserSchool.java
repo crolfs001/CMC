@@ -31,20 +31,9 @@ public class UserSchool {
 	 * @return 
 	 */
 	public String addSchool(User user, University uni) {
-		/*String outputmessage = "";
+		String outputmessage = "";
 		outputmessage = this.database.updateSavedUniversityList(user, uni);
-		return outputmessage;*/
-		if(user.getUserName().equals(this.student.getUserName())) {
-			for(University u : this.savedUniversityList) {
-				if(u.getName().equals(uni.getName())) {
-					System.out.println("This university is already in the list!");
-					return "This university is already in the list!";
-				}
-			}
-			this.savedUniversityList.add(uni);
-			return "Saved successfully!";
-		} 
-		return "The student name is not correct!";
+		return outputmessage;
 	}
 	
 	/**

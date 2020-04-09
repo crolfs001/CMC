@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import CMCUniversity.University;
 import CMCUser.AccountController;
 import CMCUser.User;
 //import junit.framework.Assert;
@@ -44,7 +45,6 @@ public class DBControllerTest {
 
 	
 	@Test
-	
 	public void testUpdateUser() {
 		//change first name of a user
 		String u = "juser";
@@ -62,9 +62,13 @@ public class DBControllerTest {
 		//change password of a user
 		user.setPassword("Password");
 		Assert.assertEquals("Password", user3.getPassword());
-		
-		
-		
 	}
 
+	@Test
+	public void testgetSchool() {
+		String un = "ABILENE CHRISTIAN UNIVERSITY";
+		String un1 = "CSBSJU";
+		Assert.assertEquals("This university is in database list", "ABILENE CHRISTIAN UNIVERSITY", database.getSchool(un).getName());
+		Assert.assertEquals("This university is not in the database list", null, database.getSchool(un1));
+	}
 }

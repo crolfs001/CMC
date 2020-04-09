@@ -108,9 +108,10 @@ public class DBController {
 			if(schoolName.equals(schoolList.get(i).getName()))
 			{
 				u = schoolList.get(i);
+				return u;
 			}
 		}
-		return u;
+		return null;
 	}
 	
 	/**
@@ -128,10 +129,10 @@ public class DBController {
 		message = "Saved successfully!";	
 		}
 		else if (output == 0) {
-		message = "This university is already in the list!";
+		message = "This university is already in the list or the user is invalid!";
 		}
 		else if (output == -1) {
-			message = "An error was founded.";
+			message = "An error was founded";
 		}
 		else {
 			message = "You have done some really wrong";
