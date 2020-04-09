@@ -276,9 +276,12 @@ public class Driver {
 //		AccountController accountController = new AccountController(database);
 //		UserInteraction userInteraction = new UserInteraction(accountController);
 		ArrayList<User> list = database.getUserList();
-		System.out.println(list.get(1).getUserName());
-		System.out.println(list.get(1).getPassword());
-		System.out.println(list.get(1).getStatus());
+		System.out.println(list.get(0).getFirstName());
+		System.out.println(list.get(0).getLastName());
+		System.out.println(list.get(0).getUserName());
+		System.out.println(list.get(0).getPassword());
+		System.out.println(list.get(0).getType());
+		System.out.println(list.get(0).getStatus());
 		System.out.println("--------");
 		database.showSchoolList();
 

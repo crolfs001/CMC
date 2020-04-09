@@ -31,9 +31,9 @@ public class UniversityController {
 	 * @param uniName
 	 * @return
 	 */
-	public void getSchoolName(String uniName) {
+	public University getSchoolName(String uniName) {
 		DBController db = new DBController();
-		db.getSchool(uniName);
+		return db.getSchool(uniName);
 	}
 	
 	/**

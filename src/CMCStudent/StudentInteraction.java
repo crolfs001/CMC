@@ -45,7 +45,7 @@ public class StudentInteraction extends DBController {
 	 */
 	public void pressSaveButton (String uniName) {
 		StudentFunctionalityController sfc = new StudentFunctionalityController();
-		sfc.pressSaveButton(uniName);
+		sfc.pressSaveButton(this.userName, uniName);
 	}
 
 	/**

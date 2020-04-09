@@ -5,6 +5,8 @@ package CMCStudent;
 
 import CMCUniversity.University;
 import CMCUniversity.UniversityController;
+import CMCUniversity.UserSchool;
+import CMCUser.User;
 
 /**
  * @author dmurphy001
@@ -22,10 +24,13 @@ public class StudentFunctionalityController {
 	/**
 	 * 
 	 * @param uniName the name of university
+	 * @param uniName2 
 	 */
-	public void pressSaveButton(String uniName) {
+	public void pressSaveButton(User user, String uniName) {
 		UniversityController uc = new UniversityController();
-		uc.getSchoolName(uniName);
+		UserSchool userschool = new UserSchool(user);
+		University uni = uc.getSchoolName(uniName);
+		userschool.addSchool(user, uni);
 	}
 	
 	/**

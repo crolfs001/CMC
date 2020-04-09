@@ -113,6 +113,32 @@ public class DBController {
 		return u;
 	}
 	
+	/**
+	 * update saved university list of database
+	 * @param userName
+	 * @param schoolName
+	 * @return
+	 */
+	public String updateSavedUniversityList(User user, University school) {
+		String inputName = user.getUserName();
+		String inputUniversity = school.getName();
+		String message = "";
+		int output = database.user_saveSchool(inputName, inputUniversity);
+		if (output == 1) {
+		message = "Saved successfully!";	
+		}
+		else if (output == 0) {
+		message = "This university is already in the list!";
+		}
+		else if (output == -1) {
+			message = "An error was founded.";
+		}
+		else {
+			message = "You have done some really wrong";
+		}
+		return message;
+	}
+	
 	/** Sets the login status for a User object in the userList
 	 * @param user the User object whose status we are updating
 	 * @param loginStatus the login status for the User

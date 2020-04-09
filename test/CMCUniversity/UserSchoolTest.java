@@ -22,8 +22,8 @@ public class UserSchoolTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		User user1 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
-		this.testUserSchool = new UserSchool(user1);
+		User user0 = new User("Charlie", "Rolfs", "juser", "user", 'u'); 
+		this.testUserSchool = new UserSchool(user0);
 	}
 
 	/**
@@ -31,19 +31,25 @@ public class UserSchoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		User user1 = new User("Charlie", "Rolfs", "juser", "user", 'u'); 
+		University uni = new University("CSBSJU", "MN", "Colegeville", "Private", 3000, 0.50, 1.00, 1.00,1.00, 1.00, 20, 0.5, 0.5, 10, 10, 10);
+		this.testUserSchool.removeSchool(user1, uni);
+		this.testUserSchool.showSaveSchoolList();
 	}
 	
 	@Test
 	public void testaddSchool() {
 		University uni = new University("CSBSJU", "MN", "Colegeville", "Private", 3000, 0.50, 1.00, 1.00,1.00, 1.00, 20, 0.5, 0.5, 10, 10, 10);
-		String outputmessage = this.testUserSchool.addSchool("hwang003", uni);
+		User user1 = new User("Charlie", "Rolfs", "juser", "user", 'u'); 
+		User user2 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
+		String outputmessage = this.testUserSchool.addSchool(user1, uni);
 		Assert.assertEquals("The last school's name is 'CSBSJU'", "CSBSJU", this.testUserSchool.getLastSchool());
 		Assert.assertEquals("This school is not exited in the list", "Saved successfully!", outputmessage);
 		
-		outputmessage = this.testUserSchool.addSchool("htwang021", uni);
+		outputmessage = this.testUserSchool.addSchool(user2, uni);
 		Assert.assertEquals("This user name is not correct", "The student name is not correct!", outputmessage);
 		
-		outputmessage = this.testUserSchool.addSchool("hwang003", uni);
+		outputmessage = this.testUserSchool.addSchool(user1, uni);
 		Assert.assertEquals("This university is exited", "This university is already in the list!", outputmessage);
 	}
 

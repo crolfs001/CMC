@@ -3,6 +3,8 @@
  */
 package CMCUniversity;
 import java.util.ArrayList;
+
+import CMCAdmin.DBController;
 import CMCUser.User;
 
 /**
@@ -13,6 +15,7 @@ public class UserSchool {
 
 	private ArrayList<University> savedUniversityList;
 	private User student;
+	private DBController database;
 	/**
 	 * UserSchool Constructor
 	 */
@@ -23,19 +26,22 @@ public class UserSchool {
 
 	/**
 	 * add school to savedschools List
-	 * @param school the university
-	 * @param studentName the name of a student
+	 * @param object the university
+	 * @param user the name of a student
 	 * @return 
 	 */
-	public String addSchool(String studentName, University school) {
-		if(studentName.equals(this.student.getUserName())) {
+	public String addSchool(User user, University uni) {
+		/*String outputmessage = "";
+		outputmessage = this.database.updateSavedUniversityList(user, uni);
+		return outputmessage;*/
+		if(user.getUserName().equals(this.student.getUserName())) {
 			for(University u : this.savedUniversityList) {
-				if(u.getName().equals(school.getName())) {
+				if(u.getName().equals(uni.getName())) {
 					System.out.println("This university is already in the list!");
 					return "This university is already in the list!";
 				}
 			}
-			this.savedUniversityList.add(school);
+			this.savedUniversityList.add(uni);
 			return "Saved successfully!";
 		} 
 		return "The student name is not correct!";
@@ -46,12 +52,12 @@ public class UserSchool {
 	 * @param school the university
 	 * @param studentName the name of a student
 	 */
-	public void removeSchool(String studentName, University school) {
-		if(studentName.equals(this.student.getUserName())) {
+	public void removeSchool(User user, University school) {
+		if(user.getUserName().equals(this.student.getUserName())) {
 			for(University u : this.savedUniversityList) {
 				if(u.getName().equals(school.getName())) {
 					this.savedUniversityList.remove(u);
-					System.out.println("This university is already removed!");
+					System.out.println("This university is removed!");
 					return;
 				}
 			}
