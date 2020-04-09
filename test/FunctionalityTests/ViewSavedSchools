@@ -1,0 +1,50 @@
+/**
+ * 
+ */
+package CMCClasses;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author lyang001
+ *
+ */
+public class ViewSavedSchools {
+
+	
+	
+	/**
+	 * 
+	 */
+	public  ViewSavedSchools() {
+	}
+		public static List<String> emptySchoolList(){
+			List<String> emptySchoolList = new ArrayList<String>();
+			emptySchoolList.add("");
+			boolean ans = emptySchoolList.contains("");
+			if (ans) 
+			return null;
+			else
+			return emptySchoolList;
+		}
+			
+	public static List<String> containsSchoolList(){
+		List<String> oneSchoolList = new ArrayList<String>();
+				oneSchoolList.add("SJU");
+				boolean ans = oneSchoolList.contains("SJU");
+				if (!ans)
+				return null;
+				else
+				return oneSchoolList;
+				
+	}
+	
+			
+	
+	
+		// TODO Auto-generated constructor stub
+		
+	
+	
+}
