@@ -66,5 +66,10 @@ public class DBControllerTest {
 		
 		
 	}
+	
+	@Test
+	public void testFindByUsername() {
+		
+	}
 
 }
