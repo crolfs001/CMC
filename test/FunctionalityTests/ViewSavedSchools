@@ -1,7 +1,4 @@
-/**
- * 
- */
-package CMCClasses;
+package FunctionalityTests;
 
 import java.util.ArrayList;
 import java.util.List;
