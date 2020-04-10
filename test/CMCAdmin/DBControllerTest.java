@@ -69,7 +69,12 @@ public class DBControllerTest {
 	
 	@Test
 	public void testFindByUsername() {
-		
+		//user is inside the database
+		String user1Username = "juser";
+		Assert.assertEquals("username is in the database", "juser" ,database.findByUsername(user1Username).getUserName());
+		//user is not inside the database
+		String user2Username = "not in the database";
+		Assert.assertEquals("username not in the database", null, database.findByUsername(user2Username));
 	}
 
 }
