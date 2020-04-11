@@ -100,6 +100,32 @@ public class DBControllerTest {
 	
 	@Test
 	public void testdeleteUser() {
+		//try to delete null user
+		User nullUser = null;
+		Assert.assertEquals("trying to delete a null user","Error: cannot remove a null user from the database", database.deleteUser(nullUser));
+				
+		//successfully delete a new user
+		User newUser = new User("Devin", "Murphy", "dmurphy0091", "myPassword", 'u');
+		database.createUser(newUser);
+		Assert.assertEquals("successfully deleting a user", "User was successfully deleted", database.deleteUser(newUser));
+				
+		//try to delete a user that is not in the database
+		Assert.assertEquals("trying to delete a user not in the database", "Error: cannot delete that user since that user doesn't exist", database.deleteUser(newUser));
+		database.deleteUser(newUser);
+	}
+	
+	@Test
+	public void testSetLoginStatus() {
+		//default login status is false
+		User newUser = new User("Devin", "Murphy", "dmurphy0091", "myPassword", 'u');
+		database.createUser(newUser);
 		
+		//login status from false to true, returns true if it was successfully changed
+		Assert.assertEquals("set login status from false to true", true, database.setLoginStatus(newUser,  true));
+		
+		//login status from true to false, returns true if it was successfully changed
+		Assert.assertEquals("set login status from true to false", true, database.setLoginStatus(newUser,  false));
+		
+		database.deleteUser(newUser);
 	}
 }
