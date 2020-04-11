@@ -431,4 +431,28 @@ public class DBController {
 		}
 		return output;		
 	}
+	
+	/**
+	 * deletes a user from the database
+	 * @param user the user to be removed
+	 */
+	public String deleteUser(User user) {
+		String output = "";
+		//try to delete a null user
+		if (user == null) {
+			output = "Error: cannot remove a null user from the database";
+		}
+		//try to delete user who doesn't exist
+		else if (this.findByUsername(user.getUserName()) == null) {
+			output = "Error: cannot delete that user since that user doesn't exist";
+		}
+		//otherwise successful deletion of a user
+		else {
+			this.userList.remove(user);
+			this.database.user_deleteUser(user.getUserName());
+			output = "User was successfully deleted";
+		}
+		
+		return output;
+	}
 }

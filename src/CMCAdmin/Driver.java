@@ -256,14 +256,23 @@ public class Driver {
 		UniversityController universityController = new UniversityController(database);
 		UserInteraction userInteraction = new UserInteraction(accountController, universityController);
 		
-		//runs loginTester
-		testDriver.loginTester(database, accountController, userInteraction);
-		//runs logoutTester
-		testDriver.logoutTester(database, accountController, userInteraction);
-		//runs topFiveRecommendedSchoolTester
-		testDriver.viewAndEditProfileTester(database, accountController, userInteraction);
-		testDriver.accountStatusTester(database, accountController, userInteraction);
+		User newUser = new User("Devin", "Murphy", "dmurphy001", "myPassword", 'u');
+		database.createUser(newUser);
+		if (newUser.equals(database.findByUsername(newUser.getUserName()))) {
+			System.out.println("Error: user with that username already exists");
+		}
+		else {
+			System.out.println("hi");
+		}
 		
+//		//runs loginTester
+//		testDriver.loginTester(database, accountController, userInteraction);
+//		//runs logoutTester
+//		testDriver.logoutTester(database, accountController, userInteraction);
+//		//runs topFiveRecommendedSchoolTester
+//		testDriver.viewAndEditProfileTester(database, accountController, userInteraction);
+//		testDriver.accountStatusTester(database, accountController, userInteraction);
+//		
 //		//runs viewAndEditTester
 //		testDriver.viewAndEditProfileTester();
 //		//run addSchoolTester
@@ -275,15 +284,15 @@ public class Driver {
 //		DBController database = new DBController();
 //		AccountController accountController = new AccountController(database);
 //		UserInteraction userInteraction = new UserInteraction(accountController);
-		ArrayList<User> list = database.getUserList();
-		System.out.println(list.get(0).getFirstName());
-		System.out.println(list.get(0).getLastName());
-		System.out.println(list.get(0).getUserName());
-		System.out.println(list.get(0).getPassword());
-		System.out.println(list.get(0).getType());
-		System.out.println(list.get(0).getStatus());
-		System.out.println("--------");
-		database.showSchoolList();
+//		ArrayList<User> list = database.getUserList();
+//		System.out.println(list.get(0).getFirstName());
+//		System.out.println(list.get(0).getLastName());
+//		System.out.println(list.get(0).getUserName());
+//		System.out.println(list.get(0).getPassword());
+//		System.out.println(list.get(0).getType());
+//		System.out.println(list.get(0).getStatus());
+//		System.out.println("--------");
+//		database.showSchoolList();
 
 		
 	}

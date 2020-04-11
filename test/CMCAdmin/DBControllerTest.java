@@ -81,4 +81,25 @@ public class DBControllerTest {
 		Assert.assertEquals("This university is in database list", "ABILENE CHRISTIAN UNIVERSITY", database.getSchool(un).getName());
 		Assert.assertEquals("This university is not in the database list", null, database.getSchool(un1));
 	}
+	
+	@Test
+	public void testcreateUser() {
+		//try to add null user
+		User nullUser = null;
+		Assert.assertEquals("trying to add a null user","Error: cannot add null User to database", database.createUser(nullUser));
+		
+		//successfully add a new user
+		User newUser = new User("Devin", "Murphy", "dmurphy002", "myPassword", 'u');
+		Assert.assertEquals("successfully creating a new user", "User was successfully added to the database", database.createUser(newUser));
+		
+		//try to add user with a username that is already used
+		Assert.assertEquals("trying to add a user with a username that is already in use", "Error: user with that username already exists", database.createUser(newUser));
+		database.deleteUser(newUser);
+		
+	}
+	
+	@Test
+	public void testdeleteUser() {
+		
+	}
 }
