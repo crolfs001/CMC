@@ -408,4 +408,27 @@ public class DBController {
 	public void deactiveUser(User user) {
 		user.setDeactivatedStatus(user.getStatus());
 	}
+	
+	/**
+	 * adds a new user to the database
+	 * @param user the user we are adding to the database
+	 */
+	public String createUser(User user) {
+		String output = "";
+		//trying to add null user
+		if (user == null) {
+			output = "Error: cannot add null User to database";
+		}
+		//trying to add user with a username already in user
+		else if (user.equals(this.findByUsername(user.getUserName()))) {
+			output = "Error: user with that username already exists";
+		}
+		//otherwise we add the user
+		else {
+			this.userList.add(user);
+			this.database.user_addUser(user.getFirstName(), user.getLastName(), user.getUserName(), user.getPassword(), user.getType());
+			output = "User was successfully added to the database";
+		}
+		return output;		
+	}
 }
