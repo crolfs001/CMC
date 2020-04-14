@@ -369,13 +369,13 @@ public class DBController {
 		String message = "";
 		int output = database.user_removeSchool(inputName, inputUniversity);
 		if (output == 1) {
-		message = "Everything was fine.";	
+		message = "School have been remove.";	
 		}
 		else if (output == 0) {
 		message = "School was not in the list";
 		}
 		else if (output == -1) {
-			message = "An error was founded.";
+			message = "An error was found.";
 		}
 		else {
 			message = "You have done some really wrong";
