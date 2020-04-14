@@ -30,7 +30,16 @@ public class ViewSavedSchoolTest {
 			return null;
 			else
 			return emptySchoolList;
-		
+			
+		public static List<String> containsSchoolList(){
+				List<String> oneSchoolList = new ArrayList<String>();
+						oneSchoolList.add("SJU");
+						boolean ans = oneSchoolList.contains("SJU");
+						if (!ans)
+						return null;
+						else
+						return oneSchoolList;
+						
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -44,8 +53,8 @@ public class ViewSavedSchoolTest {
 	public void testContains() {
 		
 		ArrayList<University> schoolList = UniversityController.showSchool();
-		ArrayList<User> actualUserList = UniversityController.searchSchool();
-		Assert.assertEquals("List of saved schools", schoolList, retrievedUserList);
+		ArrayList<University> fullSchoolList = containsSchoolList.showSchool();
+		Assert.assertEquals("List of saved schools", schoolList, fullSchoolList());
 	}
 }
 }
