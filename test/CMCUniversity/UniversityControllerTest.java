@@ -21,7 +21,8 @@ public class UniversityControllerTest {
 	@Before
 	public void setUp() throws Exception {
 	}
-
+	List<University> universitys;
+	universitys.add("SJU");
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -30,8 +31,11 @@ public class UniversityControllerTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testShowSchools() {
+		String list = UniversityController.showSchools(Universitys);
+		Assert.assertEquals("SJU",list);
+		
+		
 	}
 
 }
