@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import CMCClasses.ViewSavedSchools;
+
 import junit.framework.Assert;
 
 public class ViewSavedSchoolTest {
@@ -17,11 +17,20 @@ public class ViewSavedSchoolTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		DBController database = new DBController();
+		AccountController accountController = new AccountController(database);
+		UniversityController universityController = new UniversityController(database);
+		UserInteraction userInteraction = new UserInteraction(accountController, universityController);
 		
-		this.savedSchools.add("SJU");
+		public static List<String> emptySchoolList(){
+			List<String> emptySchoolList = new ArrayList<String>();
+			emptySchoolList.add("");
+			boolean ans = emptySchoolList.contains("");
+			if (ans) 
+			return null;
+			else
+			return emptySchoolList;
 		
-	}
-
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -34,6 +43,9 @@ public class ViewSavedSchoolTest {
 	@Test
 	public void testContains() {
 		
-		Assert.assertEquals(ViewSavedSchools.containsSchoolList(),this.savedSchools);
+		ArrayList<University> schoolList = UniversityController.showSchool();
+		ArrayList<User> actualUserList = UniversityController.searchSchool();
+		Assert.assertEquals("List of saved schools", schoolList, retrievedUserList);
+	}
 }
 }
