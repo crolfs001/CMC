@@ -378,7 +378,7 @@ public class DBController {
 			message = "An error was found.";
 		}
 		else {
-			message = "You have done some really wrong";
+			message = "more than one school was deleted";
 		}
 		return message;
 	}
