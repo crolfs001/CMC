@@ -177,7 +177,6 @@ public class Driver {
 		System.out.println(this.uni.getName());
 		UserSchool t1 = new UserSchool(user1);
 		t1.addSchool(user1, uni);
-		t1.showSaveSchoolList();
 		}
 		catch(NullPointerException e) {
 			System.out.println("NullPointerException thrown!");

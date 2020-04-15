@@ -64,7 +64,7 @@ public class UniversityController {
 	* @Return return the list of universities
 	*/
 	public void showSchools(List<University> universitys) {
-		return ;
+		return database.showSchoolList();
 	}
 	
 	/**
@@ -80,8 +80,9 @@ public class UniversityController {
 	 * @param Remove saved school from  student saved school
 	 */
 	public String removeSavedSchool(User n, University u) {
-	 database.removeSavedSchool(n, u);
-	 return "The save school have been reomved.";
+		database.removeSavedSchool(n, u);
+		String message = "The save school have been removed";
+		return message;
 	}
 	
 }

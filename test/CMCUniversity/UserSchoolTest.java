@@ -51,5 +51,31 @@ public class UserSchoolTest {
 		outputmessage = this.testUserSchool.addSchool(user1, uni);
 		Assert.assertEquals("This university is exited", "An error was found!", outputmessage);
 	}
+	
+	@Test
+	public void removeSchool() {
+		University uni1 = new University("CSBSJU", "MN", "Colegeville", "Private", 3000, 0.50, 1.00, 1.00,1.00, 1.00, 20, 0.5, 0.5, 10, 10, 10);
+		University uni2 = new University("CSB", "DC", "Colegeville", "public", 3000, 0.50, 1.00, 1.00,1.00, 1.00, 20, 0.5, 0.5, 10, 10, 10);
+		User user1 = new User("Charlie", "Rolfs", "juser", "user", 'u'); 
+		User user2 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
+		
+		this.testUserSchool.addSchool(user1, uni1);
+		String message = this.testUserSchool.removeSchool(user1, uni1);
+		Assert.assertEquals("The school have been remove from student saved list", "This University is remove", message);
+		
+		this.testUserSchool.addSchool(user1, uni1);
+		message = this.testUserSchool.removeSchool(user1, uni2);
+		Assert.assertEquals("The school isn't on the user saved list", "school or user was not found", message);
+		
+		this.testUserSchool.addSchool(user1, uni1);
+		message = this.testUserSchool.removeSchool(user2, uni1);
+		Assert.assertEquals("The user is not found", "school or user was not found", message);
+		
+		this.testUserSchool.addSchool(user1, uni1);
+		message = this.testUserSchool.removeSchool(user2, uni2);
+		Assert.assertEquals("The school or user was not found", "school or user was not found", message);	
+
+	}
+	
 
 }

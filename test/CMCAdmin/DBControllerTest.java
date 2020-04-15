@@ -5,6 +5,8 @@ package CMCAdmin;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,6 +15,7 @@ import org.junit.Test;
 import CMCUniversity.University;
 import CMCUser.AccountController;
 import CMCUser.User;
+import CMCUser.UserInteraction;
 //import junit.framework.Assert;
 
 /**
@@ -22,7 +25,8 @@ import CMCUser.User;
 public class DBControllerTest {
 	private DBController database;
 	private AccountController ac;
-	private User u;
+	private User user;
+	private UserInteraction ui;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -40,10 +44,15 @@ public class DBControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+<<<<<<< HEAD
 		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
 		String un = "ABILENE CHRISTIAN UNIVERSITY";
 		University uni = database.getSchool(un);
 		database.removeSavedSchool(user0, uni);
+=======
+		ac.logout();
+		
+>>>>>>> 397a8575a42bca16cfa2e7ec4fab756f3ac6b8af
 	}
 
 
@@ -52,7 +61,7 @@ public class DBControllerTest {
 	public void testUpdateUser() {
 		//change first name of a user
 		String u = "juser";
-		User user = database.findByUsername(u);
+		user = database.findByUsername(u);
 		user.setFirstName("Bill");
 		database.updateUser(user);
 		User user2 = database.findByUsername(u);
@@ -93,7 +102,7 @@ public class DBControllerTest {
 		Assert.assertEquals("trying to add a null user","Error: cannot add null User to database", database.createUser(nullUser));
 		
 		//successfully add a new user
-		User newUser = new User("Devin", "Murphy", "dmurphy002", "myPassword", 'u');
+		User newUser = new User("Devin", "Murphy", "dmurphy00222", "myPassword", 'u');
 		Assert.assertEquals("successfully creating a new user", "User was successfully added to the database", database.createUser(newUser));
 		
 		//try to add user with a username that is already used
@@ -134,6 +143,7 @@ public class DBControllerTest {
 	}
 	
 	@Test
+<<<<<<< HEAD
 	public void testupdateSavedUniversityList() {
 		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
 		User user1 = new User("testName", "testName", "testName", "fakePassword", 'u'); 
@@ -145,4 +155,23 @@ public class DBControllerTest {
 
 		Assert.assertEquals("This user name is not correct", "The user is onvalid or the university is already in the list!", database.updateSavedUniversityList(user1, uni));
 	}
+=======
+	public void getTopFiveClosestSchool() {
+		String schoolName = database.getSchoolList().get(0).getName();
+		
+		ArrayList<String>  calculated5ClosestSchools = database.getTopFiveClosestSchool(schoolName);
+		ArrayList<String> actualClosestSchools = database.getTopFiveClosestSchool(schoolName);
+		
+		Assert.assertEquals("Top Five Recommended Schools for the first School in the list", actualClosestSchools, calculated5ClosestSchools);
+	}
+	
+	@Test
+	public void testGetUserList() {
+		ArrayList<User> userList = database.getUserList();
+		ArrayList<User> actualUserList = database.getUserList();
+		
+		Assert.assertEquals("Successful retrieval of the user list", actualUserList, userList);
+	}
+
+>>>>>>> 397a8575a42bca16cfa2e7ec4fab756f3ac6b8af
 }

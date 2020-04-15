@@ -84,11 +84,21 @@ public class UserInteraction {
 		return outputMessage;
 	}
 	
+	/**
+	 * activates a users account
+	 * @param takes a user name of type string
+	 * @return a boolean showing the user is logged out
+	 */
 	public String activateAccount(String username) {
 		String outputMessage = accountController.activateAccount(username);
 		
 		return outputMessage;
 	}
+	/**
+	 * deactivates a users account
+	 * @param takes a user name of type string
+	 * @return a boolean showing the user is logged out
+	 */
 	public String deactivateAccount(String username) {
 		String outputMessage = accountController.deactivateAccount(username);
 		
@@ -125,6 +135,14 @@ public class UserInteraction {
 	public ArrayList<User> viewListofUsers() {
 		ArrayList<User> studentList = accountController.viewListofUsers();
 		return studentList;
+	}
+	/**
+	 * creates a new user object
+	 * @param user the user we are creating and adding to the database
+	 * @return output the string containing if the user was successfully added
+	 */
+	public String createUser(User user) {
+		return accountController.createUser(user);
 	}
 	
 	
