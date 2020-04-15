@@ -43,13 +43,13 @@ public class UserSchoolTest {
 		User user1 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u');
 		User user2 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
 		String outputmessage = this.testUserSchool.addSchool(user1, uni);
-		Assert.assertEquals("Saved successfully", "Saved successfully!", outputmessage);
+		Assert.assertEquals("Saved successfully", "Saved successfully!", outputmessage); //valid student and university
 		
 		outputmessage = this.testUserSchool.addSchool(user2, uni);
-		Assert.assertEquals("This user name is not correct", "The user is invalid!", outputmessage);
+		Assert.assertEquals("This user name is not correct", "The user is invalid or the university is already in the list!", outputmessage);//invalid student and valid university
 		
 		outputmessage = this.testUserSchool.addSchool(user1, uni);
-		Assert.assertEquals("This university is exited", "An error was found!", outputmessage);
+		Assert.assertEquals("This university is exited", "The user is invalid or the university is already in the list!", outputmessage);//valid student and university, but is already in the list
 	}
 	
 	@Test

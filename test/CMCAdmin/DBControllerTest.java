@@ -44,15 +44,11 @@ public class DBControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-<<<<<<< HEAD
 		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
 		String un = "ABILENE CHRISTIAN UNIVERSITY";
 		University uni = database.getSchool(un);
 		database.removeSavedSchool(user0, uni);
-=======
 		ac.logout();
-		
->>>>>>> 397a8575a42bca16cfa2e7ec4fab756f3ac6b8af
 	}
 
 
@@ -143,19 +139,19 @@ public class DBControllerTest {
 	}
 	
 	@Test
-<<<<<<< HEAD
 	public void testupdateSavedUniversityList() {
 		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
 		User user1 = new User("testName", "testName", "testName", "fakePassword", 'u'); 
 		String un = "ABILENE CHRISTIAN UNIVERSITY";
 		University uni = database.getSchool(un);
-		Assert.assertEquals("Saved successfully", "Saved successfully!", database.updateSavedUniversityList(user0, uni));
+		Assert.assertEquals("Saved successfully", "Saved successfully!", database.updateSavedUniversityList(user0, uni)); //valid student and university
 		
-		Assert.assertEquals("This university is exited in savedUniversity List", "The user is onvalid or the university is already in the list!", database.updateSavedUniversityList(user0, uni));
+		Assert.assertEquals("This university is exited in savedUniversity List", "The user is invalid or the university is already in the list!", database.updateSavedUniversityList(user0, uni)); //valid student and university, but is already in the list
 
-		Assert.assertEquals("This user name is not correct", "The user is onvalid or the university is already in the list!", database.updateSavedUniversityList(user1, uni));
+		Assert.assertEquals("This user name is not correct", "The user is invalid or the university is already in the list!", database.updateSavedUniversityList(user1, uni)); // invalid user and valid university
 	}
-=======
+
+	@Test
 	public void getTopFiveClosestSchool() {
 		String schoolName = database.getSchoolList().get(0).getName();
 		
@@ -172,6 +168,4 @@ public class DBControllerTest {
 		
 		Assert.assertEquals("Successful retrieval of the user list", actualUserList, userList);
 	}
-
->>>>>>> 397a8575a42bca16cfa2e7ec4fab756f3ac6b8af
 }

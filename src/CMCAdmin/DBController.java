@@ -127,10 +127,8 @@ public class DBController {
 		int output = database.user_saveSchool(inputName, inputUniversity);
 		if (output == 1) {
 			message = "Saved successfully!";	
-		} else if (output == 0) {
-			message = "The user is onvalid or the university is already in the list!";
 		} else {
-			message = "An error was found!";
+			message = "The user is invalid or the university is already in the list!";
 		}
 
 		return message;

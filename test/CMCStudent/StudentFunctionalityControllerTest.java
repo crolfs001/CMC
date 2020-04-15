@@ -45,11 +45,11 @@ public class StudentFunctionalityControllerTest {
 		University uni = this.database.getSchool("ARIZONA STATE");
 		User user1 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u');
 		User user2 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
-		Assert.assertEquals("Saved successfully", "Saved successfully!", this.testsfc.pressSaveButton(user1, uni.getName()));
+		Assert.assertEquals("Saved successfully", "Saved successfully!", this.testsfc.pressSaveButton(user1, uni.getName())); //valid student and university
 		
-		Assert.assertEquals("This user name is not correct", "The user is invalid!", this.testsfc.pressSaveButton(user2, uni.getName()));
+		Assert.assertEquals("This user name is not correct", "The user is invalid or the university is already in the list!", this.testsfc.pressSaveButton(user2, uni.getName()));//invalid student and valid university
 		
-		Assert.assertEquals("This university is exited", "An error was found!", this.testsfc.pressSaveButton(user1, uni.getName()));
+		Assert.assertEquals("This university is exited", "The user is invalid or the university is already in the list!", this.testsfc.pressSaveButton(user1, uni.getName()));//valid student and university, but is already in the list
 	}
 
 }
