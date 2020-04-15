@@ -64,7 +64,7 @@ public class UniversityController {
 	* @Return return the list of universities
 	*/
 	public void showSchools(List<University> universitys) {
-		return database.showSchoolList();
+		
 	}
 	
 	/**
