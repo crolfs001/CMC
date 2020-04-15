@@ -84,11 +84,21 @@ public class UserInteraction {
 		return outputMessage;
 	}
 	
+	/**
+	 * activates a users account
+	 * @param takes a user name of type string
+	 * @return a boolean showing the user is logged out
+	 */
 	public String activateAccount(String username) {
 		String outputMessage = accountController.activateAccount(username);
 		
 		return outputMessage;
 	}
+	/**
+	 * deactivates a users account
+	 * @param takes a user name of type string
+	 * @return a boolean showing the user is logged out
+	 */
 	public String deactivateAccount(String username) {
 		String outputMessage = accountController.deactivateAccount(username);
 		

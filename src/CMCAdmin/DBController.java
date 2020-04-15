@@ -392,19 +392,15 @@ public class DBController {
 	}
 
 
-
+/**
+ * updates the users info to the database
+ * @param user is the user that's account info will be updated
+ */
 	public void updateUser(User user) {
 		database.user_editUser(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getType(), user.getStatus());
 			
 		
 	}
 	
-	public void activateUser(User user) {
-		user.setActivatedStatus(user.getStatus());
-	}
-		
-		
-	public void deactiveUser(User user) {
-		user.setDeactivatedStatus(user.getStatus());
-	}
+
 }

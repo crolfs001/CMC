@@ -108,6 +108,14 @@ public class AccountController {
 		 	return this.user;
 	}
 
+	/**
+	 * allows user to edit account based off of below info. Does not change username because username cannot be changed
+	 * @param userName
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 * @return
+	 */
 	public String updateProfile(String userName, String firstName, String lastName, String password) {
 		this.user.setFirstName(firstName);
 		this.user.setLastName(lastName);
@@ -115,7 +123,11 @@ public class AccountController {
 		database.updateUser(this.user);
 		return "Updated";
 	}
-	
+	/**
+	 * 
+	 * @param username the username of the account to activate status
+	 * @return Strings that correspond with what the action was
+	 */
 	public String activateAccount(String username) {
 		user = database.findByUsername(username);
 		
@@ -133,6 +145,11 @@ public class AccountController {
 		}
 	}
 	
+	/**
+	 * deactivates the account status of the user based off the user's username 
+	 * @param username
+	 * @return
+	 */
 	public String deactivateAccount(String username) {
 		user = database.findByUsername(username);
 		
