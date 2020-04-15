@@ -403,9 +403,6 @@ public class DBController {
 		
 	}
 	
-<<<<<<< HEAD
-
-=======
 	public void activateUser(User user) {
 		user.setActivatedStatus(user.getStatus());
 	}
@@ -461,5 +458,4 @@ public class DBController {
 		
 		return output;
 	}
->>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 }
