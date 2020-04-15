@@ -9,6 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
+
 /**
  * @author crolfs001
  *
@@ -30,8 +32,15 @@ public class UserTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testSetLoginStatus() {
+		//default login status is false
+		User newUser = new User("Devin", "Murphy", "dmurphy002", "myPassword", 'u');
+		//tests setting login status from false to true
+		newUser.setLoginStatus(true);
+		Assert.assertEquals("Setting login status to true from false", true, newUser.getLoginStatus());
+		//tests setting login status from true to false
+		newUser.setLoginStatus(false);
+		Assert.assertEquals("Setting login status to false from true", false, newUser.getLoginStatus());
 	}
 
 }

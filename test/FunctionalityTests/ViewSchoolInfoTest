@@ -1,0 +1,29 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ViewSchoolInfoTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+	DBController database = new DBController();
+	AccountController accountController = new AccountController(database);
+	UniversityController universityController = new UniversityController(database);
+	UserInteraction userInteraction = new UserInteraction(accountController, universityController);
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		String university = DBController.getSchool;
+		String example = "SJU";
+		Assert.assertEquals("School: ", example, university);
+	}
+
+}

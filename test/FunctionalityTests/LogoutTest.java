@@ -19,9 +19,9 @@ public class LogoutTest {
 		AccountController accountController = new AccountController(database);
 		UniversityController universityController = new UniversityController(database);
 		UserInteraction userInteraction = new UserInteraction(accountController, universityController);
-		
-		User user1 = database.getUserList().get(0);
-		userInteraction.login(user1.getUserName(), user1.getPassword());
+			
+		User newUser = new User("Devin", "Murphy", "dmurphy009", "myPassword", 'u');
+		userInteraction.login(newUser.getUserName(), newUser.getPassword());
 		String outputMessage = userInteraction.logout();
 		Assert.assertEquals("Successful Logout", "User has been logged out successfully", outputMessage);
 	}

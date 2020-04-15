@@ -72,16 +72,19 @@ public class StudentInteraction extends DBController {
 	/*
 	 * Prompt for removing a school from a student saved school
 	 */
-	public void promptRemove(String confirmation, User n, University u) {
+	public String promptRemove(String confirmation, User n, University u) {
+		String message = "";
 		System.out.println("Would you like to remove this School from your list? (y = yes and n = no)");
 		Scanner s = new Scanner(System.in);
 		String input = s.nextLine();
 		if (input.equals("y")) {
 			universityController.removeSavedSchool(n, u);
+			message = "This school will be remove";
 		}
 		else {
-			System.out.println("This school will not be remove");
+			message = ("This school will not be remove");
 		}
+		return message;
 	}
 
 	/**

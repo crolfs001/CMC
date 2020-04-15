@@ -108,9 +108,10 @@ public class DBController {
 			if(schoolName.equals(schoolList.get(i).getName()))
 			{
 				u = schoolList.get(i);
+				return u;
 			}
 		}
-		return u;
+		return null;
 	}
 	
 	/**
@@ -128,10 +129,10 @@ public class DBController {
 		message = "Saved successfully!";	
 		}
 		else if (output == 0) {
-		message = "This university is already in the list!";
+		message = "This university is already in the list or the user is invalid!";
 		}
 		else if (output == -1) {
-			message = "An error was founded.";
+			message = "An error was founded";
 		}
 		else {
 			message = "You have done some really wrong";
@@ -368,16 +369,16 @@ public class DBController {
 		String message = "";
 		int output = database.user_removeSchool(inputName, inputUniversity);
 		if (output == 1) {
-		message = "Everything was fine.";	
+		message = "School have been remove.";	
 		}
 		else if (output == 0) {
 		message = "School was not in the list";
 		}
 		else if (output == -1) {
-			message = "An error was founded.";
+			message = "An error was found.";
 		}
 		else {
-			message = "You have done some really wrong";
+			message = "more than one school was deleted";
 		}
 		return message;
 	}
@@ -402,5 +403,63 @@ public class DBController {
 		
 	}
 	
+<<<<<<< HEAD
 
+=======
+	public void activateUser(User user) {
+		user.setActivatedStatus(user.getStatus());
+	}
+		
+		
+	public void deactiveUser(User user) {
+		user.setDeactivatedStatus(user.getStatus());
+	}
+	
+	/**
+	 * adds a new user to the database
+	 * @param user the user we are adding to the database
+	 */
+	public String createUser(User user) {
+		String output = "";
+		//trying to add null user
+		if (user == null) {
+			output = "Error: cannot add null User to database";
+		}
+		//trying to add user with a username already in user
+		else if (user.equals(this.findByUsername(user.getUserName()))) {
+			output = "Error: user with that username already exists";
+		}
+		//otherwise we add the user
+		else {
+			this.userList.add(user);
+			this.database.user_addUser(user.getFirstName(), user.getLastName(), user.getUserName(), user.getPassword(), user.getType());
+			output = "User was successfully added to the database";
+		}
+		return output;		
+	}
+	
+	/**
+	 * deletes a user from the database
+	 * @param user the user to be removed
+	 */
+	public String deleteUser(User user) {
+		String output = "";
+		//try to delete a null user
+		if (user == null) {
+			output = "Error: cannot remove a null user from the database";
+		}
+		//try to delete user who doesn't exist
+		else if (this.findByUsername(user.getUserName()) == null) {
+			output = "Error: cannot delete that user since that user doesn't exist";
+		}
+		//otherwise successful deletion of a user
+		else {
+			this.userList.remove(user);
+			this.database.user_deleteUser(user.getUserName());
+			output = "User was successfully deleted";
+		}
+		
+		return output;
+	}
+>>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 }

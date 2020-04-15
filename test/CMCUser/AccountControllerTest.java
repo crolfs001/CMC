@@ -10,17 +10,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+<<<<<<< HEAD
 import CMCUser.AccountController;
 import CMCUser.User;
 import CMCUser.UserInteraction;
 import CMCAdmin.DBController;
 import CMCUniversity.UniversityController;
+=======
+import CMCAdmin.DBController;
+import CMCUniversity.UniversityController;
+import junit.framework.Assert;
+>>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 
 /**
  * @author crolfs001
  *
  */
 public class AccountControllerTest {
+	private AccountController accountController;
 
 	
 	private UserInteraction userInteraction;
@@ -32,9 +39,14 @@ public class AccountControllerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+<<<<<<< HEAD
 		
 		
 					
+=======
+		DBController database = new DBController();
+		this.accountController = new AccountController(database);
+>>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 	}
 
 	/**
@@ -46,6 +58,7 @@ public class AccountControllerTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testUpdateProfile() {
 		
 		DBController database = new DBController();
@@ -105,6 +118,39 @@ public class AccountControllerTest {
 		
 		
 		
+=======
+	public void testLogin() {
+		String output;
+		//for all correct inputs
+		String user1Username = "juser";
+		String user1Password = "user";
+		output = accountController.login(user1Username, user1Password);
+		Assert.assertEquals("all correct inputs", "Login Successful", output);
+		
+		//for incorrect username input
+		String user2Username = "wrongUsername";
+		String user2Password = "user";
+		output = accountController.login(user2Username, user2Password);
+		Assert.assertEquals("incorrect username", "Login Error: invalid username", output);
+		
+		//for incorrect password 
+		String user3Username = "juser";
+		String user3Password = "wrongPassword";
+		output = accountController.login(user3Username, user3Password);
+		Assert.assertEquals("incorrect password", "Login Error: invalid password", output);
+		
+		//for deactivated account
+		String user4Username = "luser";
+		String user4Password = "user";
+		output = accountController.login(user4Username, user4Password);
+		Assert.assertEquals("deactivated account", "Login Error: Account is deactivated", output);
+		
+		//for if user is already logged in
+		String user5Username = "juser";
+		String user5Password = "user";
+		output = accountController.login(user1Username, user1Password);
+		Assert.assertEquals("user is already logged on", "Login Error: user is already logged in on another device", output);
+>>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 	}
 
 }
