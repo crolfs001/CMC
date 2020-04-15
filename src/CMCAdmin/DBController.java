@@ -378,7 +378,7 @@ public class DBController {
 			message = "An error was found.";
 		}
 		else {
-			message = "You have done some really wrong";
+			message = "more than one school was deleted";
 		}
 		return message;
 	}
@@ -393,13 +393,19 @@ public class DBController {
 	}
 
 
-
+/**
+ * updates the users info to the database
+ * @param user is the user that's account info will be updated
+ */
 	public void updateUser(User user) {
 		database.user_editUser(user.getUserName(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getType(), user.getStatus());
 			
 		
 	}
 	
+<<<<<<< HEAD
+
+=======
 	public void activateUser(User user) {
 		user.setActivatedStatus(user.getStatus());
 	}
@@ -455,4 +461,5 @@ public class DBController {
 		
 		return output;
 	}
+>>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 }

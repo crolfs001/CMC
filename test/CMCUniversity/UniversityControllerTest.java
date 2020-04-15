@@ -31,6 +31,7 @@ public class UniversityControllerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+
 		this.database = new DBController();
 		AccountController accountController = new AccountController(database);
 		this.universityController = new UniversityController(database);
@@ -53,8 +54,10 @@ public class UniversityControllerTest {
 
 	@Test
 	public void testShowSchools() {
-		//String list = UniversityController.showSchools(Universitys);
-		//Assert.assertEquals("SJU",list);	
+		List<University> universitys;
+		universitys.add("SJU");
+		String list = database.showSchools(Universitys);
+		Assert.assertEquals("SJU",list);	
 	}
 	
 	@Test

@@ -147,12 +147,7 @@ public class User {
 		this.loginStatus = loginStatus;
 		}
 	
-	public void setActivatedStatus(char status) {
-		this.status = status;
-	}
-	public void setDeactivatedStatus(char status) {
-		this.status = status;
-	}
+
 }
 
 

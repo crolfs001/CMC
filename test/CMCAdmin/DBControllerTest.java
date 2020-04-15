@@ -15,6 +15,7 @@ import org.junit.Test;
 import CMCUniversity.University;
 import CMCUser.AccountController;
 import CMCUser.User;
+import CMCUser.UserInteraction;
 //import junit.framework.Assert;
 
 /**
@@ -24,7 +25,8 @@ import CMCUser.User;
 public class DBControllerTest {
 	private DBController database;
 	private AccountController ac;
-	private User u;
+	private User user;
+	private UserInteraction ui;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -42,6 +44,8 @@ public class DBControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		ac.logout();
+		
 	}
 
 
@@ -50,7 +54,7 @@ public class DBControllerTest {
 	public void testUpdateUser() {
 		//change first name of a user
 		String u = "juser";
-		User user = database.findByUsername(u);
+		user = database.findByUsername(u);
 		user.setFirstName("Bill");
 		database.updateUser(user);
 		User user2 = database.findByUsername(u);
@@ -148,4 +152,5 @@ public class DBControllerTest {
 		
 		Assert.assertEquals("Successful retrieval of the user list", actualUserList, userList);
 	}
+
 }

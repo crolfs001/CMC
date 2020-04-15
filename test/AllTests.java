@@ -19,7 +19,7 @@ import FunctionalityTests.*;
 @SuiteClasses({DBControllerTest.class,DriverTest.class,StudentFunctionalityControllerTest.class,StudentInteractionTest.class,
 	StudentTest.class,UniversityControllerTest.class,UniversityTest.class, UserSchoolTest.class,AccountControllerTest.class,
 	UserInteractionTest.class,UserTest.class,LoginTest.class,LogoutTest.class, TopFiveRecpmmendedSchoolsTest.class, ViewUserListTest.class,
-	AddUserTest.class,DeleteUserTest.class})
+	AddUserTest.class,DeleteUserTest.class,ActivateAndDeactivateTest.class, EditProfileTest.class})
 public class AllTests {
 
 }
