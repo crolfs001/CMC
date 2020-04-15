@@ -126,6 +126,14 @@ public class UserInteraction {
 		ArrayList<User> studentList = accountController.viewListofUsers();
 		return studentList;
 	}
+	/**
+	 * creates a new user object
+	 * @param user the user we are creating and adding to the database
+	 * @return output the string containing if the user was successfully added
+	 */
+	public String createUser(User user) {
+		return accountController.createUser(user);
+	}
 	
 	
 }
