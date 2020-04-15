@@ -16,6 +16,7 @@ public class UserInteractionTest {
 	user1 = "LYang001";
 	User newName = "Dmurphy001";
 	User newUser;
+	
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -24,7 +25,8 @@ public class UserInteractionTest {
 	public void testGetUser() {
 		
 		newUser= UserInteraction.getUser();
-		Assert.assertEquals("Username:", user1,user2);
+		
+		Assert.assertEquals(newUser,user1);
 	}
 
 	public void testsetUser() {
