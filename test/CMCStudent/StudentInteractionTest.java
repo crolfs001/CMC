@@ -26,6 +26,7 @@ public class StudentInteractionTest {
 	private StudentInteraction interaction;
 	private UserSchool testUserSchool;
 	private DBController database;
+	private UniversityController uc;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -36,6 +37,7 @@ public class StudentInteractionTest {
 		this.interaction = new StudentInteraction();
 		this.testUserSchool = new UserSchool(user0);
 		this.database = new DBController();
+		this.uc = new UniversityController(database);
 	}
 
 	/**
@@ -52,8 +54,10 @@ public class StudentInteractionTest {
 		String outputmessage = this.database.updateSavedUniversityList(user1, uni);
 		
 		String output = interaction.promptRemove("y", user1, uni);
-		Assert.assertEquals("'y' comfrim the remove school", "School will be remove", output);
+		Assert.assertEquals("'n' cancel the removal of the school","This School will not be remove", output);
+		uc.removeSavedSchool(user1, uni);
 		
+		outputmessage = this.database.updateSavedUniversityList(user1, uni);
 		output = interaction.promptRemove("n", user1, uni);
 		Assert.assertEquals("'n' cancel the removal of the school", "This School will not be remove", output);
 	}
