@@ -126,17 +126,13 @@ public class DBController {
 		String message = "";
 		int output = database.user_saveSchool(inputName, inputUniversity);
 		if (output == 1) {
-		message = "Saved successfully!";	
+			message = "Saved successfully!";	
+		} else if (output == 0) {
+			message = "The user is onvalid or the university is already in the list!";
+		} else {
+			message = "An error was found!";
 		}
-		else if (output == 0) {
-		message = "This university is already in the list or the user is invalid!";
-		}
-		else if (output == -1) {
-			message = "An error was founded";
-		}
-		else {
-			message = "You have done some really wrong";
-		}
+
 		return message;
 	}
 	
@@ -454,5 +450,13 @@ public class DBController {
 		}
 		
 		return output;
+	}
+	
+	/**
+	 * print out all saved university list
+	 */
+	public String[][] getAllSavedUniversityList() {
+		String[][] result = database.user_getUsernamesWithSavedSchools();
+		return result;
 	}
 }

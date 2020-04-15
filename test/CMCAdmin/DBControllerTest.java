@@ -40,6 +40,10 @@ public class DBControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
+		String un = "ABILENE CHRISTIAN UNIVERSITY";
+		University uni = database.getSchool(un);
+		database.removeSavedSchool(user0, uni);
 	}
 
 
@@ -127,5 +131,18 @@ public class DBControllerTest {
 		Assert.assertEquals("set login status from true to false", true, database.setLoginStatus(newUser,  false));
 		
 		database.deleteUser(newUser);
+	}
+	
+	@Test
+	public void testupdateSavedUniversityList() {
+		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
+		User user1 = new User("testName", "testName", "testName", "fakePassword", 'u'); 
+		String un = "ABILENE CHRISTIAN UNIVERSITY";
+		University uni = database.getSchool(un);
+		Assert.assertEquals("Saved successfully", "Saved successfully!", database.updateSavedUniversityList(user0, uni));
+		
+		Assert.assertEquals("This university is exited in savedUniversity List", "The user is onvalid or the university is already in the list!", database.updateSavedUniversityList(user0, uni));
+
+		Assert.assertEquals("This user name is not correct", "The user is onvalid or the university is already in the list!", database.updateSavedUniversityList(user1, uni));
 	}
 }

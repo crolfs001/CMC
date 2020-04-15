@@ -26,11 +26,11 @@ public class StudentFunctionalityController {
 	 * @param uniName the name of university
 	 * @param uniName2 
 	 */
-	public void pressSaveButton(User user, String uniName) {
+	public String pressSaveButton(User user, String uniName) {
 		UniversityController uc = new UniversityController();
 		UserSchool userschool = new UserSchool(user);
 		University uni = uc.getSchoolName(uniName);
-		userschool.addSchool(user, uni);
+		return userschool.addSchool(user, uni);
 	}
 	
 	/**
