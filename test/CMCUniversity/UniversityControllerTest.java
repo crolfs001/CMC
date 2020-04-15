@@ -27,8 +27,7 @@ public class UniversityControllerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		//List<University> universitys;
-		//universitys.add("SJU");
+
 		
 		User user0 = new User("Charlie", "Rolfs", "juser", "user", 'u'); 
 		this.testUserSchool = new UserSchool(user0);
@@ -45,8 +44,10 @@ public class UniversityControllerTest {
 
 	@Test
 	public void testShowSchools() {
-		//String list = UniversityController.showSchools(Universitys);
-		//Assert.assertEquals("SJU",list);	
+		List<University> universitys;
+		universitys.add("SJU");
+		String list = database.showSchools(Universitys);
+		Assert.assertEquals("SJU",list);	
 	}
 	
 	@Test
