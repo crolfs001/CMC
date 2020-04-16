@@ -5,6 +5,8 @@ package CMCAdmin;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -42,8 +44,11 @@ public class DBControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
+		String un = "ABILENE CHRISTIAN UNIVERSITY";
+		University uni = database.getSchool(un);
+		database.removeSavedSchool(user0, uni);
 		ac.logout();
-		
 	}
 
 
@@ -93,7 +98,7 @@ public class DBControllerTest {
 		Assert.assertEquals("trying to add a null user","Error: cannot add null User to database", database.createUser(nullUser));
 		
 		//successfully add a new user
-		User newUser = new User("Devin", "Murphy", "dmurphy002", "myPassword", 'u');
+		User newUser = new User("Devin", "Murphy", "dmurphy00222", "myPassword", 'u');
 		Assert.assertEquals("successfully creating a new user", "User was successfully added to the database", database.createUser(newUser));
 		
 		//try to add user with a username that is already used
@@ -131,5 +136,37 @@ public class DBControllerTest {
 		Assert.assertEquals("set login status from true to false", true, database.setLoginStatus(newUser,  false));
 		
 		database.deleteUser(newUser);
+	}
+
+	
+	@Test
+	public void testupdateSavedUniversityList() {
+		User user0 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u'); 
+		User user1 = new User("testName", "testName", "testName", "fakePassword", 'u'); 
+		String un = "ABILENE CHRISTIAN UNIVERSITY";
+		University uni = database.getSchool(un);
+		Assert.assertEquals("Saved successfully", "Saved successfully!", database.updateSavedUniversityList(user0, uni)); //valid student and university
+		
+		Assert.assertEquals("This university is exited in savedUniversity List", "The user is invalid or the university is already in the list!", database.updateSavedUniversityList(user0, uni)); //valid student and university, but is already in the list
+
+		Assert.assertEquals("This user name is not correct", "The user is invalid or the university is already in the list!", database.updateSavedUniversityList(user1, uni)); // invalid user and valid university
+	}
+
+	@Test
+	public void getTopFiveClosestSchool() {
+		String schoolName = database.getSchoolList().get(0).getName();
+		
+		ArrayList<String>  calculated5ClosestSchools = database.getTopFiveClosestSchool(schoolName);
+		ArrayList<String> actualClosestSchools = database.getTopFiveClosestSchool(schoolName);
+		
+		Assert.assertEquals("Top Five Recommended Schools for the first School in the list", actualClosestSchools, calculated5ClosestSchools);
+	}
+	
+	@Test
+	public void testGetUserList() {
+		ArrayList<User> userList = database.getUserList();
+		ArrayList<User> actualUserList = database.getUserList();
+		
+		Assert.assertEquals("Successful retrieval of the user list", actualUserList, userList);
 	}
 }

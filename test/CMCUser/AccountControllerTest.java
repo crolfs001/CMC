@@ -5,6 +5,8 @@ package CMCUser;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,15 +20,13 @@ import CMCAdmin.DBController;
 import CMCUniversity.UniversityController;
 
 
-
 /**
  * @author crolfs001
  *
  */
 public class AccountControllerTest {
 	private AccountController accountController;
-
-	
+	private DBController database;
 	private UserInteraction userInteraction;
 
 	
@@ -37,7 +37,9 @@ public class AccountControllerTest {
 	@Before
 	public void setUp() throws Exception {
 
-		DBController database = new DBController();
+
+
+		this.database = new DBController();
 		this.accountController = new AccountController(database);
 
 	}
@@ -51,7 +53,6 @@ public class AccountControllerTest {
 	}
 
 	@Test
-
 	public void testUpdateProfile() {
 		
 		DBController database = new DBController();
@@ -109,6 +110,7 @@ public class AccountControllerTest {
 		//reactivates account
 		ac.activateAccount(username);
 	}
+
 		
 		
 	@Test
@@ -145,5 +147,21 @@ public class AccountControllerTest {
 		output = accountController.login(user1Username, user1Password);
 		Assert.assertEquals("user is already logged on", "Login Error: user is already logged in on another device", output);
 	}
+	
+	@Test
+	public void testLogout() {
+		User newUser = new User("Devin", "Murphy", "dmurphy111", "myPassword", 'u');
+		database.createUser(newUser);
+		this.accountController.login(newUser.getUserName(), newUser.getPassword());
+		Assert.assertEquals("testing successful logout", "User has been logged out successfully", this.accountController.logout());
+		database.deleteUser(newUser);
+	}
 
+	@Test
+	public void testViewListOfUsers() {
+		ArrayList<User> userList = accountController.viewListofUsers();
+		ArrayList<User> actualUserList = database.getUserList();
+		
+		Assert.assertEquals("successful retrieval of the list of users", actualUserList, userList);
+	}
 }

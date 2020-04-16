@@ -6,20 +6,28 @@ package CMCStudent;
 import static org.junit.Assert.*;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import CMCAdmin.DBController;
+import CMCUniversity.University;
+import CMCUser.User;
 
 /**
  * @author crolfs001
  *
  */
 public class StudentFunctionalityControllerTest {
-
+	private StudentFunctionalityController testsfc;
+	private DBController database;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		this.testsfc = new StudentFunctionalityController();
+		this.database = new DBController();
 	}
 
 	/**
@@ -27,11 +35,21 @@ public class StudentFunctionalityControllerTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		University uni = this.database.getSchool("ARIZONA STATE");
+		User user1 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u');
+		this.database.removeSavedSchool(user1, uni);
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testpressSaveButton() {
+		University uni = this.database.getSchool("ARIZONA STATE");
+		User user1 = new User("Devin", "Murphy", "dmurphy00", "myPassword", 'u');
+		User user2 = new User("Hongtao", "Wang", "hwang003", "fakePassword", 'u'); 
+		Assert.assertEquals("Saved successfully", "Saved successfully!", this.testsfc.pressSaveButton(user1, uni.getName())); //valid student and university
+		
+		Assert.assertEquals("This user name is not correct", "The user is invalid or the university is already in the list!", this.testsfc.pressSaveButton(user2, uni.getName()));//invalid student and valid university
+		
+		Assert.assertEquals("This university is exited", "The user is invalid or the university is already in the list!", this.testsfc.pressSaveButton(user1, uni.getName()));//valid student and university, but is already in the list
 	}
 
 }

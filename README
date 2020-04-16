@@ -1,1 +1,3 @@
 To operate the Driver open the Driver in eclipse and Run the driver program.
+To run the tests open the test folder, select the run all tests in the default package, and all our completed tests should run. Alternatively, you can go through the different packages in the test folder and run the functionality and unit tests on their own. 
+Link to the database to clone the repository: https://github.com/crolfs001/CMC.git

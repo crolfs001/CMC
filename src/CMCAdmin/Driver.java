@@ -176,8 +176,7 @@ public class Driver {
 		this.uni = this.dbc.getSchool(u);
 		System.out.println(this.uni.getName());
 		UserSchool t1 = new UserSchool(user1);
-		t1.addSchool("hwang003", uni);
-		t1.showSaveSchoolList();
+		t1.addSchool(user1, uni);
 		}
 		catch(NullPointerException e) {
 			System.out.println("NullPointerException thrown!");
@@ -284,15 +283,15 @@ public class Driver {
 //		DBController database = new DBController();
 //		AccountController accountController = new AccountController(database);
 //		UserInteraction userInteraction = new UserInteraction(accountController);
-//		ArrayList<User> list = database.getUserList();
-//		System.out.println(list.get(0).getFirstName());
-//		System.out.println(list.get(0).getLastName());
-//		System.out.println(list.get(0).getUserName());
-//		System.out.println(list.get(0).getPassword());
-//		System.out.println(list.get(0).getType());
-//		System.out.println(list.get(0).getStatus());
-//		System.out.println("--------");
-//		database.showSchoolList();
+		ArrayList<User> list = database.getUserList();
+		System.out.println(list.get(0).getFirstName());
+		System.out.println(list.get(0).getLastName());
+		System.out.println(list.get(0).getUserName());
+		System.out.println(list.get(0).getPassword());
+		System.out.println(list.get(0).getType());
+		System.out.println(list.get(0).getStatus());
+		System.out.println("--------");
+		database.showSchoolList();
 
 		
 	}

@@ -174,5 +174,13 @@ public class AccountController {
 	public ArrayList<User> viewListofUsers() {
 		return database.getUserList();
 	}
-
+	
+	/**
+	 * creates a new user object
+	 * @param user the user we are creating and adding to the database
+	 * @return output the string containing if the user was successfully added
+	 */
+	public String createUser(User user) {
+		return this.database.createUser(user);
+	}
 }
