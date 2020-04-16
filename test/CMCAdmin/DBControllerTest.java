@@ -101,16 +101,7 @@ public class DBControllerTest {
 		database.deleteUser(newUser);
 		
 	}
-	
-<<<<<<< HEAD
-	
-	
-	
-	
 
-	
-
-=======
 	@Test
 	public void testdeleteUser() {
 		//try to delete null user
@@ -141,5 +132,4 @@ public class DBControllerTest {
 		
 		database.deleteUser(newUser);
 	}
->>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 }

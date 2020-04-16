@@ -10,17 +10,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-<<<<<<< HEAD
+
 import CMCUser.AccountController;
 import CMCUser.User;
 import CMCUser.UserInteraction;
 import CMCAdmin.DBController;
 import CMCUniversity.UniversityController;
-=======
-import CMCAdmin.DBController;
-import CMCUniversity.UniversityController;
-import junit.framework.Assert;
->>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
+
+
 
 /**
  * @author crolfs001
@@ -39,14 +36,10 @@ public class AccountControllerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-<<<<<<< HEAD
-		
-		
-					
-=======
+
 		DBController database = new DBController();
 		this.accountController = new AccountController(database);
->>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
+
 	}
 
 	/**
@@ -58,7 +51,7 @@ public class AccountControllerTest {
 	}
 
 	@Test
-<<<<<<< HEAD
+
 	public void testUpdateProfile() {
 		
 		DBController database = new DBController();
@@ -115,10 +108,11 @@ public class AccountControllerTest {
 		
 		//reactivates account
 		ac.activateAccount(username);
+	}
 		
 		
-		
-=======
+	@Test
+	
 	public void testLogin() {
 		String output;
 		//for all correct inputs
@@ -150,7 +144,6 @@ public class AccountControllerTest {
 		String user5Password = "user";
 		output = accountController.login(user1Username, user1Password);
 		Assert.assertEquals("user is already logged on", "Login Error: user is already logged in on another device", output);
->>>>>>> ea474b7f123e307c2fa59ad7c16fcb91b0d0e131
 	}
 
 }
