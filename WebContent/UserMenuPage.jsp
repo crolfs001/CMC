@@ -13,5 +13,8 @@
 <p><a href="ManageMyProfilePage.jsp">Manage My Profile</a></p>
 <p><a href="ManageSavedSchoolPage.jsp">Manage My Saved School</a></p>
 <p><a href="search manu.html">Search for Schools</a></p>
+<form method="get" action ="index.jsp">
+	<button type="submit">Logout</button>
+</form>
 </body>
 </html>

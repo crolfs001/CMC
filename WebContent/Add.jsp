@@ -6,8 +6,9 @@
 <body>
 <%@ include file="verifyLogin.jsp" %>
 <%@page language="java" import="edu.csbsju.csci230.*,java.util.*"%>
+<%=request.getAttribute("errorMessage") %>
 <br>
-Add User form:<br>
+Add User form:
 <br>
 <form method="post" action="Add_action.jsp" name="addUser"><br>
 <table style="text-align: left; width: 266px; height: 228px;"
@@ -43,7 +44,7 @@ border="1" cellpadding="2" cellspacing="2">
 
 <tr>
 <td style="vertical-align: top;"><input value="Add"
-name="Add" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+name="Add User" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td style="vertical-align: top;"><input value="Reset"
 name="Reset" type="reset"></td>
 </tr>
@@ -51,7 +52,7 @@ name="Reset" type="reset"></td>
 </table>
 <br>
 </form>
-<br>
+<p><a href="Menu.jsp">Back</a></p>
 </body>
 </html>
 

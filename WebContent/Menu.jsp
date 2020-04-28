@@ -34,6 +34,8 @@ Edit</td>
 </td>
 <td style="vertical-align: top;">Delete
 </td>
+<td style="vertical-align: top;">Activate/Deactivate
+</td>
 </tr>
 <%ArrayList<User> userList = uc.viewListofUsers(); 
 for (int i = 0; i < userList.size(); i++) {
@@ -41,8 +43,13 @@ User user = userList.get(i);%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="Edit.jsp" name="Edit">
+	<input name="Username" value="<%=user.getUserName() %>" type="hidden">
+    <input name="first" value="<%=user.getFirstName() %>" type="hidden">
+    <input name="last" value="<%=user.getLastName() %>" type="hidden">
+    <input name="password" value="<%=user.getPassword() %>" type="hidden">
+    <input name="type" value="<%=user.getType() %>" type="hidden">
+    <input name="status" value="<%=user.getStatus() %>" type="hidden">
     <input name="Edit" value="Edit" type="submit">
-    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: top;"><%=user.getFirstName() %> <%=user.getLastName() %>
@@ -61,10 +68,30 @@ User user = userList.get(i);%>
     <input name="Username" value="<%=user.getUserName() %>" type="hidden">
 </form>
 </td>
+<%char status = user.getStatus();
+if (status == 'Y') {%>
+<td style="vertical-align: top;">
+<form method="post" action="ActivateDeactivateAccount.jsp" name="Deactivate">
+    <input name="Deactivate" value="Deactivate" type="submit">
+    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
+</form>
+</td>
+<%}
+else {%>
+<td style="vertical-align: top;">
+<form method="post" action="ActivateDeactivateAccount.jsp" name="Activate">
+    <input name="Activate" value="Activate" type="submit">
+    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
+</form>
+</td>
+<%} %>
 </tr>
 <%} %>
 </tbody>
 </table>
+<form method="get" action ="index.jsp">
+	<button type="submit">Logout</button>
+</form>
 </body>
 </html>
 
