@@ -7,7 +7,8 @@
 <title>Manage saved University Page</title>
 </head>
 <body>
-<%User user = new User("Devin", "Murphy", "dmurphy001", "myPassword", 'u');
+<%UserInteraction ui = (UserInteraction)session.getAttribute("UserController");
+User user = ui.getUser();
 UserSchool uc = new UserSchool(user);
 session.setAttribute("loginUser", uc);
 String[][] universityList = uc.getSaveSchoolList(user);

@@ -7,7 +7,7 @@
 <title>View School Page</title>
 </head>
 <%DBController database = new DBController();
-String universityName = "YALE";//request.getParameter("Universityname");
+String universityName = request.getParameter("Universityname");
 University u = null;
 if(universityName!=""&&!universityName.isEmpty()){
 	u = database.getSchool(universityName);
