@@ -34,6 +34,7 @@ else {
 	char status = user.getType();
 	if (status == 'u') {
 		session.setAttribute("UserController", uc);
+		session.setAttribute("Username", username);
 		response.sendRedirect("UserMenuPage.jsp");
 	}
 	else {
