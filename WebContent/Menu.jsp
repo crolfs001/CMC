@@ -8,7 +8,7 @@
 <%@page language="java" import="edu.csbsju.csci230.*, CMCUser.*"%>
 <%@page language="java" import="java.util.ArrayList"%>
 <%UserInteraction uc = (UserInteraction) session.getAttribute("UserController"); %>
-Hello User <%=uc.getUser() %>
+Hello User <%=(String) session.getAttribute("Username") %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>

@@ -31,6 +31,7 @@ else if (output.equals("Login Error: Account is deactivated")) {
 //}
 else {
 	session.setAttribute("UserController", uc);
+	session.setAttribute("Username", username);
 	response.sendRedirect("Menu.jsp");
 }
 %>
