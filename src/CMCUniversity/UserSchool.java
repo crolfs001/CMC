@@ -57,26 +57,29 @@ public class UserSchool {
 	}
 	
 	/**
-	 * 
+	 * get saved universities of this student
+	 * @param student
+	 * @return
 	 */
-	public void showSaveSchoolList(User student) {
-		String s = student.getUserName();
+	public String[][] getSaveSchoolList(User student) {
 		String[][] result = this.database.getAllSavedUniversityList();
-		for(String[] user : result) {
-			if(s.equals(user[0])) {
-				this.savedUniversityList.add(user[1]);
-			}
-		}
-		for(String u : this.savedUniversityList) {
-			System.out.println(u);
-		}
+		return result;
 	}
 	
 	/**
-	 * get student's username
+	 * get user
 	 * @return
 	 */
-	public String getUserName() {
-		return this.student.getUserName();
+	public User getUser() {
+		return this.student;
 	}
+	/**
+	 * get Unversity
+	 * @param schoolName
+	 * @return
+	 */
+	public University getSchool(String schoolName) {
+		return this.database.getSchool(schoolName);
+	}
+	
 }
