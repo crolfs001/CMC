@@ -84,6 +84,9 @@ else {%>
 <%} %>
 </tbody>
 </table>
+<form method="get" action ="index.jsp">
+	<button type="submit">Logout</button>
+</form>
 </body>
 </html>
 
