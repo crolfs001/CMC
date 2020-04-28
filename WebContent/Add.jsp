@@ -44,7 +44,7 @@ border="1" cellpadding="2" cellspacing="2">
 
 <tr>
 <td style="vertical-align: top;"><input value="Add"
-name="Add" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+name="Add User" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td style="vertical-align: top;"><input value="Reset"
 name="Reset" type="reset"></td>
 </tr>

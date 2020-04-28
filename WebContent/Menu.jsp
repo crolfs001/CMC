@@ -43,8 +43,13 @@ User user = userList.get(i);%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="Edit.jsp" name="Edit">
+	<input name="Username" value="<%=user.getUserName() %>" type="hidden">
+    <input name="first" value="<%=user.getFirstName() %>" type="hidden">
+    <input name="last" value="<%=user.getLastName() %>" type="hidden">
+    <input name="password" value="<%=user.getPassword() %>" type="hidden">
+    <input name="type" value="<%=user.getType() %>" type="hidden">
+    <input name="status" value="<%=user.getStatus() %>" type="hidden">
     <input name="Edit" value="Edit" type="submit">
-    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: top;"><%=user.getFirstName() %> <%=user.getLastName() %>
