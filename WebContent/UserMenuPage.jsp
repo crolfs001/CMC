@@ -10,7 +10,7 @@
 <%UserInteraction ui = (UserInteraction)session.getAttribute("UserController");
 %>
 <p>Welcome User: <%=(String) session.getAttribute("Username") %></p>
-<p><a href="ManageMyProfilePage.jsp">Manage My Profile</a></p>
+<p><a href="ViewEditUser.jsp">Manage My Profile</a></p>
 <p><a href="ManageSavedSchoolPage.jsp">Manage My Saved School</a></p>
 <p><a href="search manu.html">Search for Schools</a></p>
 <form method="get" action ="index.jsp">
