@@ -464,4 +464,81 @@ public class DBController {
 		String[][] result = database.user_getUsernamesWithSavedSchools();
 		return result;
 	}
+	
+	public List<String> searchSchool(String university){
+		University u1 = getSchool(university);
+		
+		ArrayList<String> collegeList = new ArrayList<String>();
+		
+		for(int i = 0; i < schoolList.size(); i++) {
+			University u2 = schoolList.get(i);
+			double distance = 0;
+			
+			//school name 
+			if (u1.getName() != u2.getName()) {
+				//state
+				if (!u1.getState().equals(u2.getState())) {
+					distance += 1;
+				}
+				//location
+				if (!u1.getLocation().equals(u2.getLocation())) {
+					distance +=1;
+				}
+				//control
+				if (!u1.getControl().equals(u2.getControl())) {
+					distance += 1;
+				}
+				//number of students
+				distance += Math.abs((u1.getNumStudents()-u2.getNumStudents()))/(this.getMaxNumStudents()-this.getMinNumStudents());
+				//%female
+				distance += Math.abs((u1.getPercentFemal()-u2.getPercentFemal()))/100;
+				//SAT verbal
+				distance += Math.abs((u1.getSatVerbal()-u2.getSatVerbal()))/600;
+				//sat math
+				distance += Math.abs((u1.getSatMath()-u2.getSatMath()))/600;
+				//expenses
+				distance += Math.abs((u1.getExpenses()-u2.getExpenses()))/(this.getMaxExpenses()-this.getMinExpenses());
+				//financial aid
+				distance += Math.abs((u1.getPercentFinancialAid()-u2.getPercentFinancialAid()))/100;
+				//number of applicants
+				distance += Math.abs((u1.getNumApplications()-u2.getNumApplications()))/(this.getMaxApplicants()-this.getMinApplicants());
+				//admitted
+				distance += Math.abs((u1.getPercentAdmitted()-u2.getPercentAdmitted()))/100;
+				//enrolled
+				distance += Math.abs((u1.getPercentEnrolled()-u2.getPercentEnrolled()))/100;
+				//academic scale
+				distance += Math.abs((u1.getAcademicsScale()-u2.getAcademicsScale()))/4;
+				//social skill
+				distance += Math.abs((u1.getSocialScale()-u2.getSocialScale()))/4;
+				//quality of life
+				distance += Math.abs((u1.getQualityOfLifeScale()-u2.getQualityOfLifeScale()))/4;
+				//emphases
+				ArrayList<String> u1emphasis = u1.getEmphases();
+				ArrayList<String> u2emphasis = u2.getEmphases();
+				int numEmphasesFound = 0;
+				int numEmphasesNotFound = 0;
+				for (int c = 0; c < u1emphasis.size(); c++) {
+					boolean found = false;
+					String emphasis = u1emphasis.get(c);
+					if (!emphasis.equals(null)) {
+						for (int j = 0; j < u2emphasis.size(); j++) {
+							if (emphasis.equals(u2emphasis.get(j))) {
+								numEmphasesFound++;
+								found = true;
+								j = u2emphasis.size();
+							}
+						}
+						if (!found) {
+							numEmphasesNotFound += 1;
+						}
+						
+					}
+				}
+				distance += Math.abs((numEmphasesFound-numEmphasesNotFound))/5;		
+			}
+		}
+		// return colleges that matches with the inputs from the search menu 
+		return collegeList;
+	}
+	
 }
