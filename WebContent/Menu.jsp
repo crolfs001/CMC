@@ -5,10 +5,10 @@
 </head>
 <body>
 <%@ include file="verifyLogin.jsp" %>
-<%@page language="java" import="edu.csbsju.csci230.*"%>
+<%@page language="java" import="edu.csbsju.csci230.*, CMCUser.*"%>
 <%@page language="java" import="java.util.ArrayList"%>
-<%UserController uc = (UserController) session.getAttribute("UserController"); %>
-Hello User <%=uc.getCurrentUser() %>
+<%UserInteraction uc = (UserInteraction) session.getAttribute("UserController"); %>
+Hello User <%=uc.getUser() %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
@@ -35,19 +35,19 @@ Edit</td>
 <td style="vertical-align: top;">Delete
 </td>
 </tr>
-<%ArrayList<User> userList = uc.getAllUsers(); 
+<%ArrayList<User> userList = uc.viewListofUsers(); 
 for (int i = 0; i < userList.size(); i++) {
 User user = userList.get(i);%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="Edit.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
-    <input name="Username" value="<%=user.getUsername() %>" type="hidden">
+    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
 </form>
 </td>
-<td style="vertical-align: top;"><%=user.getFullName() %>
+<td style="vertical-align: top;"><%=user.getFirstName() %> <%=user.getLastName() %>
 </td>
-<td style="vertical-align: top;"><%=user.getUsername() %>
+<td style="vertical-align: top;"><%=user.getUserName() %>
 </td>
 <td style="vertical-align: top;"><%=user.getPassword() %>
 </td>
@@ -58,7 +58,7 @@ User user = userList.get(i);%>
 <td style="vertical-align: top;">
 <form method="post" action="Delete.jsp" name="Delete">
     <input name="Delete" value="Delete" type="submit">
-    <input name="Username" value="<%=user.getUsername() %>" type="hidden">
+    <input name="Username" value="<%=user.getUserName() %>" type="hidden">
 </form>
 </td>
 </tr>

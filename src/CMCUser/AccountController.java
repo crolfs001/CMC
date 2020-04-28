@@ -183,4 +183,13 @@ public class AccountController {
 	public String createUser(User user) {
 		return this.database.createUser(user);
 	}
+	
+	/**
+	 * deletes a user from database
+	 */
+	public String deleteUser(User user) {
+		return database.deleteUser(user);
+	}
+	
 }
+	

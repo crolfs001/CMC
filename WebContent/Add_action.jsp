@@ -5,8 +5,7 @@ String last = request.getParameter("LastName");
 String username = request.getParameter("Username");
 String password = request.getParameter("Password");
 char type =  request.getParameter("Type").charAt(0);;
-char status =  request.getParameter("Status").charAt(0);
-User newUser = new User(first, last, username, password, type, status);
-UserController uc = (UserController) session.getAttribute("UserController");
-uc.addUser(newUser);
+User newUser = new User(first, last, username, password, type);
+UserInteraction uc = (UserInteraction) session.getAttribute("UserController");
+uc.createUser(newUser);
 response.sendRedirect("Menu.jsp");%>

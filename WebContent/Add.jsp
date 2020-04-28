@@ -40,11 +40,6 @@ border="1" cellpadding="2" cellspacing="2">
 </td>
 <td style="vertical-align: top;"><input name="Type"> </td>
 </tr>
-<tr>
-<td style="vertical-align: top;">Status<br>
-</td>
-<td style="vertical-align: top;"><input name="Status"> </td>
-</tr>
 
 <tr>
 <td style="vertical-align: top;"><input value="Add"

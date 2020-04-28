@@ -290,6 +290,7 @@ public class Driver {
 		System.out.println(list.get(0).getPassword());
 		System.out.println(list.get(0).getType());
 		System.out.println(list.get(0).getStatus());
+		System.out.println(list.get(0).getLoginStatus());
 		System.out.println("--------");
 		database.showSchoolList();
 

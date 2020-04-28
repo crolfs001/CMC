@@ -145,5 +145,19 @@ public class UserInteraction {
 		return accountController.createUser(user);
 	}
 	
+	/**
+	 * deletes a user
+	 */
+	public String deleteUser(User user) {
+		return accountController.deleteUser(user);
+	}
+	
+	/**
+	 * finds by username
+	 */
+	public User findByUsername(String username) {
+		return accountController.findByUsername(username);
+	}
+	
 	
 }
