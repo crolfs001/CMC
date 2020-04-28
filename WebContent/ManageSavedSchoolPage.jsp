@@ -15,15 +15,15 @@ session.setAttribute("loginUser", us);
 String[][] universityList = us.getSaveSchoolList(user);
 %>
 <p><a href="UserMenuPage.jsp">Back to menu</a></p>
+<%if (universityList == null || universityList.length == 0) {%>
+	<p>You have not saved any school yet.</p>
+<%} else {%>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
 <tr align="center">
 
 <td colspan="8" rowspan="1" style="vertical-align: top;">School</td>
-<%if (universityList == null || universityList.length == 0) {%>
-	<p>You have not save any school yet.</p>
-<%} else {%>
 	</tr>
 	<%for(String[] u : universityList) {
 		if (username.equals(u[0])) {
