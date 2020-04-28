@@ -6,6 +6,7 @@
 <body>
 <%@ include file="verifyLogin.jsp" %>
 <%@page language="java" import="edu.csbsju.csci230.*,java.util.*"%>
+<%=request.getAttribute("errorMessage") %>
 <br>
 Add User form:<br>
 <br>
