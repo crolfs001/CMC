@@ -8,45 +8,47 @@
 </head>
 <body>
 <%UserInteraction ui = (UserInteraction)session.getAttribute("UserController");
-User user = ui.getUser();
-UserSchool uc = new UserSchool(user);
-session.setAttribute("loginUser", uc);
-String[][] universityList = uc.getSaveSchoolList(user);
+String username = (String) session.getAttribute("Username");
+User user = ui.findByUsername(username);
+UserSchool us = new UserSchool(user);
+session.setAttribute("loginUser", us);
+String[][] universityList = us.getSaveSchoolList(user);
 %>
-<p><a href="Mean.jsp">Back to menu</a></p>
+<p><a href="UserMenuPage.jsp">Back to menu</a></p>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="Add.jsp">School</a>
-</td>
-
-</tr>
-<%for(String[] u : universityList) {
-	if (user.getUserName().equals(u[0])) {
-%>
-<tr>
-<td style="vertical-align: top;">
-<form method="post" action="Remove.jsp" name="Remove">
-    <input name="Remove" value="Remove" type="submit">
-    <input name="User" value="<%=u[0]%>" type="hidden">
-    <input name="Universityname" value="<%=u[1]%>" type="hidden">
-</form>
-</td>
-<td style="vertical-align: top;"><%=u[1] + "(added on: " + u[2] + ")"%>
-</td>
-<td style="vertical-align: top;">
-<form method="post" action="ViewSchoolPage.jsp" name="View">
-    <input name="View" value="View" type="submit">
-    <input name="Username" value="<%=u[0]%>" type="hidden">
-    <input name="Universityname" value="<%=u[1]%>" type="hidden">
-</form>
-</td>
-</tr>
-<% }
-} %>
+<td colspan="8" rowspan="1" style="vertical-align: top;">School</td>
+<%if (universityList == null || universityList.length == 0) {%>
+	<p>You have not save any school yet.</p>
+<%} else {%>
+	</tr>
+	<%for(String[] u : universityList) {
+		if (username.equals(u[0])) {
+	%>
+		<tr>
+		<td style="vertical-align: top;">
+		<form method="post" action="Remove.jsp" name="Remove">
+		    <input name="Remove" value="Remove" type="submit">
+		    <input name="User" value="<%=u[0]%>" type="hidden">
+		    <input name="Universityname" value="<%=u[1]%>" type="hidden">
+		</form>
+		</td>
+		<td style="vertical-align: top;"><%=u[1] + "(added on: " + u[2] + ")"%>
+		</td>
+		<td style="vertical-align: top;">
+		<form method="post" action="ViewSchoolPage.jsp" name="View">
+		    <input name="View" value="View" type="submit">
+		    <input name="Username" value="<%=u[0]%>" type="hidden">
+		    <input name="Universityname" value="<%=u[1]%>" type="hidden">
+		</form>
+		</td>
+		</tr>
+<% 		}
+	}
+}%>
 </tbody>
 </table>
 </body>
