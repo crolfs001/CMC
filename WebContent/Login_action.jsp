@@ -30,12 +30,15 @@ else if (output.equals("Login Error: Account is deactivated")) {
 //	request.getRequestDispatcher("/index.jsp").forward(request,response);
 //}
 else {
-	session.setAttribute("UserController", uc);
-/*<<<<<<< HEAD*/
-	response.sendRedirect("UserMenuPage.jsp");
-/*=======
-	session.setAttribute("Username", username);
-	response.sendRedirect("Menu.jsp");
->>>>>>> 59025e194c60b690b83b19d09f5343ceba2c8d6f*/
+	User user = uc.findByUsername(username);
+	char status = user.getType();
+	if (status == 'u') {
+		session.setAttribute("UserController", uc);
+		response.sendRedirect("UserMenuPage.jsp");
+	}
+	else {
+		session.setAttribute("Username", username);
+		response.sendRedirect("Menu.jsp");
+	}
 }
 %>

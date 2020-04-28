@@ -4,7 +4,8 @@
 String last = request.getParameter("LastName");
 String username = request.getParameter("Username");
 String password = request.getParameter("Password");
-char type =  request.getParameter("Type").charAt(0);;
+String stringType =  request.getParameter("Type").toLowerCase();
+char type = stringType.charAt(0);
 User newUser = new User(first, last, username, password, type);
 UserInteraction uc = (UserInteraction) session.getAttribute("UserController");
 uc.createUser(newUser);
