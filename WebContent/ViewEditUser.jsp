@@ -9,6 +9,7 @@
 <br>
 <br>
 <br>
+<p><a href="UserMenuPage.jsp">Back to menu</a></p>
 <% 
 DBController database = new DBController();
 AccountController accountController = new AccountController(database);

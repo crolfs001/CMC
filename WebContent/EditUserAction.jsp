@@ -7,7 +7,13 @@ String editUsername = request.getParameter("editUsername");
 String editPassword = request.getParameter("editPassword");
 DBController database = new DBController();
 AccountController accountController = new AccountController(database);
+if (editFirst.equals("")||editLast.equals("")||editPassword.equals("")){
+	response.sendRedirect("ViewEditUser.jsp");
+	
+}
+else {
 accountController.updateProfile(editUsername, editFirst, editLast, editPassword);
-response.sendRedirect("ViewEditUser.jsp");
+response.sendRedirect("UserMenuPage.jsp");
+}
 %>
 
