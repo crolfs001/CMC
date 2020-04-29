@@ -117,6 +117,7 @@ public class AccountController {
 	 * @return
 	 */
 	public String updateProfile(String userName, String firstName, String lastName, String password) {
+		this.user = database.findByUsername(userName);
 		this.user.setFirstName(firstName);
 		this.user.setLastName(lastName);
 		this.user.setPassword(password);
