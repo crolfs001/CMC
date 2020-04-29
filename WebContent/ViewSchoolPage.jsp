@@ -7,7 +7,7 @@
 <title>View School Page</title>
 </head>
 <%DBController database = new DBController();
-String universityName = request.getParameter("Universityname");
+String universityName = request.getParameter("schoolName");
 University u = null;
 if(universityName!=""&&!universityName.isEmpty()){
 	u = database.getSchool(universityName);
@@ -17,7 +17,8 @@ if(universityName!=""&&!universityName.isEmpty()){
 }
 %>
 <body>
-<p><a href="ManageSavedSchoolPage.jsp">Go back to Saved Schools</a></p>
+<p><a href="viewAllSchools.jsp">All Schools</a></p>
+<p><a href="ManageSavedSchoolPage.jsp">Saved Schools</a></p>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>

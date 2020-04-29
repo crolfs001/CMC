@@ -42,7 +42,7 @@ cellspacing="2">
 		<form method="post" action="ViewSchoolPage.jsp" name="View">
 		    <input name="View" value="View" type="submit">
 		    <input name="Username" value="<%=u[0]%>" type="hidden">
-		    <input name="Universityname" value="<%=u[1]%>" type="hidden">
+		    <input name="schoolName" value="<%=u[1]%>" type="hidden">
 		</form>
 		</td>
 		</tr>

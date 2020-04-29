@@ -13,6 +13,7 @@
 <p><a href="ViewEditUser.jsp">Manage My Profile</a></p>
 <p><a href="ManageSavedSchoolPage.jsp">Manage My Saved School</a></p>
 <p><a href="searchMenu.jsp">Search for Schools</a></p>
+<p><a href="viewAllSchools.jsp">View all schools</a></p>
 <form method="get" action ="index.jsp">
 	<button type="submit">Logout</button>
 </form>
