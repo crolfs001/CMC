@@ -7,7 +7,7 @@ String stringType =  request.getParameter("Type").toLowerCase();
 String stringStatus = request.getParameter("Status").toUpperCase();
 UserInteraction uc = (UserInteraction) session.getAttribute("UserController");
 
-if (first != null && last != null && username != null && password != null && stringType.length() == 1 && first.length() != 0 
+if (!first.equals("") && last != null && username != null && password != null && stringType.length() == 1 && first.length() != 0 
 && last.length() != 0 && username.length() != 0 && password.length() != 0 && stringType.length() == 1 && stringStatus.length() == 1) {
 	char type = stringType.charAt(0);
 	if (type == 'u' || type == 'a') {
